@@ -1,7 +1,8 @@
 
+
 function App() {
   return (
-    <div className="page">
+    <div className="mainContainer">
         <h1>Hello world!</h1>
     </div>
 
