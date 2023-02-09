@@ -1,8 +1,6 @@
 import "./css/schedule.css"
-import eventData from "../data/mockdata.json"
-
 import Event from "../components/Event.jsx"
-
+import eventData from "../data/mockdata.json"
 export default function Schedule () {
     const events = eventData.map(event => 
     {
@@ -17,9 +15,7 @@ export default function Schedule () {
     })
     return (
         <div className="mainContainer">
-            <div className="cards-list">
-                {events}
-            </div>
+            {events}
         </div>
 
     )
