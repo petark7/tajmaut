@@ -1,5 +1,11 @@
+import "./css/schedule.css"
+import Event from "../components/Event.jsx"
+
 export default function Schedule () {
     return (
-        <h1>Schedule page</h1>
+        <div className="mainContainer">
+            <Event/>
+        </div>
+
     )
 }
