@@ -1,62 +1,146 @@
 [
     {
-        "id": 0,
-        "name": "Glenda Corwin",
-        "location": {
-            "city": "Blatec",
-            "venue": "Levi Strauss"
-        },
-        "poster_image": "event_01.jpg",
-        "date": "19/05/2022"
-    },
-    {
-        "id": 1,
-        "name": "Brooke Gutkowski",
-        "location": {
-            "city": "Pirava",
-            "venue": "Werner Enterprises"
-        },
-        "poster_image": "event_02.jpg",
-        "date": "24/03/2022"
-    },
-    {
-        "id": 2,
-        "name": "Alfonso Hand",
-        "location": {
-            "city": "Forino",
-            "venue": "FMC Technologies"
-        },
-        "poster_image": "event_03.jpg",
-        "date": "01/01/2023"
-    },
-    {
-        "id": 3,
-        "name": "Cecil Wolff",
-        "location": {
-            "city": "Karbinci",
-            "venue": "Timken"
-        },
-        "poster_image": "event_04.jpg",
-        "date": "15/09/2022"
-    },
-    {
-        "id": 4,
-        "name": "Sam Rowe",
-        "location": {
-            "city": "Bučin",
-            "venue": "Great Plains Energy"
-        },
-        "poster_image": "event_05.jpg",
-        "date": "20/11/2022"
-    },
-    {
-        "id": 5,
-        "name": "Juana Dibbert",
+        "name": "Katherine Rempel",
         "location": {
             "city": "Novaci",
-            "venue": "NetApp"
+            "venue": "LKQ"
         },
-        "poster_image": "event_06.jpg",
-        "date": "16/02/2023"
+        "poster_image": "event_01.jpg",
+        "date": "14/02/2023"
+    },
+    {
+        "name": "Jana Wisozk",
+        "location": {
+            "city": "Dobruševo",
+            "venue": "Darden Restaurants"
+        },
+        "poster_image": "event_02.jpg",
+        "date": "25/10/2022"
+    },
+    {
+        "name": "Carroll Bednar",
+        "location": {
+            "city": "Centar Župa",
+            "venue": "Praxair"
+        },
+        "poster_image": "event_03.jpg",
+        "date": "15/01/2023"
+    },
+    {
+        "name": "Rhonda Hodkiewicz",
+        "location": {
+            "city": "Sveti Nikole",
+            "venue": "Automatic Data Processing"
+        },
+        "poster_image": "event_04.jpg",
+        "date": "21/11/2022"
+    },
+    {
+        "name": "Maureen Abshire",
+        "location": {
+            "city": "Vraneštica",
+            "venue": "Textron"
+        },
+        "poster_image": "event_05.jpg",
+        "date": "04/11/2022"
+    },
+    {
+        "name": "Hannah Morar",
+        "location": {
+            "city": "Otlja",
+            "venue": "Affiliated Managers Group"
+        },
+        "poster_image": "deposit_copying_account.mp4v",
+        "date": "06/06/2022"
+    },
+    {
+        "name": "Ismael Rogahn",
+        "location": {
+            "city": "Strimnica",
+            "venue": "Darden Restaurants"
+        },
+        "poster_image": "ram_port_tan.wav",
+        "date": "09/11/2022"
+    },
+    {
+        "name": "Angela Wyman",
+        "location": {
+            "city": "Grnčari",
+            "venue": "CACI International"
+        },
+        "poster_image": "mountains.png",
+        "date": "14/01/2023"
+    },
+    {
+        "name": "Gladys Hodkiewicz",
+        "location": {
+            "city": "Pršovce",
+            "venue": "Safeway"
+        },
+        "poster_image": "engage_central_programming.htm",
+        "date": "04/07/2022"
+    },
+    {
+        "name": "Jordan Balistreri",
+        "location": {
+            "city": "Kamenjane",
+            "venue": "Sonoco Products"
+        },
+        "poster_image": "cyan_borders.html",
+        "date": "09/09/2022"
+    },
+    {
+        "name": "Helen Fahey",
+        "location": {
+            "city": "Rusinovo",
+            "venue": "Hubbell"
+        },
+        "poster_image": "orchestration.png",
+        "date": "13/09/2022"
+    },
+    {
+        "name": "Eva Ziemann",
+        "location": {
+            "city": "Negotino",
+            "venue": "Newfield Exploration"
+        },
+        "poster_image": "bandwidth_fresh.gif",
+        "date": "25/09/2022"
+    },
+    {
+        "name": "Shirley Upton",
+        "location": {
+            "city": "Negotino",
+            "venue": "Graphic Packaging Holding"
+        },
+        "poster_image": "bleeding_edge.mpg4",
+        "date": "20/07/2022"
+    },
+    {
+        "name": "Max Cartwright",
+        "location": {
+            "city": "Ilovica",
+            "venue": "Pitney Bowes"
+        },
+        "poster_image": "withdrawal_transmit.mpg",
+        "date": "29/08/2022"
+    },
+    {
+        "name": "Guadalupe Thompson",
+        "location": {
+            "city": "Bistrica",
+            "venue": "Gap"
+        },
+        "poster_image": "port_conglomeration.gif",
+        "date": "23/12/2022"
+    },
+    {
+        "name": "Leigh Brekke",
+        "location": {
+            "city": "Mogila",
+            "venue": "Integrys Energy Group"
+        },
+        "poster_image": "ergonomic_berkshire_interfaces.mpeg",
+        "date": "26/07/2022"
     }
 ]
