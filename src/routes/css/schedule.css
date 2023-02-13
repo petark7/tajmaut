@@ -1,0 +1,10 @@
+.container--events {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-content {
+    display: flex;
+}

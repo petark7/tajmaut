@@ -1,0 +1,76 @@
+.sortEvents-textDiv {
+    background-color: #9B85F7;
+    border-radius: 5px;
+
+}
+
+.decorativeLine {
+    width: 100%;
+    height: 5px;
+
+    background-color: #FFC58F;
+}
+
+.sortEvents-title {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 103.9%;
+    margin: 10px;
+}
+
+.sortEvents-container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.datePicker-container {
+    margin: 10px 0px;
+    display: flex;
+    gap: 7px;
+    width: 100%;
+}
+
+.from-date, .to-date {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #BDBDBD;
+    border-radius: 6px;
+}
+
+.datePicker-fromDate, .datePicker-toDate {
+    margin: 7px;
+    font-family: Ubuntu;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+svg {
+    margin-right: 10px;
+}
+
+#sortEvents-cityDropdown {
+    border: 1px solid #BDBDBD;
+    background-color: white;
+    border-radius: 6px;
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 300;
+    padding: 8px;
+    margin: 0 0 10px 0;
+}
+
+.sortEvents-btnPrikazhi {
+    background-color: #9582E3;
+    color: white;
+    font-size: 20px;
+    font-family: Ubuntu;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 5px;
+}
