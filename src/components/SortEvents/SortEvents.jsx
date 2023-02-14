@@ -1,4 +1,5 @@
 import "./SortEvents.css"
+import DatePickerElements from "../DatePicker/DatePicker"
 
 export default function SortEvents (){
   return (
@@ -14,7 +15,7 @@ export default function SortEvents (){
         }
     </div>
 
-        <DatePicker/>
+        <DatePickerElements/>
         
     <select name="city" id="sortEvents-cityDropdown">
         <option value="cela-makedonija">Цела Македонија</option>

@@ -3,6 +3,7 @@ import Event from "../components/Event.jsx"
 import eventData from "../data/mockdata.json"
 import Navbar from "../components/Navbar"
 import SortEvents from "../components/SortEvents/SortEvents"
+import DatePickerElements from "../components/DatePicker/DatePicker"
 export default function Schedule () {
     const events = eventData.map(event => 
     {
