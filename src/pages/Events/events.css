@@ -13,3 +13,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.event-page_content {
+    display: flex;
+    gap: 30px;
+}
