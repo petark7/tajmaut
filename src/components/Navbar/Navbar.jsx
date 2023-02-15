@@ -31,7 +31,7 @@ export default function Navbar () {
                     </li>
 
                     <li>
-                        <NavLink to="/schedule" style={({isActive}) => 
+                        <NavLink to="/events" style={({isActive}) => 
                                  isActive ? activeStyle : inactiveStyle
                                  }>
                                     Распоред
