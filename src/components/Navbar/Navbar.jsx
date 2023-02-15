@@ -20,7 +20,7 @@ export default function Navbar () {
 
     return (
         <div className="navbar-container">
-                <a href="/"><img className = "logo" href="/" src = {process.env.PUBLIC_URL + '/img/logo.png'}/></a>
+                <a href="/"><img className = "navbar-logo" href="/" src = {process.env.PUBLIC_URL + '/img/logo.png'}/></a>
                 <ul className="navbar_links">
                     <li>
                         <NavLink to="/" style={({isActive}) => 
@@ -31,7 +31,7 @@ export default function Navbar () {
                     </li>
 
                     <li>
-                        <NavLink to="/schedule" style={({isActive}) => 
+                        <NavLink to="/events" style={({isActive}) => 
                                  isActive ? activeStyle : inactiveStyle
                                  }>
                                     Распоред
