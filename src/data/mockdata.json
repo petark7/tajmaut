@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "name": "Glenda Corwin",
+        "location": {
+            "city": "Blatec",
+            "venue": "Levi Strauss"
+        },
+        "poster_image": "event_01.jpg",
+        "date": "19/05/2022"
+    },
+    {
+        "id": 1,
+        "name": "Brooke Gutkowski",
+        "location": {
+            "city": "Pirava",
+            "venue": "Werner Enterprises"
+        },
+        "poster_image": "event_02.jpg",
+        "date": "24/03/2022"
+    },
+    {
+        "id": 2,
+        "name": "Alfonso Hand",
+        "location": {
+            "city": "Forino",
+            "venue": "FMC Technologies"
+        },
+        "poster_image": "event_03.jpg",
+        "date": "01/01/2023"
+    },
+    {
+        "id": 3,
+        "name": "Cecil Wolff",
+        "location": {
+            "city": "Karbinci",
+            "venue": "Timken"
+        },
+        "poster_image": "event_04.jpg",
+        "date": "15/09/2022"
+    },
+    {
+        "id": 4,
+        "name": "Sam Rowe",
+        "location": {
+            "city": "Bučin",
+            "venue": "Great Plains Energy"
+        },
+        "poster_image": "event_05.jpg",
+        "date": "20/11/2022"
+    },
+    {
+        "id": 5,
+        "name": "Juana Dibbert",
+        "location": {
+            "city": "Novaci",
+            "venue": "NetApp"
+        },
+        "poster_image": "event_06.jpg",
+        "date": "16/02/2023"
+    }
+]

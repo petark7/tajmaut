@@ -5,25 +5,17 @@
     background-color: #DEDAF4;
 }
 
-.logo {
+.navbar-logo {
     width: 200px;
+    margin-right: -50px;
 }
 
-ul {
+ .navbar_links {
     list-style-type: none;
-    margin: 0;
-  }
-
-  li {
-    color: green;
-  }
-
-.navbar_links {
     display: flex;
-
     font-size: 25px;
     font-weight: 500;
-}
+  }
 
 .navbar-button_login {
     margin-right: 15px;

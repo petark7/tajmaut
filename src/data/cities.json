@@ -1,0 +1,27 @@
+[
+    {
+        "id": 0,
+        "name": "Битола",
+        "value": "bitola"
+    },
+    {
+        "id": 1,
+        "name": "Прилеп",
+        "value": "prilep"
+    },
+    {
+        "id": 2,
+        "name": "Демир Хисар",
+        "value": "demir_hisar"
+    },
+    {
+        "id": 3,
+        "name": "Крушево",
+        "value": "krushevo"
+    },
+    {
+        "id": 4,
+        "name": "Скопје",
+        "value": "skopje"
+    }
+]

@@ -1,0 +1,20 @@
+.container--events {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.event-list {
+    max-width: 840px;
+    max-height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-page_content {
+    display: flex;
+    gap: 30px;
+}
