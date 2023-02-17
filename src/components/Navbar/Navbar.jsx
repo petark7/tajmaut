@@ -47,7 +47,7 @@ export default function Navbar () {
                     </li>
 
                 </ul>
-                <button className="navbar-button_login">Најава</button>
+                <button className="navbar-button_login button">Најава</button>
         </div>
     )
 }
