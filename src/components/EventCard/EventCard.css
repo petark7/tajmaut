@@ -69,3 +69,8 @@
     font-weight: 300;
     font-size: 13px;
 }
+
+
+.event_card:hover {
+    cursor: pointer;
+}
