@@ -14,7 +14,9 @@ export default function EventCard(props) {
     return (
         <div className = "event_card" onClick={toggle}>
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
-                {isClicked ? <EventDetails name = {props.name} closeModal={toggle}/> : null}
+                {isClicked ? <EventDetails 
+                name = {props.name} image={props.image} 
+                closeModal={toggle}/> : null}
             </div>
                 <img src={require(`../../img/${props.image}`)}/>
                     <div className="content">
