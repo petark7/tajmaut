@@ -22,12 +22,12 @@ export default function EventDetails (props) {
                                 <UnderlinedLabel label="Каде?" value="Ноќен клуб - „Расчекор“"/>
                                 <UnderlinedLabel label="Град?" value="Битола"/>
                                 
-                               
-                            </div>
-
-                            <div className="eventDetails--buttonContainer">
+                                <div className="eventDetails--buttonContainer">
                                     <button className="eventDetails-reserveBtn button">Резервирај</button>
                                 </div>
+                            </div>
+
+                            
                         </div>
                     </div>
             </div>
