@@ -1,6 +1,8 @@
 /* The Modal (background) */
 .modal {
     display: flex; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -14,7 +16,6 @@
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 800px; /* Could be more or less, depending on screen size */
@@ -25,6 +26,10 @@
     cursor: default;
   }
   
+  .modal:hover {
+    cursor: default;
+  }
+
   /* The Close Button */
   .close {
     color: #aaa;
@@ -38,4 +43,21 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .underlinedLabel--line {
+    width: 200px;
+    height: 5px;
+    background-color: #9B85F7;
+  }
+
+  .underlinedLabel--title {
+    margin-bottom: 9px;
+    font-size: 18px;
+  }
+
+  .underlinedLabel--value {
+    margin-top: 9px;
+    font-size: 16px;
+    font-weight: 500;
   }
