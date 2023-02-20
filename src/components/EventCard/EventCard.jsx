@@ -1,8 +1,28 @@
+import { useState } from "react"
 import "./EventCard.css"
+import EventDetails from "../EventDetails/EventDetails.jsx"
 
 export default function EventCard(props) {
+
+    const [isClicked, toggleIsClicked] = useState(false);
+
+    function toggle () {
+        toggleIsClicked((prevValue) => !prevValue)
+    }
+
     return (
-        <div className = "event_card">
+        <div className = "event_card" onClick={toggle}>
+            <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
+                {isClicked ? 
+                <EventDetails 
+                name={props.name} 
+                image={props.image} 
+                city = {props.city}
+                venue = {props.venue}
+                date = {props.date}
+                closeModal={toggle}/> 
+                : null}
+            </div>
                 <img src={require(`../../img/${props.image}`)}/>
                     <div className="content">
                         <h4 className="event_date">{props.date}</h4>
