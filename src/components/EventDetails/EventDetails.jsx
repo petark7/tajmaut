@@ -15,15 +15,19 @@ export default function EventDetails (props) {
                     <img className="eventDetailsImg" src={require(`../../img/${props.image}`)}/>
                         <div className="eventDetailsContent">
                             <div className="title"> 
-                            <h1 className="eventDetails--title">DJ IRIE SCRATCH</h1>
+                            <h1 className="eventDetails--title">{props.name}</h1>
 
                             </div>
 
                             <div className="detailsContainer">
-                                <UnderlinedLabel label="Кога?" value="петок - 23/4/2022"/>
+                                {console.log(props.city)}
+                                <UnderlinedLabel label="Кога?" value={props.date}/>
+                                {
+                                    // HARDCODED REZERVACII VALUE: [read from where?]
+                                }
                                 <UnderlinedLabel label="Резервации?" value="075 357 878"/>
-                                <UnderlinedLabel label="Каде?" value="Ноќен клуб - „Расчекор“"/>
-                                <UnderlinedLabel label="Град?" value="Битола"/>
+                                <UnderlinedLabel label="Каде?" value={props.venue}/>
+                                <UnderlinedLabel label="Град?" value={props.city}/>
                                 
                                 <div className="eventDetails--buttonContainer">
                                     <button className="eventDetails-reserveBtn button">Резервирај</button>

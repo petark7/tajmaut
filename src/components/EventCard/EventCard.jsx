@@ -8,15 +8,20 @@ export default function EventCard(props) {
 
     function toggle () {
         toggleIsClicked((prevValue) => !prevValue)
-        console.log(isClicked)
     }
 
     return (
         <div className = "event_card" onClick={toggle}>
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
-                {isClicked ? <EventDetails 
-                name = {props.name} image={props.image} 
-                closeModal={toggle}/> : null}
+                {isClicked ? 
+                <EventDetails 
+                name={props.name} 
+                image={props.image} 
+                city = {props.city}
+                venue = {props.venue}
+                date = {props.date}
+                closeModal={toggle}/> 
+                : null}
             </div>
                 <img src={require(`../../img/${props.image}`)}/>
                     <div className="content">
