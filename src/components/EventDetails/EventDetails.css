@@ -40,11 +40,21 @@
   font-weight: 400;
 }
 
-.close-button--container > svg {
-  width: 17px;
+
+.close-container {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding: 15px 15px 0 0;
 }
 
-.close-button--container {
+.close:focus,
+.close:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -126,19 +136,3 @@
   .modal:hover {
     cursor: default;
   }
-
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
