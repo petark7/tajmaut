@@ -12,16 +12,6 @@ const cities = cityArray.map ((city) => {
 })
 
 export default function SortEvents () {
-<<<<<<< Updated upstream
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data));
-      };
-
-    return (
-        <div className="sortEvents-container">
-             <form onSubmit={handleSubmit(onSubmit)}>
-=======
 
     const [formData, setFormData] = useState(
         {
@@ -53,23 +43,12 @@ export default function SortEvents () {
     return (
         <div className="sortEvents-container">
             <form className="sortEvents-container"onSubmit={handleSubmit}>
->>>>>>> Stashed changes
                 <Heading label="Период на прикажување"/>
                 <DatePickerElements formData={formData} setFormData = {setFormData}/>
                 <Heading label="Локација"/>
-<<<<<<< Updated upstream
-                <select name="city" id="sortEvents-cityDropdown" {...register('selected_city')}>
-                    {cities}
-                </select>
-                <input type="submit" value = "Сортирај" className="sortEvents-btnPrikazhi button"/>
-             </form>
-
-               
-=======
                 <CityDropdown handleChange={handleChange} formData={formData}/>
                 <button className="sortEvents-btnPrikazhi button">Прикажи</button>
             </form>
->>>>>>> Stashed changes
         </div>
     )
 }
@@ -81,8 +60,6 @@ function Heading (props) {
             <div className="decorativeLine"/>
         </div>
     )
-<<<<<<< Updated upstream
-=======
 }
 
 function CityDropdown (props) {
@@ -106,5 +83,4 @@ function CityDropdown (props) {
             {cities}
         </select>
     )
->>>>>>> Stashed changes
 }
