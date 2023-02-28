@@ -25,6 +25,7 @@
 }
 
 #sortEvents-cityDropdown {
+    width: 100%;
     border: 1px solid #BDBDBD;
     background-color: white;
     border-radius: 6px;
@@ -36,6 +37,7 @@
 }
 
 .sortEvents-btnPrikazhi {
+    width: 100%;
     margin-top: 40px;
     background-color: #9582E3;
     color: white;
