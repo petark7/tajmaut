@@ -1,9 +1,8 @@
-import {useState} from "react"
-import "./SortEvents.css"
+import React, {useState} from "react"
 import DatePickerElements from "../DatePicker/DatePicker"
+
+import "./SortEvents.css"
 import cityArray from "../../data/cities.json"
-import { useForm } from "react-hook-form";
-import React from "react";
 
 const cities = cityArray.map ((city) => {
     return (
