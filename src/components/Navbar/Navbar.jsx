@@ -3,16 +3,16 @@ import {NavLink} from "react-router-dom"
 
 const activeStyle = {
     color: "#4F3E94",
-    "font-weight" : "600",
-    "text-decoration": 'none',
+    fontWeight : "600",
+    textDecoration: 'none',
     padding: "10px 20px",
     background: "#CAC5E7",
-    "border-radius": "10px"
+    borderRadius: "10px"
  }
 
  const inactiveStyle = {
     color: "#4F3E94",
-    "text-decoration": 'none',
+    textDecoration: 'none',
     padding: "10px 20px"
  }
 

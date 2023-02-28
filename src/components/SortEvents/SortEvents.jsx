@@ -1,3 +1,4 @@
+import {useState} from "react"
 import "./SortEvents.css"
 import DatePickerElements from "../DatePicker/DatePicker"
 import cityArray from "../../data/cities.json"
@@ -11,6 +12,7 @@ const cities = cityArray.map ((city) => {
 })
 
 export default function SortEvents () {
+<<<<<<< Updated upstream
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         alert(JSON.stringify(data));
@@ -19,9 +21,43 @@ export default function SortEvents () {
     return (
         <div className="sortEvents-container">
              <form onSubmit={handleSubmit(onSubmit)}>
+=======
+
+    const [formData, setFormData] = useState(
+        {
+            dateFrom: "",
+            dateTo: "",
+            city: ""
+        }
+    )
+
+    function handleSubmit (event) {
+        event.preventDefault()
+        alert(JSON.stringify(formData))
+    }
+
+    function handleChange (event) {
+        
+        const {name, value} = event.target;
+
+        setFormData((prevFormData) => {
+            return (
+                {
+                    ...prevFormData,
+                    [name]: value
+                }
+            )
+        })
+    }
+
+    return (
+        <div className="sortEvents-container">
+            <form className="sortEvents-container"onSubmit={handleSubmit}>
+>>>>>>> Stashed changes
                 <Heading label="Период на прикажување"/>
-                <DatePickerElements/>
+                <DatePickerElements formData={formData} setFormData = {setFormData}/>
                 <Heading label="Локација"/>
+<<<<<<< Updated upstream
                 <select name="city" id="sortEvents-cityDropdown" {...register('selected_city')}>
                     {cities}
                 </select>
@@ -29,6 +65,11 @@ export default function SortEvents () {
              </form>
 
                
+=======
+                <CityDropdown handleChange={handleChange} formData={formData}/>
+                <button className="sortEvents-btnPrikazhi button">Прикажи</button>
+            </form>
+>>>>>>> Stashed changes
         </div>
     )
 }
@@ -40,4 +81,30 @@ function Heading (props) {
             <div className="decorativeLine"/>
         </div>
     )
+<<<<<<< Updated upstream
+=======
+}
+
+function CityDropdown (props) {
+
+    const cities = cityArray.map ((city) => {
+        return (
+            <option 
+            key={city.value}
+            value={city.value}> {city.name}
+            </option>
+        )
+    })
+
+    return (
+        <select 
+        name="city" 
+        id="sortEvents-cityDropdown"
+        onChange={props.handleChange}
+        value={props.formData.city}>
+            <option value="">--Одбери--</option>
+            {cities}
+        </select>
+    )
+>>>>>>> Stashed changes
 }

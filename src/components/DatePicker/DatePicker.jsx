@@ -3,10 +3,10 @@ import DatePicker from "react-multi-date-picker"
 import {useState} from "react"
 import "./colors/purple.css"
 
-export default function DatePickerElements () {
-    let [startTime, setStartTime] = useState(new Date()); 
-    let [endTime, setEndTime] = useState(new Date()); 
-  
+export default function DatePickerElements (props) {
+    let [startTime, setStartTime] = useState(); 
+    let [endTime, setEndTime] = useState(); 
+
     const inputStyling = {
         fontFamily: "Ubuntu",
         height: "40px",
@@ -16,35 +16,57 @@ export default function DatePickerElements () {
         padding: "3px 10px"
       }
 
-    function handleStart(startTime) {
-      setStartTime(startTime)
-    }
-  
-    function handleEnd(endTime) {
-      setEndTime(endTime)
-  }
-  
+      function setDateFrom (date) {
+        props.setFormData ((prevData) => {
+          return (
+            {
+              ...prevData,
+               "dateFrom": date.toString(),
+            }
+          )
+          })
+      }
+
+      function setDateTo (date) {
+        props.setFormData ((prevData) => {
+          return (
+            {
+              ...prevData,
+               "dateTo": date.toString(),
+            }
+          )
+          })
+      }
+
     return (
       <div className="container--selectdates">
         <div className="selectdates-element1">
             <div className="selectdates-label">Од</div>
             <DatePicker 
+            name="dateFrom"
             className="purple"
             style={inputStyling}    
             format={"DD/MM/YYYY"}
-            onChange={handleStart}
+            value={startTime}
+            onChange={setDateFrom}
+
         />
         </div>
   
         <div className="selectdates-element2">
-        <div className="selectdates-label">До</div>
-        <DatePicker 
-        className="purple"
-        style={inputStyling}     
-        format={"DD/MM/YYYY"}
-        onChange={handleEnd}
-        />
+          <div className="selectdates-label">До</div>
+            <DatePicker 
+            className="purple"
+            style={inputStyling}     
+            format={"DD/MM/YYYY"}
+            value={endTime}
+            onChange={setDateTo}
+            />
         </div>
       </div>
     );
 }
+
+//TODO:
+// FUNCTIONS ARE NOW WRITTEN SEPARATELY
+// WRITE ONLY ONE FUNCTION FOR BOTH FROM AND TO DATE
