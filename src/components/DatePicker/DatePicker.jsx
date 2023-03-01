@@ -1,6 +1,7 @@
 import "./DatePicker.css"
 import DatePicker from "react-multi-date-picker"
 import {useState} from "react"
+import InputIcon from "react-multi-date-picker/components/input_icon"
 import "./colors/purple.css"
 
 export default function DatePickerElements (props) {
@@ -16,23 +17,12 @@ export default function DatePickerElements (props) {
         padding: "3px 10px"
       }
 
-      function setDateFrom (date) {
+      function setDate (date, stateKey) {
         props.setFormData ((prevData) => {
           return (
             {
               ...prevData,
-               "dateFrom": date.toString(),
-            }
-          )
-          })
-      }
-
-      function setDateTo (date) {
-        props.setFormData ((prevData) => {
-          return (
-            {
-              ...prevData,
-               "dateTo": date.toString(),
+              [stateKey]: date.toString(),
             }
           )
           })
@@ -48,8 +38,8 @@ export default function DatePickerElements (props) {
             style={inputStyling}    
             format={"DD/MM/YYYY"}
             value={startTime}
-            onChange={setDateFrom}
-
+            onChange={date => setDate(date, 'dateFrom')}
+            render={<InputIcon style={inputStyling} />}
         />
         </div>
   
@@ -60,7 +50,7 @@ export default function DatePickerElements (props) {
             style={inputStyling}     
             format={"DD/MM/YYYY"}
             value={endTime}
-            onChange={setDateTo}
+            onChange={date => setDate(date, 'dateTo')}
             />
         </div>
       </div>
