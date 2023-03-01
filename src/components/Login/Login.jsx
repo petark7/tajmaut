@@ -5,7 +5,7 @@ export default function LoginForm({ onSignUpClick }) {
   return (
     
       <div className="log-in">
-        <h1>Најави се</h1>
+        <h1>Најава</h1>
 
         <div className="alt-login">
           <div className="google">

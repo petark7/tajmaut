@@ -11,7 +11,7 @@ export default function RegisterForm({ onLoginClick }) {
       
     return (
         <div className="register-in">
-        <h1>Регистрирај се</h1>
+        <h1>Регистрација</h1>
 
             <form method="post">
 
