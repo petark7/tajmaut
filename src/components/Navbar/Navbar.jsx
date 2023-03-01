@@ -2,19 +2,19 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
 const activeStyle = {
-  color: "#4F3E94",
-  "font-weight": "600",
-  "text-decoration": "none",
-  padding: "10px 20px",
-  background: "#CAC5E7",
-  "border-radius": "10px",
-};
+    color: "#4F3E94",
+    fontWeight : "600",
+    textDecoration: 'none',
+    padding: "10px 20px",
+    background: "#CAC5E7",
+    borderRadius: "10px"
+ }
 
-const inactiveStyle = {
-  color: "#4F3E94",
-  "text-decoration": "none",
-  padding: "10px 20px",
-};
+ const inactiveStyle = {
+    color: "#4F3E94",
+    textDecoration: 'none',
+    padding: "10px 20px"
+ }
 
 export default function Navbar({ onLoginClick }) {
 

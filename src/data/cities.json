@@ -1,26 +1,31 @@
 [
     {
         "id": 0,
+        "name": "Цела Македонија",
+        "value": "cela_makedonija"
+    },
+    {
+        "id": 1,
         "name": "Битола",
         "value": "bitola"
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Прилеп",
         "value": "prilep"
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Демир Хисар",
         "value": "demir_hisar"
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "Крушево",
         "value": "krushevo"
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Скопје",
         "value": "skopje"
     }

@@ -1,15 +1,53 @@
-import "./SortEvents.css"
+import React, {useState} from "react"
 import DatePickerElements from "../DatePicker/DatePicker"
+
+import "./SortEvents.css"
 import cityArray from "../../data/cities.json"
 
+const cities = cityArray.map ((city) => {
+    return (
+        <option value={city.value}>{city.name}</option>
+    )
+})
+
 export default function SortEvents () {
+
+    const [formData, setFormData] = useState(
+        {
+            dateFrom: "",
+            dateTo: "",
+            city: ""
+        }
+    )
+
+    function handleSubmit (event) {
+        event.preventDefault()
+        alert(JSON.stringify(formData))
+    }
+
+    function handleChange (event) {
+        
+        const {name, value} = event.target;
+
+        setFormData((prevFormData) => {
+            return (
+                {
+                    ...prevFormData,
+                    [name]: value
+                }
+            )
+        })
+    }
+
     return (
         <div className="sortEvents-container">
+            <form className="sortEvents-container"onSubmit={handleSubmit}>
                 <Heading label="Период на прикажување"/>
-                <DatePickerElements/>
+                <DatePickerElements formData={formData} setFormData = {setFormData}/>
                 <Heading label="Локација"/>
-                <CityDropdown/>
-            <button className="sortEvents-btnPrikazhi button">Прикажи</button>
+                <CityDropdown handleChange={handleChange} formData={formData}/>
+                <button className="sortEvents-btnPrikazhi button">Прикажи</button>
+            </form>
         </div>
     )
 }
@@ -23,16 +61,24 @@ function Heading (props) {
     )
 }
 
-function CityDropdown () {
+function CityDropdown (props) {
 
     const cities = cityArray.map ((city) => {
         return (
-            <option value={city.value}>{city.name}</option>
+            <option 
+            key={city.value}
+            value={city.value}> {city.name}
+            </option>
         )
     })
 
     return (
-        <select name="city" id="sortEvents-cityDropdown">
+        <select 
+        name="city" 
+        id="sortEvents-cityDropdown"
+        onChange={props.handleChange}
+        value={props.formData.city}>
+            <option value="">--Одбери--</option>
             {cities}
         </select>
     )
