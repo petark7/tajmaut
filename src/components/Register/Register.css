@@ -1,133 +1,150 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: Ubuntu;
-    height: 100vh;
-    overflow: hidden;
-} 
-.register-in{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background-color: #fdfdfd;
-    border-radius: 10px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Ubuntu;
+  height: 100vh;
+  overflow: hidden;
+}
+.register-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
 }
 
-.register-in h1{
-    margin-top: 0;
-    font-size: 40px;
-    text-align: center;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid silver;
-    background-color: #9582E3;
-    border-radius: 10px 10px 0 0;
-    color: white;
-   font-weight: bold;
+.register-in h1 {
+  margin-top: 0;
+  font-size: 40px;
+  text-align: center;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid silver;
+  background-color: #9582e3;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-weight: bold;
 }
 
-
-.register-in form{
-    padding: 0 40px;
-    box-sizing: border-box;
+.register-in form {
+  padding: 0 40px;
+  box-sizing: border-box;
 }
-section{
-    margin-bottom: -30px;
-    display: flex;
+section {
+  margin-bottom: -30px;
+  display: flex;
 }
-.user{
-    background-color: #F6F3FF;
-    border: 1px solid #E2E2E2;
-    margin: 15px;
-    flex-grow: 4;
-    flex-shrink: 1;
-    justify-content: space-between;
-    margin-right: 10px;
-    border-radius: 4px;
-    padding-bottom: -10px;
-}
-
-.user:first-of-type{
-    flex-grow: 2;
-    flex-shrink: 4;
-}
-form{
-    position: relative;
+.user {
+  background-color: #f6f3ff;
+  border: 1px solid #e2e2e2;
+  margin: 15px;
+  flex-grow: 4;
+  flex-shrink: 1;
+  justify-content: space-between;
+  margin-right: 10px;
+  border-radius: 4px;
+  padding-bottom: -10px;
 }
 
-.flow input{
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
+.user:first-of-type {
+  flex-grow: 2;
+  flex-shrink: 4;
+}
+form {
+  position: relative;
 }
 
-.flow label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadaa;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .5s;
+.flow input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
 }
 
-.flow span::before{
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: rgb(133, 92, 206);
-    transition: .5s;
+.flow label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadaa;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
 }
 
-.user span::before{
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: rgb(133, 92, 206);
-    transition: .5s;
+.flow span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(133, 92, 206);
+  transition: 0.5s;
 }
 
-input[type="submit"]:hover{
-    border-color: rgb(133, 92, 206);
-    transition: .5s;
+.user span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(133, 92, 206);
+  transition: 0.5s;
 }
 
-
-.lozinka{
-    margin-bottom: 10px;
-    margin-top: 20px;
+input[type="submit"]:hover {
+  border-color: rgb(133, 92, 206);
+  transition: 0.5s;
 }
 
-.lozinka label{
-    color: #6D6D6D;
-}
-.signup{
-    margin: 20px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #6D6D6D;
+input[type="submit"] {
+  width: 100%;
+  height: 50%;
+  border: 1px solid;
+  padding: 10px 0 10px 0;
+  background: #9582e3;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin-top: 15px;
+  box-shadow: #6f6d6d 1px 2px 5px;
+  border: none;
 }
 
+#checkbox {
+  margin-top: 15px;
+}
+.lozinka {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.lozinka label {
+  color: #6d6d6d;
+}
+.register {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #6d6d6d;
+}
 
 .flow input:focus ~ label,
-.flow input:valid ~ label{
-    top: -5px;
-    color: rgb(133, 92, 206);
+.flow input:valid ~ label {
+  top: -5px;
+  color: rgb(133, 92, 206);
 }
 
 .flow input:focus ~ span::before,
-.flow input:valid ~ span::before{
+.flow input:valid ~ span::before {
   width: 100%;
 }
