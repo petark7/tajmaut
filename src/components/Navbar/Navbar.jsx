@@ -1,5 +1,5 @@
-import "./Navbar.css"
-import {NavLink} from "react-router-dom"
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const activeStyle = {
     color: "#4F3E94",
@@ -16,38 +16,48 @@ const activeStyle = {
     padding: "10px 20px"
  }
 
-export default function Navbar () {
+export default function Navbar({ onLoginClick }) {
 
-    return (
-        <div className="navbar-container">
-                <a href="/"><img className = "navbar-logo" href="/" src = {process.env.PUBLIC_URL + '/img/logo.png'}/></a>
-                <ul className="navbar_links">
-                    <li>
-                        <NavLink to="/" style={({isActive}) => 
-                                 isActive ? activeStyle : inactiveStyle
-                                 }>
-                                    Home
-                        </NavLink>
-                    </li>
 
-                    <li>
-                        <NavLink to="/events" style={({isActive}) => 
-                                 isActive ? activeStyle : inactiveStyle
-                                 }>
-                                    Распоред
-                        </NavLink>
-                    </li>
 
-                    <li>
-                        <NavLink to="/venues" style={({isActive}) => 
-                                 isActive ? activeStyle : inactiveStyle
-                                 }>
-                                    Локали
-                        </NavLink>
-                    </li>
+  return (
+    <div className="navbar-container">
+      <a href="/">
+        <img
+          className="navbar-logo"
+          href="/"
+          src={process.env.PUBLIC_URL + "/img/logo.png"}
+        />
+      </a>
+      <ul className="navbar_links">
+        <li>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+          >
+            Home
+          </NavLink>
+        </li>
 
-                </ul>
-                <button className="navbar-button_login button">Најава</button>
-        </div>
-    )
+        <li>
+          <NavLink
+            to="/events"
+            style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+          >
+            Распоред
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/venues"
+            style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+          >
+            Локали
+          </NavLink>
+        </li>
+      </ul>
+      <button className="navbar-button_login button" onClick={onLoginClick}>Најава</button>
+    </div>
+  );
 }

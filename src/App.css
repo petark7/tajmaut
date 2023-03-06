@@ -17,3 +17,8 @@ body {
   background-color: #785edc;
   cursor: pointer;
 }
+
+input.rmdp-input + svg {
+  color: pink;
+  margin-right: 5px;
+}
