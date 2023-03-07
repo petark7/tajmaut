@@ -22,7 +22,7 @@ export default function Events() {
         <div className="container--events">
               <div className="event-page_content">
                 <SortEvents/>
-                <div className="event-list">
+                <div className="event-list layout-border">
                     {events}
                 </div>
               </div>

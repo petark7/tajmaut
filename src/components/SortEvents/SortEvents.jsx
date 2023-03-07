@@ -40,12 +40,13 @@ export default function SortEvents () {
     }
 
     return (
-        <div className="sortEvents-container">
-            <form className="sortEvents-container"onSubmit={handleSubmit}>
+        <div className="sortEvents-container layout-border">
+            <form onSubmit={handleSubmit}>
                 <Heading label="Период на прикажување"/>
                 <DatePickerElements formData={formData} setFormData = {setFormData}/>
                 <Heading label="Локација"/>
                 <CityDropdown handleChange={handleChange} formData={formData}/>
+                <div className="decorativeLine-thin"/>
                 <button className="sortEvents-btnPrikazhi button">Прикажи</button>
             </form>
         </div>

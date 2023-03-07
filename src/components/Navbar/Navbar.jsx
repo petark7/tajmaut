@@ -57,7 +57,7 @@ export default function Navbar({ onLoginClick }) {
           </NavLink>
         </li>
       </ul>
-      <button className="navbar-button_login button" onClick={onLoginClick}>Најава</button>
+      <button className="button navbar-button_login" onClick={onLoginClick}>Најава</button>
     </div>
   );
 }

@@ -10,20 +10,35 @@
     background-color: #FFC58F;
 }
 
+.decorativeLine-thin {
+    width: 100%;
+    height: 1px;
+    background-color: #d1d1d1;
+    margin: 22px 0;
+}
+
 .datePickLabel--labelContent {
+    display: flex;
     color: white;
     font-size: 24px;
     font-weight: 500;
-    line-height: 103.9%;
+    padding-top: 12px;
+    justify-content: center;
+    text-align: center;
     margin: 10px;
 }
 
 .sortEvents-container {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
+    width: 280px;
+    height: 100%;
 }
 
+.layout-border {
+    padding: 10px 10px 20px;
+    border: 1px solid #d9d7d7;
+    border-radius: 4px;
+    background-color: #ededed;
+}
 #sortEvents-cityDropdown {
     width: 100%;
     border: 1px solid #BDBDBD;
@@ -38,7 +53,6 @@
 
 .sortEvents-btnPrikazhi {
     width: 100%;
-    margin-top: 40px;
     background-color: #9582E3;
     color: white;
     font-size: 20px;
