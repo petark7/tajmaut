@@ -7,13 +7,14 @@ body {
 }
 
 .log-in {
-  position: absolute;
+  position:absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 390px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
+  z-index: 1000;
 }
 
 .log-in h1 {
@@ -49,7 +50,7 @@ body {
 
 .google h2 {
   padding: 11px 0 0 30px;
-  color: #6f6d6d;
+  color: #797979;;
   font-weight: 600;
 }
 
@@ -102,7 +103,7 @@ form .user {
   width: 100%;
   padding: 0 5px;
   height: 40px;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   background: none;
   outline: none;
@@ -114,7 +115,7 @@ form .user {
   left: 5px;
   color: #adadaa;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 15px;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -196,3 +197,15 @@ input[type="submit"] {
 .user input:valid ~ span::before {
   width: 100%;
 }
+
+
+
+/*
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+   
+  }*/
+  

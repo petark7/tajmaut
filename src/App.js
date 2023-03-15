@@ -6,6 +6,7 @@ import NotFound from "./pages/error-page.jsx";
 import Venues from "./pages/Venues/venues.jsx";
 import LoginForm from "./components/Login/Login.jsx";
 import RegisterForm from "./components/Register/Register.jsx";
+import PasswordForm from "./components/ForgotPass/Password.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -29,11 +30,15 @@ export default function App() {
         <Route path="/venues" element={<Venues />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       {modal == "Login" && (
-        <LoginForm onSignUpClick={() => setModal("Register")} />
+        <LoginForm onSignUpClick={() => setModal("Register")} onPassClick={() => setModal("Password")} />
       )}
       {modal == "Register" && (
         <RegisterForm onLoginClick={() => setModal("Login")} />
+      )}
+      {modal == "Password" && (
+        <PasswordForm onLoginClick={() => setModal("Login")} />
       )}
     </Router>
   );
