@@ -50,6 +50,7 @@ export default function MakeReservation ()
                     <Grid container spacing={2} sx={{ width: '75%' }}>
                         <Grid item xs={12} md={6}>
                             <TextField 
+                            required
                             sx={textFieldStyles}
                             label="Име" 
                             variant="filled" 
@@ -60,6 +61,7 @@ export default function MakeReservation ()
 
                         <Grid item xs={12} md={6}>
                             <TextField 
+                            required
                             sx={textFieldStyles}
                             label="Презиме" 
                             variant="filled" 
@@ -69,6 +71,7 @@ export default function MakeReservation ()
 
                         <Grid item xs={12}>
                             <TextField 
+                            required
                             sx={textFieldStyles}
                             label="Email" 
                             variant="filled" 
@@ -78,6 +81,7 @@ export default function MakeReservation ()
                 
                         <Grid item xs={12}>
                             <TextField 
+                            required
                             sx={textFieldStyles}
                             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                             label="Телефон" 
@@ -88,10 +92,12 @@ export default function MakeReservation ()
 
                         <Grid item xs={12}>
                             <TextField 
+                            required
                             sx={textFieldStyles}
                             label="Број на гости" 
                             variant="filled" 
                             fullWidth
+                            type="number"
                             />
                         </Grid>
                         <div className="reservation--buttonDiv">
