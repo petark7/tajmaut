@@ -28,5 +28,10 @@
         "id": 5,
         "name": "Скопје",
         "value": "skopje"
+    },
+    {
+        "id": 6,
+        "name": "Куманово",
+        "value": "kumanovo"
     }
 ]

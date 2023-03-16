@@ -1,22 +1,16 @@
-.event-list {
-    max-width: 840px;
-    max-height: 450px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
 .event_card {
    display: flex;
    flex-direction: column;
    width: 250px;
     background: #FFFFFF;
-    box-shadow: 1px 1px 18px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    margin: 0 15px 20px;
 }
- 
+
+.event_card:hover {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+}
+
 .content {
     margin-top: 10px;
     margin-left: 20px;
