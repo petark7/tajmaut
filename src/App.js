@@ -4,6 +4,7 @@ import Home from "./pages/Home/home.jsx";
 import Events from "./pages/Events/events.jsx";
 import NotFound from "./pages/error-page.jsx";
 import Venues from "./pages/Venues/venues.jsx";
+import MakeReservation from "./pages/MakeReservation/";
 import LoginForm from "./components/Login/Login.jsx";
 import RegisterForm from "./components/Register/Register.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/venues" element={<Venues />} />
+        <Route path="/make-reservation" element={<MakeReservation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {modal == "Login" && (
