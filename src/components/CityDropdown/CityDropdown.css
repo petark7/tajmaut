@@ -1,0 +1,9 @@
+#filterEvents-cityDropdown {
+    width: 100%;
+    border: 1px solid #BDBDBD;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 8px;
+    margin-top: 3px;
+}
