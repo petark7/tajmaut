@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/venues" element={<Venues />} />
-        <Route path="/make-reservation" element={<MakeReservation />} />
+        <Route path="/make-reservation/:eventID" element={<MakeReservation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {modal == "Login" && (
