@@ -1,8 +1,3 @@
-import {Suspense} from "react"
-import {useParams} from "react-router-dom";
-import { useEffect, useState } from "react";
-
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ReservationCard from "../../components/ReservationCard/ReservationCard";
 import ReserveForm from "../../components/ReserveForm/ReserveForm";
 import ReservationHeading from "../../components/ReservationHeading/ReservationHeading";
@@ -28,7 +23,6 @@ const textFieldStyles = {
 
 export default function MakeReservation () 
 {
-    const [isLoading, setIsLoading] = useState(false);
 
 
     return (
