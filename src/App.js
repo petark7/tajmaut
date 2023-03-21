@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
-  const [modal, setModal] = useState();
+  const [modal, setModal] = useState(false);
 
   const handleLoginClick = () => {
     if (!modal) {
@@ -32,13 +32,13 @@ export default function App() {
       </Routes>
 
       {modal == "Login" && (
-        <LoginForm onSignUpClick={() => setModal("Register")} onPassClick={() => setModal("Password")} />
+        <LoginForm onSignUpClick={() => setModal("Register")} onPassClick={() => setModal("Password")}  onCloseClick={() => setModal(false)}/>
       )}
       {modal == "Register" && (
-        <RegisterForm onLoginClick={() => setModal("Login")} />
+        <RegisterForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)}/>
       )}
       {modal == "Password" && (
-        <PasswordForm onLoginClick={() => setModal("Login")} />
+        <PasswordForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)}/>
       )}
     </Router>
   );

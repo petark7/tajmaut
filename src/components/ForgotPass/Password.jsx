@@ -1,30 +1,33 @@
 import "./Password.css";
 import React, { useState } from "react";
 
-export default function PasswordForm({ onLoginClick }) {
+export default function PasswordForm({ onLoginClick, onCloseClick }) {
   return (
-    <div className="forgot">
-        
-      <h1>Промена на Лозинка</h1>
-      <p>Внеси ја твојата е-адреса и ќе добиеш линк за промена на лозинката.</p>
+    <div className="overlay">
+      <div className="forgot custom-modal">
+        <h1>Промена на Лозинка <p className="X" onClick={onCloseClick} >X</p> </h1>
+        <p>
+          Внеси ја твојата е-адреса и ќе добиеш линк за промена на лозинката.
+        </p>
 
-      <form>
-        <section>
-          <div className="user">
-            <input type="text" required />
-            <span></span>
-            <label>E-пошта</label>
+        <form>
+          <section>
+            <div className="user">
+              <input type="text" required />
+              <span></span>
+              <label>E-пошта</label>
+            </div>
+          </section>
+
+          <input type="submit" value="Испрати" />
+          <div className="register">
+            <a href="#" onClick={onLoginClick}>
+              {" "}
+              Назад до најава
+            </a>
           </div>
-        </section>
-
-        <input type="submit" value="Испрати" />
-        <div className="register">
-          <a href="#" onClick={onLoginClick}>
-            {" "}
-            Назад до најава
-          </a>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
