@@ -3,7 +3,6 @@ body {
   padding: 0;
   font-family: Ubuntu;
   height: 100vh;
-  overflow: hidden;
 }
 .register-in {
   position: absolute;
