@@ -1,0 +1,7 @@
+.authenticatedH3 {
+    color: green;
+}
+
+.notAuthenticatedH3 {
+    color: red
+}

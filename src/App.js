@@ -9,6 +9,7 @@ import LoginForm from "./components/Login/Login.jsx";
 import RegisterForm from "./components/Register/Register.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Dashboard from "./pages/Dashboard/dashboard.jsx";
 
 export default function App() {
   const [modal, setModal] = useState();
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/venues" element={<Venues />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/make-reservation/:eventID" element={<MakeReservation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
