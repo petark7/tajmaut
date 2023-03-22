@@ -1,9 +1,12 @@
-
 export default function Home() {
-    return (
-        <div className="container--homepage">
-              <h1>Home</h1> 
+  return (
+    <div className="container--homepage">
+      <div className="navbar">
+        <div className="slider">
+            
+
         </div>
-    );
-  };
-  
+      </div>
+    </div>
+  );
+}

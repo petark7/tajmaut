@@ -7,11 +7,12 @@ import Venues from "./pages/Venues/venues.jsx";
 import MakeReservation from "./pages/MakeReservation/";
 import LoginForm from "./components/Login/Login.jsx";
 import RegisterForm from "./components/Register/Register.jsx";
+import PasswordForm from "./components/ForgotPass/Password.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
-  const [modal, setModal] = useState();
+  const [modal, setModal] = useState(false);
 
   const handleLoginClick = () => {
     if (!modal) {
@@ -31,11 +32,15 @@ export default function App() {
         <Route path="/make-reservation/:eventID" element={<MakeReservation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       {modal == "Login" && (
-        <LoginForm onSignUpClick={() => setModal("Register")} />
+        <LoginForm onSignUpClick={() => setModal("Register")} onPassClick={() => setModal("Password")}  onCloseClick={() => setModal(false)}/>
       )}
       {modal == "Register" && (
-        <RegisterForm onLoginClick={() => setModal("Login")} />
+        <RegisterForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)}/>
+      )}
+      {modal == "Password" && (
+        <PasswordForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)}/>
       )}
     </Router>
   );
