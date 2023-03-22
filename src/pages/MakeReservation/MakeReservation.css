@@ -1,0 +1,66 @@
+.background--makeReservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+
+.content--makeReservation {
+    display: flex;
+    margin: 50px 0;
+}
+
+.container--makeReservation {
+    max-width: 900px;
+}
+
+.reserveForm {
+    margin-top: 50px;
+    padding: 50px 0 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFEFEF;
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+    border-radius: 21px;
+
+}
+
+.reservation--buttonDiv {
+    display: flex;
+    align-items: end;
+    justify-content:end;
+    width: 100%;
+}
+
+.btnReservationSubmit {
+    margin-top: 20px;
+    background-color: var(--secondaryOrange);
+    color: var(--textGray);
+    font-weight: 600;
+    background: #FFB978;
+    border-radius: 9px;
+    padding: 15px 45px ;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    color: #393939;
+}
+
+.btnReservationSubmit:hover {
+    cursor: pointer;
+    background-color: var(--secondaryOrangeHovered);
+}
+
+.btnReservationSubmit:active {
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
+  }
+

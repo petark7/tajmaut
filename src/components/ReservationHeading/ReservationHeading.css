@@ -1,0 +1,10 @@
+
+.content-text--title {
+    margin-bottom: 40px;
+    color: var(--textGray);
+}
+
+.content-text--paragraph {
+    font-size: 19px;
+    font-weight: 300;
+}

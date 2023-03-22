@@ -51,6 +51,7 @@ export default function DatePickerElements (props) {
             format={"DD/MM/YYYY"}
             value={endTime}
             onChange={date => setDate(date, 'dateTo')}
+            render={<InputIcon style={inputStyling} />}
             />
         </div>
       </div>

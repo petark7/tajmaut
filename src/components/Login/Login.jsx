@@ -1,12 +1,24 @@
 import "./Login.css";
 import React, { useState } from "react";
 
-export default function LoginForm({ onSignUpClick, onPassClick, onCloseClick }) {
+export default function LoginForm({
+  onSignUpClick,
+  onPassClick,
+  onCloseClick,
+}) {
   return (
-    <div  className="overlay" >
-      <div className="log-in custom-modal" >
-        <h1>Најава <p className="X" onClick={onCloseClick}> X </p></h1>
-        
+    <>
+      <div className="overlay" onClick={onCloseClick} />
+
+      <div className="log-in custom-modal">
+        <h1>
+          Најава{" "}
+          <p className="X" onClick={onCloseClick}>
+            {" "}
+            X{" "}
+          </p>
+        </h1>
+
         <div className="alt-login">
           <div className="google">
             <h2>Продолжи со google</h2>
@@ -46,6 +58,6 @@ export default function LoginForm({ onSignUpClick, onPassClick, onCloseClick }) 
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 }

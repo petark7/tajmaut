@@ -1,5 +1,5 @@
 import EventCard from "../../components/EventCard/EventCard.jsx";
-import SortEvents from "../../components/SortEvents/SortEvents.jsx";
+import FilterEvents from "../../components/FilterEvents/FilterEvents.jsx";
 import eventData from "../../data/events.json"
 import "./events.css"
 
@@ -21,8 +21,8 @@ export default function Events() {
     return (
         <div className="container--events">
               <div className="event-page_content">
-                <SortEvents/>
-                <div className="event-list">
+                <FilterEvents/>
+                <div className="event-list layout-border">
                     {events}
                 </div>
               </div>
