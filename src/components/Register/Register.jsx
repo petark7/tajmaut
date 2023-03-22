@@ -67,11 +67,10 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
             <span class="checkmark"></span>
           </label>
 
-          <input type="submit" value="Регистрирај се" />
+          <input className="button" type="submit" value="Регистрирај се" />
           <div className="register">
             Веќе си зачленет?
             <a href="#" onClick={onLoginClick}>
-              {" "}
               Најави се
             </a>
           </div>
