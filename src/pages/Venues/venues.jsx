@@ -1,13 +1,17 @@
-import React, {useContext} from "react"
-import {UserContext} from "../../context/UserContext.jsx"
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function Venues() {
-    const msg = useContext(UserContext);
-    return (
-            <div className="container--venues">
-                        <h1>HI</h1> 
-            </div>
+    const authContext = useContext(AuthContext);
 
+    const handleLogin = () => {
+        authContext.logIn("LOGIN TOKEN SET")
+    }
+    return (
+        <div className="container--venues">
+            <button onClick={handleLogin}>Login</button>
+            <h1>{authContext.authToken}</h1>
+        </div>
     );
-  };
-  
+}
+
