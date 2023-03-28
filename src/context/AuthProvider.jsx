@@ -3,23 +3,23 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-    const [authToken, setAuthToken] = useState(null);
+  const [authToken, setAuthToken] = useState(null);
 
-    const logIn = (token) => {
-        setAuthToken(token);
-    };
+  const logIn = (token) => {
+    setAuthToken(token);
+  };
 
-    const logOut = () => {
-        setAuthToken(null);
-    };
+  const logOut = () => {
+    setAuthToken(null);
+  };
 
-    const authContext = {
-        authToken,
-        logIn,
-        logOut,
-    }
+  const authContext = {
+    authToken,
+    logIn,
+    logOut,
+  };
 
-    return (
-        <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
-    )
+  return (
+    <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
+  );
 }

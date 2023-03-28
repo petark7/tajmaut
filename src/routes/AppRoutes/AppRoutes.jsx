@@ -14,39 +14,51 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../../context/AuthProvider.jsx";
 
 export default function AppRoutes() {
+  const [modal, setModal] = useState(false);
 
-    const [modal, setModal] = useState(false);
+  const handleLoginClick = () => {
+    if (!modal) {
+      setModal("Login");
+    } else {
+      setModal(undefined);
+    }
+  };
 
-    const handleLoginClick = () => {
-      if (!modal) {
-        setModal("Login");
-      } else {
-        setModal(undefined);
-      }
-    };
+  return (
+    <AuthProvider>
+      <Router>
+        <Navbar onLoginClick={handleLoginClick} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/venues" element={<Venues />} />
+          <Route
+            path="/make-reservation/:eventID"
+            element={<MakeReservation />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
-    return (
-        <AuthProvider>
-            <Router>
-                <Navbar onLoginClick={handleLoginClick} />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/events" element={<Events />} />
-                    <Route path="/venues" element={<Venues />} />
-                    <Route path="/make-reservation/:eventID" element={<MakeReservation />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-
-                {modal === "Login" && (
-                    <LoginForm onSignUpClick={() => setModal("Register")} onPassClick={() => setModal("Password")} onCloseClick={() => setModal(false)} />
-                )}
-                {modal === "Register" && (
-                    <RegisterForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)} />
-                )}
-                {modal === "Password" && (
-                    <PasswordForm onLoginClick={() => setModal("Login")} onCloseClick={() => setModal(false)} />
-                )}
-            </Router>
-        </AuthProvider>
-    )
+        {modal === "Login" && (
+          <LoginForm
+            onSignUpClick={() => setModal("Register")}
+            onPassClick={() => setModal("Password")}
+            onCloseClick={() => setModal(false)}
+          />
+        )}
+        {modal === "Register" && (
+          <RegisterForm
+            onLoginClick={() => setModal("Login")}
+            onCloseClick={() => setModal(false)}
+          />
+        )}
+        {modal === "Password" && (
+          <PasswordForm
+            onLoginClick={() => setModal("Login")}
+            onCloseClick={() => setModal(false)}
+          />
+        )}
+      </Router>
+    </AuthProvider>
+  );
 }
