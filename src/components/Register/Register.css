@@ -20,6 +20,12 @@
   font-weight: bold;
 }
 
+.register a {
+  text-decoration: none;
+  color: rgb(133, 92, 206);
+  margin-left: 5px;
+}
+
 .register-in .X {
   cursor: pointer;
   float: right;
@@ -47,17 +53,13 @@
   position: relative;
   padding-left: 25px;
   margin-top: 20px;
-  color: rgb(164, 145, 198);
+  color: rgb(133, 92, 206);
   cursor: pointer;
   font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.register a {
-  margin-left: 5px;
 }
 
 /* Hide the browser's default checkbox */
