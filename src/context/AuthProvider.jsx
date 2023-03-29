@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import Cookies from 'universal-cookie';
-import { redirect } from "react-router-dom";
 
 const cookies = new Cookies();
 const initialAuthState = {
@@ -13,10 +12,12 @@ export const AuthContext = createContext(initialAuthState);
 export default function AuthProvider({ children }) {
   const [authState, setAuthState] = useState(initialAuthState);
 
-  const login = (authToken) => {
-    cookies.set('authToken', authToken, { path: '/' });
+  const login = (authData) => {
+    cookies.set('accessToken', authData.accessToken, { path: '/' });
     setAuthState({
-      authToken,
+      authToken: authData.accessToken,
+      tokenType: authData.tokenType,
+      createdAt: authData.createdAt,
       isAuthenticated: true,
     });
   };

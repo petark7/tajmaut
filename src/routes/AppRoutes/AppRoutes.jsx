@@ -12,8 +12,38 @@ import RegisterForm from "../../components/Register/Register.jsx";
 import PasswordForm from "../../components/ForgotPass/Password.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../../context/AuthProvider.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AppRoutes() {
+
+  const [notification, setNotification] = useState(null);
+
+  const notify = (type, message) => {
+    if (type === "success") {
+      return (toast.success(message, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        }))
+    }
+    if (type === "error") {
+      return (toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        }))
+    }
+  };
+
   const [modal, setModal] = useState(false);
 
   const handleLoginClick = () => {
@@ -26,6 +56,7 @@ export default function AppRoutes() {
 
   return (
     <AuthProvider>
+      <ToastContainer/>
       <Router>
         <Navbar onLoginClick={handleLoginClick} />
         <Routes>
@@ -41,6 +72,7 @@ export default function AppRoutes() {
 
         {modal === "Login" && (
           <LoginForm
+            notify={notify}
             onSignUpClick={() => setModal("Register")}
             onPassClick={() => setModal("Password")}
             onCloseClick={() => setModal(false)}

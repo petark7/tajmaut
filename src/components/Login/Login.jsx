@@ -1,33 +1,45 @@
 import "./Login.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import { AuthContext } from "../../context/AuthProvider";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx"
 
 export default function LoginForm({
+  notify,
   onSignUpClick,
   onPassClick,
   onCloseClick,
 }) {
+
   const [emailField, setEmailField] = useState("");
   const [passwordField, setPasswordField] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const notify = () => toast.error('Имаш грешка со податоците. Провери ги?', {
-    position: "top-center",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    });
+  const [showSpinner, setShowSpinner] = useState(false);
+  const {authState, login} = useContext(AuthContext);
 
   function handleSubmit (event) {
+    setShowSpinner(true);
     event.preventDefault();
     const userData = {
       email: emailField,
       password: passwordField,
     }
-    notify();
+
+    axios.post('https://tajmautmk.azurewebsites.net/api/Auth/login', userData)
+    .then(response => {
+      // handle successful login response
+      setShowSpinner(false);
+      console.log(response.data);
+      login(response.data);
+      notify("success", "Добредојде! Каде вечер? 😁");
+      onCloseClick();
+    })
+    .catch(error => {
+      // handle login error
+      setShowSpinner(false);
+      notify("error", "Имаш грешка со податоците. Провери ги?");
+    });
   }
 
   return (
@@ -90,7 +102,7 @@ export default function LoginForm({
             <label className="rememberMe">
               Запамти ме
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
 
             <div className="forgotPassword" onClick={onPassClick}>
@@ -98,11 +110,12 @@ export default function LoginForm({
             </div>
           </div>
 
-          <input 
-            className="button" 
-            type="submit" 
-            value="Најави се" 
-          />
+          <button 
+            className="loginButton" 
+            type="submit"
+            >
+             {showSpinner ? <LoadingSpinner style="button"/> : "Најави се" }
+          </button>
 
           <div className="signup">
             Немаш профил?
