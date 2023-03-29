@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import Cookies from 'universal-cookie';
+import { redirect } from "react-router-dom";
 
 const cookies = new Cookies();
 const initialAuthState = {
@@ -20,10 +21,9 @@ export default function AuthProvider({ children }) {
     });
   };
 
-  const logout = () => {
+  const logout = async () => {
     cookies.remove('authToken', { path: '/' });
     setAuthState(initialAuthState);
-    window.location.reload(true);
   };
 
   const authContext = {

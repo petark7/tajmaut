@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./UserProfile.css"
 import { AuthContext } from '../../context/AuthProvider';
 import { Grow } from '@mui/material';
@@ -7,6 +8,7 @@ function UserProfile(props)
 {
     const {logout} = useContext(AuthContext);
     const [showProfileOptions, setshowProfileOptions] = useState(false);
+    const navigate = useNavigate();
 
     function handleMenuClick(e) {
         const {id} = e.target;
@@ -14,6 +16,7 @@ function UserProfile(props)
 
         if (id === "logout") {
             logout();
+            navigate('/');
         }
     }
 
