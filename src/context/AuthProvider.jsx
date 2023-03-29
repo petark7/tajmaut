@@ -20,6 +20,8 @@ export default function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authContext}>
+        {children}
+    </AuthContext.Provider>
   );
 }

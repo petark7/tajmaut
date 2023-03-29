@@ -8,6 +8,11 @@
     cursor: pointer;
 }
 
+.userProfile svg {
+    color: red;
+    fill: rgb(44, 44, 44);
+}
+
 #profile:hover {
     cursor: pointer;
     background-color: #F5F5F5;

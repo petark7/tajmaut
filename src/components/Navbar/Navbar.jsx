@@ -24,13 +24,16 @@ export default function Navbar({ onLoginClick }) {
 
   return (
     <div className="navbar-container">
-      <a href="/">
+      <NavLink
+        to="/"
+      >
         <img
-          className="navbar-logo"
-          href="/"
-          src={process.env.PUBLIC_URL + "/img/logo.png"}
-        />
-      </a>
+        className="navbar-logo"
+        href="/"
+        src={process.env.PUBLIC_URL + "/img/logo.png"}
+      />
+      </NavLink>
+      
       <ul className="navbar_links">
         <li>
           <NavLink
