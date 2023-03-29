@@ -5,7 +5,7 @@ import { Grow } from '@mui/material';
 
 function UserProfile(props) 
 {
-    const {logOut} = useContext(AuthContext);
+    const {logout} = useContext(AuthContext);
     const [showProfileOptions, setshowProfileOptions] = useState(false);
 
     function handleMenuClick(e) {
@@ -13,7 +13,7 @@ function UserProfile(props)
         console.log(id);
 
         if (id === "logout") {
-            logOut();
+            logout();
         }
     }
 

@@ -1,22 +1,35 @@
 import { createContext, useState } from "react";
+import Cookies from 'universal-cookie';
 
-export const AuthContext = createContext();
+const cookies = new Cookies();
+const initialAuthState = {
+  authToken: cookies.get('authToken') || null,
+  isAuthenticated: cookies.get('authToken') || false,
+};
+
+export const AuthContext = createContext(initialAuthState);
 
 export default function AuthProvider({ children }) {
-  const [authToken, setAuthToken] = useState(null);
+  const [authState, setAuthState] = useState(initialAuthState);
 
-  const logIn = (token) => {
-    setAuthToken(token);
+  const login = (authToken) => {
+    cookies.set('authToken', authToken, { path: '/' });
+    setAuthState({
+      authToken,
+      isAuthenticated: true,
+    });
   };
 
-  const logOut = () => {
-    setAuthToken(null);
+  const logout = () => {
+    cookies.remove('authToken', { path: '/' });
+    setAuthState(initialAuthState);
+    window.location.reload(true);
   };
 
   const authContext = {
-    authToken,
-    logIn,
-    logOut,
+    authState,
+    login,
+    logout,
   };
 
   return (

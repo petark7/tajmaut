@@ -5,7 +5,7 @@ export default function Venues() {
   const authContext = useContext(AuthContext);
 
   const handleLogin = () => {
-    authContext.logIn("LOGIN TOKEN SET");
+    authContext.login("LOGIN TOKEN SET");
   };
   return (
     <div className="container--venues">
