@@ -1,5 +1,7 @@
 import "./Login.css";
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginForm({
   onSignUpClick,
@@ -9,6 +11,15 @@ export default function LoginForm({
   const [emailField, setEmailField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const notify = () => toast.error('Имаш грешка со податоците. Провери ги?', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
 
   function handleSubmit (event) {
     event.preventDefault();
@@ -16,12 +27,14 @@ export default function LoginForm({
       email: emailField,
       password: passwordField,
     }
-
-    alert (JSON.stringify(userData))
+    notify();
   }
 
   return (
     <>
+    <ToastContainer
+    position="top-center"
+    />
       <div className="overlay" onClick={onCloseClick} />
 
       <div className="log-in custom-modal">
