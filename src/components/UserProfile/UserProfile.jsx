@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./UserProfile.css"
 import { AuthContext } from '../../context/AuthProvider';
@@ -6,28 +6,45 @@ import { Grow } from '@mui/material';
 
 function UserProfile(props) 
 {
+    const ref = useRef(null);
     const {logout} = useContext(AuthContext);
     const [showProfileOptions, setshowProfileOptions] = useState(false);
     const navigate = useNavigate();
 
+    // handles clicks on any of the menu items
     function handleMenuClick(e) {
         const {id} = e.target;
-        console.log(id);
 
+        if (id === "profile") {
+          // add profile settings modal here
+        }
         if (id === "logout") {
             logout();
             navigate('/');
         }
     }
+    // close user menu on click outside
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setshowProfileOptions(false)
+        }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
 
     return (
       <div
         className="userProfile"
+        ref={ref}
         onClick={(event) => {
             setshowProfileOptions(!showProfileOptions)
         }
     } 
-      >
+      >{/* profile icon */}
         <svg
           width="35"
           height="35"
