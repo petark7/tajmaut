@@ -1,0 +1,47 @@
+.loginArea {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 120px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DEDAF4;
+}
+
+.navbar-logo {
+    width: 200px;
+    margin-right: -50px;
+}
+
+ .navbar_links {
+    margin-left: -80px;
+    list-style-type: none;
+    display: flex;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+.navbar-button_login {
+    margin-right: 10px;
+    background: #9582E3;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-weight: 500;
+
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.navbar-button_login:hover {
+    cursor: pointer;
+    background-color: var(--buttonPurpleHover);
+}
+
+.navbar-button_login:active {
+    transform: scale(.95);
+}

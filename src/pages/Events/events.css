@@ -1,0 +1,25 @@
+.container--events {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.event-list {
+    max-width: 830px;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.event-page_content {
+    display: flex;
+    gap: 30px;
+}
+
+.layout-border {
+    border-radius: 4px;
+    background-color: #ededed;
+    padding: 20px;
+}

@@ -1,0 +1,247 @@
+.log-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 390px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.log-in h1 {
+  padding-left: 30px;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 0;
+  text-align: center;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid silver;
+  background-color: #9582e3;
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.log-in .closeButton {
+  cursor: pointer;
+  font-weight: 500;
+  float: right;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-left: -20px;
+}
+
+.log-in form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+form .user {
+  position: relative;
+  border-bottom: 2px solid #adadaa;
+  margin: 25px 0;
+}
+
+.user input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 15px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.user label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadaa;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.user span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(133, 92, 206);
+  transition: 0.5s;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pass:hover {
+  text-decoration: underline;
+}
+
+.check {
+  margin-bottom: 15px;
+  margin-top: -15px;
+}
+
+.remember {
+  margin-top: 4px;
+  font-size: 14px;
+  width: 20px;
+  color: #a0a0a0;
+}
+
+input[type="submit"] {
+  border: 1px solid;
+  padding: 10px 0 10px 0;
+  background: #9582e3;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  cursor: default;
+  outline: none;
+  margin-top: 15px;
+  box-shadow: #6f6d6d 1px 2px 5px;
+  border: none;
+}
+
+.forgotPassword {
+  font-size: 16px;
+  color: rgb(133, 92, 206);
+  cursor: pointer;
+}
+
+.signup {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.signup a {
+  color: rgb(133, 92, 206);
+  text-decoration: none;
+}
+
+.signup a:hover {
+  text-decoration: none;
+}
+
+.user input:focus~label,
+.user input:valid~label {
+  top: -5px;
+  color: rgb(133, 92, 206);
+}
+
+.user input:focus~span::before,
+.user input:valid~span::before {
+  width: 100%;
+}
+
+.loginButton {
+  font-family: Ubuntu;
+  width: 310px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  background: #9582E3;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-weight: 500;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+  background-color: rgb(129, 102, 240);
+  transition: 0.1s;
+}
+
+.rememberMe {
+
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: rgb(133, 92, 206);
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.rememberMe input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  border-radius: 5px;
+  top: px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.rememberMe:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.rememberMe input:checked~.checkmark {
+  background-color: #9582e3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rememberMe input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rememberMe .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

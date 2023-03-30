@@ -1,0 +1,17 @@
+.container--selectdates {
+  display: flex;
+  justify-content:space-between;
+
+}
+
+.selectdates-label {
+  color: gray;
+  font-size: 18px;
+  margin-bottom: 3px;
+
+}
+
+.selectdates-element1 {
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
