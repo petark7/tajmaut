@@ -23,6 +23,7 @@ export default function Dashboard () {
         <>
             {authCode !== '' ? <h3 className="authenticatedH3">Authenticated Successfully!</h3> : <h3 className="notAuthenticatedH3">Not Authenticated</h3>}
             <AuthenticateForm handleResults={handleAuthResults}/>
+            <CreateEventForm/>
         </>
     )
 }

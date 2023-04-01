@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../../context/AuthProvider.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from "../../pages/Dashboard/dashboard.jsx";
 
 export default function AppRoutes() {
 
@@ -63,6 +64,7 @@ export default function AppRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/venues" element={<Venues />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/make-reservation/:eventID"
             element={<MakeReservation />}
