@@ -3,6 +3,10 @@ import { TextField, Grid, MenuItem } from "@mui/material/";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthProvider";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+
 const textFieldStyles = {
   "& .MuiInputBase-root": {
     backgroundColor: "white",
@@ -161,7 +165,17 @@ export default function CreateEventForm() {
             fullWidth
           />
         </Grid>
-
+        <Grid item xs={12}>
+          
+        <DateTimePicker 
+        label="Време на одржување" 
+        name="eventDateHappening"
+        slotProps={{ textField: { variant: 'filled'} }}
+        sx={{ ...textFieldStyles, width: '100%' }}
+        // value={formData.eventDateHappening}
+        onChange={(newValue) => console.log(newValue)}
+        />
+        </Grid>
         <div className="reservation--buttonDiv">
           <button
             type="submit"
