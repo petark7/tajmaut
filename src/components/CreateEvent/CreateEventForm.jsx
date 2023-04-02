@@ -88,6 +88,25 @@ export default function CreateEventForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    axios.post('https://tajmautmk.azurewebsites.net/api/Events/CreateEvent', {
+      "venueId": formData.venueId,
+      "categoryEventId": formData.categoryEventId,
+      "name": formData.eventName,
+      "description": formData.eventDescription,
+      "eventImage": formData.eventImageURL,
+      "dateTime": formData.eventDateHappening,
+    },  {headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      'Authorization': `bearer ${authState.authToken}`,
+    }})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  
     console.log(formData)
   }
 
@@ -173,7 +192,15 @@ export default function CreateEventForm() {
         slotProps={{ textField: { variant: 'filled'} }}
         sx={{ ...textFieldStyles, width: '100%' }}
         // value={formData.eventDateHappening}
-        onChange={(newValue) => console.log(newValue)}
+        onChange={(newValue) => {
+          setFormData((prevFormData) => {
+            return {
+              ...prevFormData,
+              ["eventDateHappening"]: newValue.toISOString(),
+            };
+          });
+          console.log(newValue.toISOString())}
+        }
         />
         </Grid>
         <div className="reservation--buttonDiv">
