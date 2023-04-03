@@ -15,15 +15,17 @@ export default function EventCard(props) {
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
                 {isClicked ? 
                 <EventDetails 
+                eventId = {props.id}
                 name={props.name} 
                 image={props.image} 
                 city = {props.city}
                 venue = {props.venue}
                 date = {props.date}
+                reservationPhone = {props.reservationPhone}
                 closeModal={toggle}/> 
                 : null}
             </div>
-                <img src={require(`../../img/${props.image}`)}/>
+                <img src={props.image}/>
                     <div className="content">
                         <h4 className="event_date">{props.date}</h4>
                         <h1 className="event_name">{props.name}</h1>
