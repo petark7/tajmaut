@@ -16,9 +16,10 @@ export default function LoginForm({
   const [emailField, setEmailField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
-  const {authState, login} = useContext(AuthContext);
+  const {authState, login, setId} = useContext(AuthContext);
   
   //CHECK IF CODE OKAY (receive token directly, instead of using the token (state) that should be set after login)
+  // function sets user ID to context after login
   const setUserID = (token) => {
     console.log(`${token} this is the token that's sent`)
     axios.get('https://tajmautmk.azurewebsites.net/api/Users/GetCurrentUserID', 
@@ -29,8 +30,7 @@ export default function LoginForm({
     })
     .then(function (response) {
       // handle success
-      console.log(response);
-      console.log(response.data)
+      setId(response.data)
     })
     .catch(function (error) {
       // handle error

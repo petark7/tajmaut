@@ -1,5 +1,9 @@
 import {TextField, Grid} from '@mui/material/';
-import {useState, useContext} from "react"
+import axios from 'axios';
+import {useState, useContext, useEffect} from "react"
+import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
+
 import {AuthContext} from '../../context/AuthProvider';
 
 import "./ReserveForm.css"
@@ -21,11 +25,11 @@ const textFieldStyles = {
       },
 }
 
-export default function ReverseForm () {
-
+export default function ReserveForm () {
+    const params = useParams();
     const ValidEmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const ValidPhoneNumberRegex = /[0][7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
-    const authContext = useContext(AuthContext);
+    const context = useContext(AuthContext);
     let formIsValid = true;
 
     const [errorMessages, setErrorMessages] = useState({
@@ -35,6 +39,27 @@ export default function ReverseForm () {
         phone: false,
         numberGuests: false,
     })
+
+    const [eventData, setEventData] = useState({
+        eventId: 0,
+        venueId: 0
+    });
+
+    // receive eventData from API and update state
+    const getEventData = () => {
+        axios.get(`https://tajmautmk.azurewebsites.net/api/Events/GetEventByID?eventId=${params.eventID}`)
+        .then((response) => {
+            setEventData({
+                eventId: response.data[0].eventId,
+                venueId: response.data[0].venueId,
+            })
+        }
+        )
+    }
+
+    useEffect(() => {
+        getEventData();
+    }, [])
 
     const [formData, setFormData] = useState(
         {
@@ -91,9 +116,9 @@ export default function ReverseForm () {
         fetch('https://tajmautmk.azurewebsites.net/api/Reservations/CreateReservation', {
             method: 'POST',
             body: JSON.stringify({
-                "restaurantId": 2,
-                "userId": 1,
-                "eventId": 37,
+                "venueId": eventData.venueId,
+                "userId": context.userId,
+                "eventId": eventData.eventId,
                 "numberGuests": formData.numberGuests,
                 "phone": formData.phone,
                 "firstName": formData.firstName,
@@ -102,13 +127,20 @@ export default function ReverseForm () {
             }),
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
-              'Authorization': 'bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEwNjIiLCJGaXJzdCBOYW1lIjoiVHJhamNlIiwiTGFzdCBOYW1lIjoiU21pbGV2c2tpIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidHJhamNlXzIwMDBAaG90bWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY3OTMyMTUzNn0.7TcxXS_ItEoEN8FvEBUy53HaWofaCQ_L3ULPi4zkFnhQ1_011LNqr93XZJKxwOnfcnhjHXN0yS1i3cU5lJyCjw',
-            },
+              'Authorization': `bearer ${context.authState.authToken}`},
           })
              .then((response) => response.json())
              .then((data) => {
-                console.log(JSON.stringify(data));
-             })
+                toast.success("Резервацијата беше успешно испратена!🎉", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    })
+            })
              .catch((err) => {
                 console.log(err.message);
              });
