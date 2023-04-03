@@ -3,8 +3,8 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 const initialAuthState = {
-  authToken: cookies.get('authToken') || null,
-  isAuthenticated: cookies.get('authToken') || false,
+  authToken: cookies.get('accessToken') || null,
+  isAuthenticated: cookies.get('accessToken') || false,
 };
 
 export const AuthContext = createContext(initialAuthState);
@@ -28,7 +28,7 @@ export default function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    cookies.remove('authToken', { path: '/' });
+    cookies.remove('accessToken', { path: '/' });
     setAuthState(initialAuthState);
   };
 

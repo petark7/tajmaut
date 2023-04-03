@@ -62,7 +62,7 @@ export default function Navbar({ onLoginClick }) {
           </NavLink>
         </li>
       </ul>
-      {authContext.authState.isAuthenticated === false ? (
+      {authContext.authState.authToken === null ? (
         <div className="loginArea">
           <button className="button navbar-button_login" onClick={onLoginClick}>
             Најава
