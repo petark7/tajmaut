@@ -1,0 +1,51 @@
+.userProfile {
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 15px;
+}
+
+.userProfile svg:hover {
+    cursor: pointer;
+}
+
+.userProfile svg {
+    color: red;
+    fill: rgb(44, 44, 44);
+}
+
+#profile:hover {
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+
+#logout:hover {
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+
+.profileOptions {
+    position: absolute;
+    right: 30px;
+    width: 200px;
+    height: fit-content;
+}
+
+.profileOptions li {
+    padding: 10px 15px;
+    margin-top: 10px 0;
+    text-align: left;
+    width: 100%;
+    list-style-type: none;
+}
+
+.profileOptions ul {
+    margin: 0;
+    padding: 10px 0;
+    gap: 0px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
