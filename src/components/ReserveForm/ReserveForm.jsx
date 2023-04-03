@@ -142,7 +142,15 @@ export default function ReserveForm () {
                     })
             })
              .catch((err) => {
-                console.log(err.message);
+                toast.error("Резервацијата не беше успешна. Пробај повторно?", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    })
              });
           
     }
