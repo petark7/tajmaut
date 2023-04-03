@@ -8,6 +8,9 @@ import MakeReservation from "./pages/MakeReservation/";
 import LoginForm from "./components/Login/Login.jsx";
 import RegisterForm from "./components/Register/Register.jsx";
 import PasswordForm from "./components/ForgotPass/Password.jsx";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 

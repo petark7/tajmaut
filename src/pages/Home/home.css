@@ -1,0 +1,32 @@
+.introduction {
+  justify-content: center;
+  padding: 30px 30px 30px 30px;
+  background-image: url("D:\IwConnect\Tajmaut.be\tajmaut\src\img\party.jpg");
+  height: 550px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+
+
+
+
+.event-list {
+  max-width: 830px;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.event-page_content {
+  display: flex;
+  gap: 30px;
+}
+
+.layout-border {
+  border-radius: 4px;
+  background-color: #ededed;
+  padding: 20px;
+}
