@@ -112,7 +112,7 @@ export default function CreateEventForm() {
 
 
   return (
-    <div className="reserveForm">
+    <div className="createEventForm">
       <Grid container spacing={2} sx={{ width: "75%" }}>
         <Grid item xs={12}>
           <TextField
