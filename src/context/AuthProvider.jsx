@@ -11,6 +11,11 @@ export const AuthContext = createContext(initialAuthState);
 
 export default function AuthProvider({ children }) {
   const [authState, setAuthState] = useState(initialAuthState);
+  const [userId, setUserId] = useState(null)
+
+  const setId = (id) => {
+    setUserId(id);
+  }
 
   const login = (authData) => {
     cookies.set('accessToken', authData.accessToken, { path: '/' });
@@ -28,6 +33,8 @@ export default function AuthProvider({ children }) {
   };
 
   const authContext = {
+    userId,
+    setId,
     authState,
     login,
     logout,

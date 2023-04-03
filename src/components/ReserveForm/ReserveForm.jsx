@@ -1,5 +1,7 @@
 import {TextField, Grid} from '@mui/material/';
-import {useState} from "react"
+import {useState, useContext} from "react"
+import {AuthContext} from '../../context/AuthProvider';
+
 import "./ReserveForm.css"
 const textFieldStyles = {
     "& .MuiInputBase-root": {
@@ -23,6 +25,7 @@ export default function ReverseForm () {
 
     const ValidEmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const ValidPhoneNumberRegex = /[0][7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
+    const authContext = useContext(AuthContext);
     let formIsValid = true;
 
     const [errorMessages, setErrorMessages] = useState({
