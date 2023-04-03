@@ -19,10 +19,9 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
             </div>
           </section>
 
-          <input type="submit" value="Испрати" />
+          <input className="button" type="submit" value="Испрати" />
           <div className="register">
             <a href="#" onClick={onLoginClick}>
-              {" "}
               Назад до најава
             </a>
           </div>
