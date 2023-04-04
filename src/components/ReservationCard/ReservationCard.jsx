@@ -30,6 +30,7 @@ export default function ReservationCard () {
     })
 
     let timeOfHappening = new Date (Date.parse(eventData.dateTime));
+    // set time in the format of 00:00
     let time =  `${timeOfHappening.getHours()}:${(timeOfHappening.getMinutes() < 10) ? `0${timeOfHappening.getMinutes()}` : timeOfHappening.getMinutes()}` ;
     let day = timeOfHappening.getDay();
     switch (day)
