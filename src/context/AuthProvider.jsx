@@ -29,7 +29,10 @@ export default function AuthProvider({ children }) {
 
   const logout = async () => {
     cookies.remove('accessToken', { path: '/' });
-    setAuthState(initialAuthState);
+    setAuthState({
+      authToken: null,
+      isAuthenticated: false,
+    });
   };
 
   const authContext = {
