@@ -1,0 +1,81 @@
+.slick-arrow::before {
+  font-size: 50px !important;
+}
+.slick-prev {
+  margin-left: 100px;
+  z-index: 100;
+}
+.slick-next {
+  margin-right: 90px;
+}
+
+.slick-dots {
+    margin-bottom: 50px;
+}
+.slider {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  height: 450px;
+  margin: 0 0 0 200px;
+  background-color: black;
+  color: #ffb978;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-family: "Ubuntu";
+}
+
+.slider-content{
+    margin-right: 190px;
+    margin-top: 40px;
+}
+.sliderh2 {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 50px;
+  }
+.slider-img1,
+.slider-img2,
+.slider-img3,
+.slider-img4 {
+  width: 50%;
+  border-radius: 10px 0 0 10px;
+margin-right: 100px;
+  float: left;
+  background-image: url("D:\IwConnect\Tajmaut.be\tajmaut\src\img\event_01.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.slider-img2 {
+  background-image: url("D:\IwConnect\Tajmaut.be\tajmaut\src\img\event_02.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.slider-img3 {
+  background-image: url("D:\IwConnect\Tajmaut.be\tajmaut\src\img\event_03.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.slider-img4 {
+  background-image: url("D:\IwConnect\Tajmaut.be\tajmaut\src\img\event_04.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.homeSlider-reserveBtn {
+  background-color: #ffb978;
+  color: rgb(52, 52, 52);
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 20px 10px 15px;
+  text-align: center;
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  width: 144px;
+  height: 46px;
+}
