@@ -1,10 +1,16 @@
 import "./EventDetails.css"
+import { useNavigate } from "react-router"
 
 export default function EventDetails (props) {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/make-reservation/${props.eventId}`);
+    }
+
     return (
         <>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
+        <div id="myModal" className="modal">
+            <div className="modal-content">
                 <div className="line"></div>
                     <div className="close-container">
                         <svg className="close" onClick={props.closeModal} width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +18,7 @@ export default function EventDetails (props) {
                         </svg>
                     </div>
                 <div className="eventDetails--container">
-                    <img className="eventDetailsImg" src={require(`../../img/${props.image}`)}/>
+                    <img className="eventDetailsImg" src={props.image}/>
                         <div className="eventDetailsContent">
                             <div className="title"> 
                             <h1 className="eventDetails--title">{props.name}</h1>
@@ -21,16 +27,14 @@ export default function EventDetails (props) {
 
                             <div className="detailsContainer">
                                 {console.log(props.city)}
+                                {/* ADD TIME, NOT JUST DATE */}
                                 <UnderlinedLabel label="Кога?" value={props.date}/>
-                                {
-                                    // HARDCODED REZERVACII VALUE: [read from where?]
-                                }
-                                <UnderlinedLabel label="Резервации?" value="075 357 878"/>
+                                <UnderlinedLabel label="Резервации?" value={props.reservationPhone}/>
                                 <UnderlinedLabel label="Каде?" value={props.venue}/>
                                 <UnderlinedLabel label="Град?" value={props.city}/>
                                 
                                 <div className="eventDetails--buttonContainer">
-                                    <button className="eventDetails-reserveBtn button">Резервирај</button>
+                                    <button onClick={handleClick} className="eventDetails-reserveBtn button">Резервирај</button>
                                 </div>
                             </div>
 
