@@ -7,6 +7,27 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
     setIsSHown((isShown) => !isShown);
   };
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+  });
+
+  const onInputChange = (event) => {
+    console.log(`${event.target.name}, value = ${event.target.value}, ${JSON.stringify(formData)}`)
+    setFormData({
+      ...formData,
+      [event.target.name] : event.target.value,
+    })
+  }
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    alert(JSON.stringify(formData))
+  }
+
   return (
     <div className="overlay">
       <div className="register-in custom-modal">
@@ -19,16 +40,28 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
           </p>
         </h1>
 
-        <form>
+        <form onSubmit={onFormSubmit}>
           <section className="registerForm--names">
             <div className="user">
-              <input type="text" required />
+              <input 
+              type="text" 
+              name="firstName"
+              onChange={onInputChange}
+              value={formData.firstName}
+              required 
+              />
               <span></span>
               <label>Име</label>
             </div>
 
-            <div class="user">
-              <input type="text" required />
+            <div className="user">
+              <input 
+              type="text" 
+              name="lastName"
+              value={formData.lastName}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>Презиме</label>
             </div>
@@ -36,7 +69,13 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
           <section>
             <div className="user">
-              <input type="text" required />
+              <input 
+              type="text" 
+              name="email"
+              value={formData.email}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>E-пошта</label>
             </div>
@@ -44,13 +83,24 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
           <section className="registerForm-passwords">
             <div className="user">
-              <input type={isShown ? "text" : "password"} required />
+              <input 
+              type={isShown ? "text" : "password"} 
+              name="password"
+              value={formData.password}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>Лозинка</label>
             </div>
 
-            <div class="user">
-              <input type={isShown ? "text" : "password"} required />
+            <div className="user">
+              <input 
+              type={isShown ? "text" : "password"} 
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={onInputChange}
+              required />
               <span></span>
               <label>Потврди</label>
             </div>
@@ -64,7 +114,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
             checked={isShown}
             onChange={togglePassword}
           />
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
 
           <input className="button" type="submit" value="Регистрирај се" />
