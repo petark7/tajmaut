@@ -19,7 +19,15 @@
   justify-content: center;
 }
 
+li.slick-active > button::before {
+  color: #ffb978 !important;
+  font-size: 15px !important;
+}
 
+li > button::before {
+  color: white !important;
+  font-size: 15px !important;
+}
 .slider--content {
   display: flex;
   align-items: center;
