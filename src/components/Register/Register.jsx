@@ -1,8 +1,8 @@
 import "./Register.css";
 import axios from "axios"
 import React, { useState } from "react";
-
-export default function RegisterForm({ onLoginClick, onCloseClick }) {
+import {toast} from "react-toastify"
+export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
   const [isShown, setIsSHown] = useState(false);
   const togglePassword = () => {
     setIsSHown((isShown) => !isShown);
@@ -35,15 +35,24 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
       lastName: formData.lastName,
     }
     // send formData to API
-    alert(JSON.stringify(formData))
     axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
     .then(response => {
       // on success
       console.log(response.data)
+      toast.success("Профилот беше успешно креиран! Добредојде 👋❤️", {
+        position: "bottom-center",
+        autoClose: 5000
+      })
+      // open login form after registration
+      onLoginClick();
     })
     .catch(error => {
       // on failure
       console.log(error.response.data)
+      toast.error("Имаш грешка со податоците. Провери ги?", {
+        position: "top-center",
+        autoClose: 5000
+      })
     })
   }
 
