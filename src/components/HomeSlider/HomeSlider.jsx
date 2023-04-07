@@ -12,67 +12,39 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div>
+      <div className="slider-container">
         <Slider {...settings}>
-          <div>
-            <div className="slider">
-              <div className="slider-img1"></div>
+          <div className="slider">
+            <div className="slider--content">
+              <img
+                className="sliderImg"
+                src={require("../../img/event_01.jpg")}
+              ></img>
 
               <div className="slider-content">
-                <h1 className="sliderh1">DJ IRIE SCRATCH</h1>
+                <h1 className="slider--eventTitle">DJ IRIE SCRATCH FIRST</h1>
                 <h2 className="sliderh2">20/01/2023 Битола - Расчекор</h2>
+                <h2 className="sliderh2">18:00</h2>
                 <div className="buttonContainer">
-                  <button className="homeSlider-reserveBtn">
-                    Резервирај
-                  </button>
+                  <button className="homeSlider-reserveBtn">Резервирај</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
-            <div className="slider">
-              <div className="slider-img2"></div>
+          <div className="slider">
+            <div className="slider--content">
+              <img
+                className="sliderImg"
+                src={require("../../img/event_01.jpg")}
+              ></img>
 
               <div className="slider-content">
-                <h1 className="sliderh1">DJ IRIE SCRATCH</h1>
+                <h1 className="slider--eventTitle">DJ IRIE SCRATCH SECOND</h1>
                 <h2 className="sliderh2">20/01/2023 Битола - Расчекор</h2>
+                <h2 className="sliderh2">18:00</h2>
                 <div className="buttonContainer">
-                  <button className="homeSlider-reserveBtn">
-                    Резервирај
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="slider">
-              <div className="slider-img3"></div>
-
-              <div className="slider-content">
-                <h1 className="sliderh1">DJ IRIE SCRATCH</h1>
-                <h2 className="sliderh2">20/01/2023 Битола - Расчекор</h2>
-                <div className="buttonContainer">
-                  <button className="homeSlider-reserveBtn">
-                    Резервирај
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="slider">
-              <div className="slider-img4"></div>
-
-              <div className="slider-content">
-                <h1 className="sliderh1">DJ IRIE SCRATCH</h1>
-                <h2 className="sliderh2">20/01/2023 Битола - Расчекор</h2>
-                <div className="buttonContainer">
-                  <button className="homeSlider-reserveBtn">
-                    Резервирај
-                  </button>
+                  <button className="homeSlider-reserveBtn">Резервирај</button>
                 </div>
               </div>
             </div>
