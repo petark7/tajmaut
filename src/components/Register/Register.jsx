@@ -1,12 +1,15 @@
 import "./Register.css";
-import axios from "axios"
+import axios from "axios";
 import React, { useState } from "react";
-import {toast} from "react-toastify"
+import {toast} from "react-toastify";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
+
 export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
   const [isShown, setIsSHown] = useState(false);
   const togglePassword = () => {
     setIsSHown((isShown) => !isShown);
   };
+  const [showSpinner, setShowSpinner] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,6 +29,8 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    // show spinner on button click
+    setShowSpinner(true);
 
     let dataToSend = {
       email: formData.email,
@@ -38,7 +43,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
     axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
     .then(response => {
       // on success
-      console.log(response.data)
+      setShowSpinner(false);
       toast.success("Профилот беше успешно креиран! Добредојде 👋❤️", {
         position: "bottom-center",
         autoClose: 5000
@@ -48,6 +53,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
     })
     .catch(error => {
       // on failure
+      setShowSpinner(false);
       console.log(error.response.data)
       toast.error("Имаш грешка со податоците. Провери ги?", {
         position: "top-center",
@@ -145,7 +151,13 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
             <span className="checkmark"></span>
           </label>
 
-          <input className="formButton" type="submit" value="Регистрирај се" />
+          <button 
+            className="formButton" 
+            type="submit"
+            >
+             {showSpinner ? <LoadingSpinner style="button"/> : "Регистрирај се" }
+          </button>
+
           <div className="register">
             Веќе си зачленет?
             <a href="#" onClick={onLoginClick}>
