@@ -35,6 +35,7 @@ export default function CreateEventForm() {
         eventDescription: "",
         eventImageURL: "",
         eventDateHappening: "",
+        eventDuration: 0,
       });
 
   function handleChange(event) {
@@ -96,6 +97,7 @@ export default function CreateEventForm() {
       "description": formData.eventDescription,
       "eventImage": formData.eventImageURL,
       "dateTime": formData.eventDateHappening,
+      "duration": formData.eventDuration,
     },  {headers: {
       'Content-type': 'application/json; charset=UTF-8',
       'Authorization': `bearer ${authState.authToken}`,
@@ -185,23 +187,36 @@ export default function CreateEventForm() {
           />
         </Grid>
         <Grid item xs={12}>
-          
-        <DateTimePicker 
-        label="Време на одржување" 
-        name="eventDateHappening"
-        slotProps={{ textField: { variant: 'filled'} }}
-        sx={{ ...textFieldStyles, width: '100%' }}
-        // value={formData.eventDateHappening}
-        onChange={(newValue) => {
-          setFormData((prevFormData) => {
-            return {
-              ...prevFormData,
-              ["eventDateHappening"]: newValue.toISOString(),
-            };
-          });
-          console.log(newValue.toISOString())}
-        }
-        />
+          <DateTimePicker
+            label="Време на одржување"
+            name="eventDateHappening"
+            slotProps={{ textField: { variant: "filled" } }}
+            sx={{ ...textFieldStyles, width: "100%" }}
+            // value={formData.eventDateHappening}
+            onChange={(newValue) => {
+              setFormData((prevFormData) => {
+                return {
+                  ...prevFormData,
+                  ["eventDateHappening"]: newValue.toISOString(),
+                };
+              });
+              console.log(newValue.toISOString());
+            }}
+          />
+
+          <Grid item xs={12}>
+            <TextField
+              required
+              name="eventDuration"
+              type="number"
+              value={formData.eventDuration}
+              onChange={handleChange}
+              sx={textFieldStyles}
+              label="Времетраење"
+              variant="filled"
+              fullWidth
+            />
+          </Grid>
         </Grid>
         <div className="reservation--buttonDiv">
           <button
@@ -212,7 +227,6 @@ export default function CreateEventForm() {
             Креирај настан
           </button>
         </div>
-
       </Grid>
     </div>
   );
