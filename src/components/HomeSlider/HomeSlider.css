@@ -1,3 +1,5 @@
+/* SLICK RELATED */
+/* ================ */
 .slick-arrow::before {
   font-size: 50px !important;
 }
@@ -5,13 +7,23 @@
   z-index: 100;
   margin-left: -30px;
 }
-.slick-next {
-}
-
 .slick-slider {
   width: 100%;
   max-width: 60%; 
   }
+
+/* ACTIVE DOTS */
+li.slick-active > button::before {
+  color: #ffb978 !important;
+  font-size: 15px !important;
+}
+
+/* INACTIVE DOTS */
+li > button::before {
+  color: white !important;
+  font-size: 15px !important;
+}
+/* ================ */
 
 .slider-container {
   display: flex;
@@ -19,15 +31,6 @@
   justify-content: center;
 }
 
-li.slick-active > button::before {
-  color: #ffb978 !important;
-  font-size: 15px !important;
-}
-
-li > button::before {
-  color: white !important;
-  font-size: 15px !important;
-}
 .slider--content {
   display: flex;
   align-items: center;
@@ -39,36 +42,27 @@ li > button::before {
   font-family: "Ubuntu";
 }
 
-.sliderh1 {
+.slider--eventTitle {
   margin: 0;
 }
 
-.sliderh2 {
+.slider--dateLocation, .slider--time {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
   }
-.slider-img1,
-.slider-img2,
-.slider-img3,
-.slider-img4 {
-  width: 50%;
-  border-radius: 10px 0 0 10px;
-margin-right: 100px;
-  float: left;
-  background-image: url('../../img/party.jpg');
-  background-repeat: no-repeat;
-  height: 100%;
-}
 
-.sliderImg {
+.slider--img {
   opacity: 1;
   width: 400px;
   margin-right: 80px;
-  height: 100%;
+  height: 400px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
+/* RESERVE BUTTON */
+/* ========================= */
 .homeSlider-reserveBtn {
   background-color: #ffb978;
   color: rgb(52, 52, 52);
@@ -84,3 +78,14 @@ margin-right: 100px;
   width: 200px;
   height: 60px;
 }
+
+.homeSlider-reserveBtn:hover {
+  cursor: pointer;
+  background-color: #ff9939;
+  transition: 0.1s;
+}
+
+.homeSlider-reserveBtn:active {
+  transform: scale(.98);
+}
+/* ========================= */
