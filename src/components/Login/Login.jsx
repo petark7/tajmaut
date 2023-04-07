@@ -134,7 +134,7 @@ export default function LoginForm({
           </div>
 
           <button 
-            className="loginButton" 
+            className="formButton" 
             type="submit"
             >
              {showSpinner ? <LoadingSpinner style="button"/> : "Најави се" }

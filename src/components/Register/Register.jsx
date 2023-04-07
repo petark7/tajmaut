@@ -49,7 +49,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
   return (
     <div className="overlay">
-      <div className="register-in custom-modal">
+      <div className="register-in">
         <h1>
           Регистрација{" "}
           <p className="X" onClick={onCloseClick}>
@@ -136,7 +136,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
             <span className="checkmark"></span>
           </label>
 
-          <input className="button" type="submit" value="Регистрирај се" />
+          <input className="formButton" type="submit" value="Регистрирај се" />
           <div className="register">
             Веќе си зачленет?
             <a href="#" onClick={onLoginClick}>
