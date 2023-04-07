@@ -93,32 +93,34 @@ export default function LoginForm({
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div className="user">
-            <input 
-              type="text"
-              id="email"
-              value={emailField}
-              onChange= {((event) => {
-                setEmailField(event.target.value)
-              })}
-              required 
-            />
-            <span></span>
-            <label>Корисничко име/E-пошта</label>
-          </div>
+          <div className="loginFormInputs">
+            <div className="user login">
+              <input 
+                type="text"
+                id="email"
+                value={emailField}
+                onChange= {((event) => {
+                  setEmailField(event.target.value)
+                })}
+                required 
+              />
+              <span></span>
+              <label>Корисничко име/E-пошта</label>
+            </div>
 
-          <div className="user">
-            <input 
-              type="password" 
-              required 
-              id="password"
-              value={passwordField}
-              onChange= {((event) => {
-                setPasswordField(event.target.value)
-              })}
-            />
-            <span></span>
-            <label>Лозинка</label>
+            <div className="user login">
+              <input 
+                type="password" 
+                required 
+                id="password"
+                value={passwordField}
+                onChange= {((event) => {
+                  setPasswordField(event.target.value)
+                })}
+              />
+              <span></span>
+              <label>Лозинка</label>
+            </div>
           </div>
 
           <div className="loginContainer">
