@@ -30,13 +30,41 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
   }
 
   const validateData = () => {
-
+      if (formData.email.match(validationContext.emailRegex))
+      {
+        // valid email, check passwords
+        // passwords should be at least 6 chars long and should match 
+        if (formData.password.length >= 6)
+        {
+          if (formData.password === formData.confirmPassword) {
+            // executes if everything is OK
+            return true;
+          }
+          else {
+            toast.error("Лозинките не ти се совпаѓаат.", {
+              position: "top-center",
+              autoClose: 5000
+            })
+          }
+        }
+        else {
+          toast.error("Лозинката мора да долга барем 6 карактери!", {
+            position: "top-center",
+            autoClose: 5000
+          })
+        }
+      }
+      else {
+        toast.error("Упс. Внесе невалидна е-пошта 🙁", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
   }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     // show spinner on button click
-    setShowSpinner(true);
 
     let dataToSend = {
       email: formData.email,
@@ -46,7 +74,9 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
       lastName: formData.lastName,
     }
     // send formData to API
-    axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
+    if (validateData() === true) {
+      setShowSpinner(true);
+      axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
     .then(response => {
       // on success
       setShowSpinner(false);
@@ -60,12 +90,21 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
     .catch(error => {
       // on failure
       setShowSpinner(false);
-      console.log(error.response.data)
-      toast.error("Имаш грешка со податоците. Провери ги?", {
-        position: "top-center",
-        autoClose: 5000
-      })
+      console.log(error.response.status)
+      if (error.response.status === 409) {
+        toast.error("Корисник со таа е-пошта веќе постои.", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
+      else {
+        toast.error("Настана некоја грешка. Пробај повторно?", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
     })
+    }
   }
 
   return (
@@ -164,6 +203,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
              {showSpinner ? <LoadingSpinner style="button"/> : "Регистрирај се" }
           </button>
 
+          
           <div className="register">
             Веќе си зачленет?
             <a href="#" onClick={onLoginClick}>
