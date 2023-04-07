@@ -1,10 +1,12 @@
 import "./Register.css";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {toast} from "react-toastify";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
+import { ValidationContext } from "../../context/ValidationProvider";
 
 export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
+  const validationContext = useContext(ValidationContext)
   const [isShown, setIsSHown] = useState(false);
   const togglePassword = () => {
     setIsSHown((isShown) => !isShown);
@@ -25,6 +27,10 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
       ...formData,
       [event.target.name] : event.target.value,
     })
+  }
+
+  const validateData = () => {
+
   }
 
   const onFormSubmit = (event) => {
