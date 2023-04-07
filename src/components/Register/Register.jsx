@@ -1,4 +1,5 @@
 import "./Register.css";
+import axios from "axios"
 import React, { useState } from "react";
 
 export default function RegisterForm({ onLoginClick, onCloseClick }) {
@@ -16,7 +17,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
   });
 
   const onInputChange = (event) => {
-    console.log(`${event.target.name}, value = ${event.target.value}, ${JSON.stringify(formData)}`)
+    // console.log(`${event.target.name}, value = ${event.target.value}, ${JSON.stringify(formData)}`)
     setFormData({
       ...formData,
       [event.target.name] : event.target.value,
@@ -25,7 +26,25 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+
+    let dataToSend = {
+      email: formData.email,
+      password: formData.password,
+      confirmPassword: formData.confirmPassword,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+    }
+    // send formData to API
     alert(JSON.stringify(formData))
+    axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
+    .then(response => {
+      // on success
+      console.log(response.data)
+    })
+    .catch(error => {
+      // on failure
+      console.log(error.response.data)
+    })
   }
 
   return (
