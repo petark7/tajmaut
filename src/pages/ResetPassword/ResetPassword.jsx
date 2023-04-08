@@ -2,6 +2,7 @@ import { TextField, Grid } from "@mui/material";
 import "./ResetPassword.css";
 import {useParams} from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const ResetPassword = () => {
   const textFieldStyles = {
@@ -29,6 +30,19 @@ const ResetPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dataToSend = {
+      token: token,
+      password: passwordField,
+      confirmPassword: confirmPasswordField,
+    }
+
+    axios.post('https://tajmautmk.azurewebsites.net/api/Users/UpdateForgotPassword', dataToSend)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log(error.response.data)
+    })
     console.log("submit!");
   }
   return (
