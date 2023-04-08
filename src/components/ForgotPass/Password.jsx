@@ -20,6 +20,9 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
           toast.error(error.response.data)
         })
       }
+      else {
+        toast.error("Е-адресата која ја внесе не е валидна")
+      }
   }
 
   return (
