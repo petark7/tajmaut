@@ -8,7 +8,8 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
   };
 
   return (
-    <div className="overlay" onClick={onCloseClick}>
+   <>
+    <div className="overlay" onClick={onCloseClick}/>
       <div className="register-in custom-modal">
         <h1>
           Регистрација{" "}
@@ -76,6 +77,6 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
           </div>
         </form>
       </div>
-    </div>
+   </>
   );
 }
