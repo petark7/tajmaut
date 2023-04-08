@@ -1,7 +1,27 @@
 import "./Password.css";
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
+import { ValidationContext } from "../../context/ValidationProvider";
+import axios from "axios";
+import { toast } from "react-toastify";
 export default function PasswordForm({ onLoginClick, onCloseClick }) {
+
+  const {emailRegex} = useContext(ValidationContext);
+  const [emailInput, setEmailInput] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();  
+    if (emailInput.match(emailRegex))
+      {
+        axios.post(`https://tajmautmk.azurewebsites.net/api/Users/ForgotPassword?email=${emailInput}`)
+        .then((response) => {
+          toast.success("Ти испративме линк на email за ресетирање на лозинката!");
+          onCloseClick();
+        })
+        .catch(error => {
+          toast.error(error.response.data)
+        })
+      }
+  }
+
   return (
     <div className="overlay">
       <div className="forgot custom-modal">
@@ -10,10 +30,14 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
           Внеси ја твојата е-адреса и ќе добиеш линк за промена на лозинката.
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <section>
             <div className="user">
-              <input type="text" required />
+              <input 
+              type="text" 
+              value={emailInput}
+              onChange={(event) => {setEmailInput(event.target.value)}}
+              required />
               <span></span>
               <label>E-пошта</label>
             </div>
