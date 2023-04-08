@@ -1,8 +1,10 @@
 import { TextField, Grid } from "@mui/material";
 import "./ResetPassword.css";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import {toast} from "react-toastify";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const ResetPassword = () => {
   const textFieldStyles = {
@@ -24,9 +26,33 @@ const ResetPassword = () => {
     },
   };
 
+  const navigate = useNavigate();
   const {token} = useParams();
   const [passwordField, setPasswordField] = useState("")
   const [confirmPasswordField, setConfirmPasswordField] = useState("")
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const validateData = () => {
+    // checks if inputs are the same, then checks for length (<6)
+    if (passwordField === confirmPasswordField) {
+      if (passwordField.length < 6 || confirmPasswordField.length < 6 ) {
+        toast.error("Лозинката мора да долга барем 6 карактери!", {
+          position: "bottom-center",
+          autoClose: 5000
+        })
+      }
+      else {
+        // executes if everything is OK
+        return true;
+      }
+    }
+    else {
+      toast.error("Лозинките не ти се совпаѓаат.", {
+        position: "bottom-center",
+        autoClose: 5000
+      })
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,15 +61,36 @@ const ResetPassword = () => {
       password: passwordField,
       confirmPassword: confirmPasswordField,
     }
-
-    axios.post('https://tajmautmk.azurewebsites.net/api/Users/UpdateForgotPassword', dataToSend)
-    .then((response) => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(error.response.data)
-    })
-    console.log("submit!");
+    
+    // unneccessary repeating of validateData?
+    if (validateData() === true) {
+      setShowSpinner(true);
+      axios.post('https://tajmautmk.azurewebsites.net/api/Users/UpdateForgotPassword', dataToSend)
+      .then((response) => {
+        setShowSpinner(false);
+        navigate("/")
+        toast.success("Твојата лозинка беше успешно променета!", {
+          position: "bottom-center",
+          autoClose: 5000
+        })
+      })
+      .catch(error => {
+        setShowSpinner(false);
+        if (error.response.status === 400) {
+          toast.error("Новата лозинка мора да е поразлична од старата!", {
+            position: "bottom-center",
+            autoClose: 5000
+          })
+        }
+        else {
+          toast.error("Имаше проблем при испраќање на барањето.", {
+            position: "bottom-center",
+            autoClose: 5000
+          })
+        }
+        console.log(error.response.data)
+      })
+    }
   }
   return (
     <>
@@ -90,7 +137,9 @@ const ResetPassword = () => {
                   />
                 </Grid>
               </Grid>
-              <button type="submit" className="btnResetPassword">Промени</button>
+              <button type="submit" className="btnResetPassword">
+                 {showSpinner ? <LoadingSpinner style="button"/> : "Промени лозинка" }
+              </button>
               </form>
               
             </div>
