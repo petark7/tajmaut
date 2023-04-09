@@ -3,14 +3,19 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 const initialAuthState = {
-  authToken: cookies.get('authToken') || null,
-  isAuthenticated: cookies.get('authToken') || false,
+  authToken: cookies.get('accessToken') || null,
+  isAuthenticated: cookies.get('accessToken') || false,
 };
 
 export const AuthContext = createContext(initialAuthState);
 
 export default function AuthProvider({ children }) {
   const [authState, setAuthState] = useState(initialAuthState);
+  const [userId, setUserId] = useState(null)
+
+  const setId = (id) => {
+    setUserId(id);
+  }
 
   const login = (authData) => {
     cookies.set('accessToken', authData.accessToken, { path: '/' });
@@ -23,11 +28,16 @@ export default function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    cookies.remove('authToken', { path: '/' });
-    setAuthState(initialAuthState);
+    cookies.remove('accessToken', { path: '/' });
+    setAuthState({
+      authToken: null,
+      isAuthenticated: false,
+    });
   };
 
   const authContext = {
+    userId,
+    setId,
     authState,
     login,
     logout,
