@@ -108,8 +108,11 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
   }
 
   return (
-    <div className="overlay">
-      <div className="register-in">
+
+
+   <>
+    <div className="overlay" onClick={onCloseClick}/>
+      <div className="register-in custom-modal">
         <h1>
           Регистрација{" "}
           <p className="X" onClick={onCloseClick}>
@@ -212,6 +215,6 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
           </div>
         </form>
       </div>
-    </div>
+   </>
   );
 }

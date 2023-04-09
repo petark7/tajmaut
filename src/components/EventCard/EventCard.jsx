@@ -1,14 +1,13 @@
-import { useState } from "react"
-import "./EventCard.css"
-import EventDetails from "../EventDetails/EventDetails.jsx"
+import { useState } from "react";
+import "./EventCard.css";
+import EventDetails from "../EventDetails/EventDetails.jsx";
 
 export default function EventCard(props) {
+  const [isClicked, toggleIsClicked] = useState(false);
 
-    const [isClicked, toggleIsClicked] = useState(false);
-
-    function toggle () {
-        toggleIsClicked((prevValue) => !prevValue)
-    }
+  function toggle() {
+    toggleIsClicked((prevValue) => !prevValue);
+  }
 
     return (
         <div className = "event_card" onClick={toggle}>

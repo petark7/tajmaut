@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import Home from "../../pages/Home/home.jsx";
 import Events from "../../pages/Events/events.jsx";
+import ResetPassword from "../../pages/ResetPassword/ResetPassword.jsx";
 import NotFound from "../../pages/error-page.jsx";
 import Venues from "../../pages/Venues/venues.jsx";
 import MakeReservation from "../../pages/MakeReservation";
@@ -58,7 +59,7 @@ export default function AppRoutes() {
   return (
   <ValidationProvider>
     <AuthProvider>
-      <ToastContainer/>
+      <ToastContainer />
       <Router>
         <Navbar onLoginClick={handleLoginClick} />
         <Routes>
@@ -69,6 +70,7 @@ export default function AppRoutes() {
             path="/make-reservation/:eventID"
             element={<MakeReservation />}
           />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

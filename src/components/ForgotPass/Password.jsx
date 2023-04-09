@@ -26,7 +26,8 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
   }
 
   return (
-    <div className="overlay">
+   <>
+     <div className="overlay" onClick={onCloseClick}/>
       <div className="forgot custom-modal">
         
         <h1>Промена на лозинка  <p className="X" onClick={onCloseClick}>
@@ -69,6 +70,6 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
           </div>
         </form>
       </div>
-    </div>
+   </>
   );
 }

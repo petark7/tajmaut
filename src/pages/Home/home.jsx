@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import HomeSlider from "../../components/HomeSlider/HomeSlider.jsx";
+import DaySlider from "../../components/DaySlider/DaySlide.jsx";
+import "./home.css";
 
 export default function Home() {
+ 
   return (
-    <div className="container--homepage">
-      <div className="navbar">
-        <div className="slider">
-            
-
-        </div>
+    <>
+      <div className="home--mainContainer">
+        <HomeSlider />
       </div>
-    </div>
+    </>
   );
 }
