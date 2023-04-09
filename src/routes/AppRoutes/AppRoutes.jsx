@@ -13,6 +13,7 @@ import RegisterForm from "../../components/Register/Register.jsx";
 import PasswordForm from "../../components/ForgotPass/Password.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../../context/AuthProvider.jsx";
+import ValidationProvider from "../../context/ValidationProvider.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -56,6 +57,7 @@ export default function AppRoutes() {
   };
 
   return (
+  <ValidationProvider>
     <AuthProvider>
       <ToastContainer />
       <Router>
@@ -94,5 +96,6 @@ export default function AppRoutes() {
         )}
       </Router>
     </AuthProvider>
+    </ValidationProvider>
   );
 }
