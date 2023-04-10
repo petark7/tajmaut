@@ -3,11 +3,12 @@ import { useNavigate } from "react-router";
 import Slider from "react-slick";
 import axios from "axios"
 import "./HomeSlider.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-export default function SimpleSlider (props) {
+export default function HomeSlider ({numEvents}) {
 
   const navigate = useNavigate();
-  const numberOfEvents = 4;
+  const [isLoading, setIsLoading] = useState(true);
   const [eventData, setEventData] = useState([{
     eventId: "",
     eventImage: "",
@@ -66,8 +67,6 @@ export default function SimpleSlider (props) {
     }
   }
 
-  const handleClick = () => {
-  }
   
   let events = [];
     events = eventData.map((event) => {
@@ -101,16 +100,16 @@ export default function SimpleSlider (props) {
 
   // Fetch Events
   useEffect(() => {
-    axios.get(`https://tajmautmk.azurewebsites.net/api/Events/GetNumberOfEvents?numEvents=${numberOfEvents}`)
+    axios.get(`https://tajmautmk.azurewebsites.net/api/Events/GetNumberOfEvents?numEvents=${numEvents}`)
     .then((response) => {
       setEventData(response.data);
+      setIsLoading(false);
     })
     .catch ((error) => {
+      setIsLoading(false);
       console.log(error.response.data)
     })
   }, [])
-
-
 
     const settings = {
       dots: true,
@@ -125,44 +124,21 @@ export default function SimpleSlider (props) {
 
     return (
       <div className="slider-container">
+        {/* LOAD SPINNER IF STILL LOADING */}
+        {isLoading ? 
         <Slider {...settings}>
-          {/* <div className="slider">
-            <div className="slider--content">
-              <img
-                className="slider--img"
-                src={require("../../img/event_01.jpg")}
-              ></img>
-
-              <div className="slider-content">
-                <h1 className="slider--eventTitle">{eventData[0].name}</h1>
-                <h2 className="slider--dateLocation">{eventData[0].dateTime} {eventData[0].venueCity} - {eventData[0].venueName}</h2>
-                <h2 className="slider--time">18:00 часот</h2>
-                <div className="buttonContainer">
-                <button onClick={handleClick} className="homeSlider-reserveBtn">Резервирај</button>
-                </div>
-              </div>
+        <div className="slider">
+          <div className="slider--content">
+            <div className="spinner">
+                 <LoadingSpinner style2="homeSlider"/>
             </div>
           </div>
-
-          <div className="slider">
-            <div className="slider--content">
-              <img
-                className="slider--img"
-                src={require("../../img/event_01.jpg")}
-              ></img>
-
-              <div className="slider-content">
-                <h1 className="slider--eventTitle">DJ IRIE SCRATCH SECOND</h1>
-                <h2 className="sliderh2">20/01/2023 Битола - Расчекор</h2>
-                <h2 className="sliderh2">18:00 часот</h2>
-                <div className="buttonContainer">
-                <button onClick={handleClick} className="homeSlider-reserveBtn">Резервирај</button>
-                </div>
-              </div>
-            </div>
-          </div> */}
-          {events}
-        </Slider>
+        </div>
+      </Slider>
+      :
+      <Slider {...settings}>
+        {events}
+    </Slider>}
       </div>
     );
   }

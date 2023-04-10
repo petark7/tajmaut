@@ -35,7 +35,7 @@ li > button::before {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 400px;
   background-color: rgba(0,0,0,0.8);
   color: #ffb978;
   border-radius: 10px;
@@ -89,3 +89,10 @@ li > button::before {
   transform: scale(.98);
 }
 /* ========================= */
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

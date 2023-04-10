@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="home--mainContainer">
-        <HomeSlider />
+        <HomeSlider numEvents="3"/>
       </div>
     </>
   );
