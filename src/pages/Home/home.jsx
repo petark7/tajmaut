@@ -7,8 +7,11 @@ export default function Home() {
  
   return (
     <>
-      <div className="home--mainContainer">
+      <div className="home--backgroundImage">
         <HomeSlider numEvents="3"/>
+      </div>
+      <div className="home--daySlider-container">
+         <DaySlider/>
       </div>
     </>
   );

@@ -11,7 +11,9 @@
   width: 100%;
   max-width: 60%; 
   }
-
+  .slick-prev::before, .slick-next::before {
+    
+  }
 /* ACTIVE DOTS */
 li.slick-active > button::before {
   color: #ffb978 !important;

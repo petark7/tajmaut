@@ -1,26 +1,59 @@
 .dayslider-container {
-  margin: 168px 150px 0 120px;
-  width: 85%;
-  height: 700px;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  margin: 50px 0;
+  width: 60%;
+  height: 380px;
+}
+.dayslider--cards .slick-slide {
+  /* CHANGING THIS MESSES UP CAROUSEL */
+  margin-left: 0px; /* adjust the value to increase or decrease the gap between cards */
+}
+.dayslider--cards .slick-list {
+  margin: 0 -30px;
 }
 
-.header {
-  text-align: left;
-  font-size: 28px;
+.dayslider--cardsContainer {
+  height: 75%;
+  position: relative;
+  top: 10%;
+}
+
+.dayslider--dayCard {
+  height: 200px;
+}
+.dayslider--cards{
+  display: flex;
+  justify-content: center;
+}
+
+.dayslider--cards .slick-prev::before {
+  margin-left: -15px;
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+
+.dayslider--cards .slick-next::before {
+  margin-left: 30px;
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+.dayslider--day {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 35px;
+  font-weight: 700;
   font-family: Ubuntu;
-  height: 100px;
+  height: 75px;
   background-color: #9582e3;
   color: #ffffff;
   border-bottom: 7px solid #ffb978;
-}
-
-.header h1 {
-  padding: 15px 0 0 25px;
+  border-radius: 10px 10px 0 0;
 }
 
 .dayslider-content {
   margin-top: 10px;
-  background-color: #f3f3f3;
   padding-top: 100px;
   height: 350px;
 }

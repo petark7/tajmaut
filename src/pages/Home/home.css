@@ -1,8 +1,15 @@
-.home--mainContainer {
+.home--backgroundImage {
   justify-content: center;
   padding: 30px 30px 30px 30px;
   background-image: url('../../img/party.jpg');
   height: 480px;
   width: 100%;
   background-repeat: no-repeat;
+}
+
+.home--daySlider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
