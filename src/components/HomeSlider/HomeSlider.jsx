@@ -4,10 +4,11 @@ import Slider from "react-slick";
 import axios from "axios"
 import "./HomeSlider.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import DaySlider from "../CardSlider/CardSlider";
 
 export default function HomeSlider ({numEvents}) {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
   const [isLoading, setIsLoading] = useState(true);
   const [eventData, setEventData] = useState([{
     eventId: "",

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HomeSlider from "../../components/HomeSlider/HomeSlider.jsx";
-import DaySlider from "../../components/DaySlider/DaySlide.jsx";
+import CardSlider from "../../components/CardSlider/CardSlider.jsx";
 import "./home.css";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         <HomeSlider numEvents="3"/>
       </div>
       <div className="home--daySlider-container">
-         <DaySlider/>
+         <CardSlider day="nextDay"/>
       </div>
     </>
   );

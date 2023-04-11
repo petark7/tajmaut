@@ -1,28 +1,31 @@
 import Slider from "react-slick";
-import "./DaySlider.css";
+import "./CardSlider.css";
 import axios from "axios"
 import {useEffect, useState, Suspense} from "react";
 import EventCard from "../EventCard/EventCard";
+import EventDetails from "../EventDetails/EventDetails";
 
-export default function DaySlider () {
+export default function CardSlider ({day}) {
   
+  const [openReserveModal, setOpenReserveModal] = useState(false);
   const [eventState, setEventState] = useState([
     {
       eventId: 0,
       name: "",
       venueCity: "",
       venueName: "",
-      eventImage: "asdas",
+      eventImage: "",
       date: "",
       venuePhone: "",
     }
   ]);
+  const [currentEvent, setCurrentEvent] = useState({
 
+  })
   //fetch events and set to state
   useEffect(()=> {
       axios.get('https://tajmautmk.azurewebsites.net/api/Events/GetAllEvents')
       .then(response => {
-          console.log(response.data)
           setEventState(response.data);
       })
       .catch ((error) => {
@@ -30,38 +33,20 @@ export default function DaySlider () {
       }) 
   }, [])
 
-    const settings = {
+  if (day == "nextDay") {
+    // fetch events for next day
+  }
+  if (day == "inTwoDays") {
+    
+  }
+      const settings = {
       infinite: true,
       speed: 1000,
       slidesToShow: 3.99,
       slidesToScroll: 4,
+      draggable: false,
       prevArrow: <div className="slick-prev-days"></div>,
       nextArrow: <div className="slick-next-days"></div>,
-            responsive: [
-        {
-          breakpoint: 1524,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
     };
     let events = null;
     if (eventState != null) {
@@ -73,8 +58,23 @@ export default function DaySlider () {
                     year: 'numeric'
                   });
                 return(
-                  <div className="dayslider--dayCard">
+                  <div className="cardslider--dayCard" onClick={() => {
+                    // open the modal outside of the slick slider,
+                    // then set the props to be used in the EventDetails
+                    setOpenReserveModal (true)
+                    setCurrentEvent(
+                      {
+                          eventId: event.eventId,
+                          name: event.name,
+                          city: event.venueCity,
+                          venue: event.venueName,
+                          date: date,
+                          image: event.eventImage,
+                          reservationPhone: event.venuePhone,
+                      })
+                    }}>
                     <EventCard 
+                    opensModal = {false}
                     key = {event.eventId}
                     id = {event.eventId}
                     name = {event.name}
@@ -89,15 +89,25 @@ export default function DaySlider () {
             })
     }
     return (
-      <div className="dayslider-container">
-        <div className="dayslider--day">Петок</div>
-        <div className="dayslider--cardsContainer">
-          <div className="dayslider--cards">
+      <div className="cardslider-container">
+        {openReserveModal === true ? <EventDetails 
+                eventId = {currentEvent.eventId}
+                name={currentEvent.name} 
+                image={currentEvent.image} 
+                city = {currentEvent.city} 
+                venue = {currentEvent.venue} 
+                date = {currentEvent.date} 
+                reservationPhone = {currentEvent.reservationPhone}
+                closeModal={()=>{setOpenReserveModal(false)}}/> 
+                : null}
+        <div className="cardslider--day">Петок</div>
+        <div className="cardslider--cardsContainer">
+          <div className="cardslider--cards">
             <Slider
               {...settings}
               style={{
                 width: "1000px",
-                maxWidth: "100%",
+                maxWidth: "1000px",
               }}
             >
               {events}

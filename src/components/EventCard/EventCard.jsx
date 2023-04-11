@@ -6,7 +6,12 @@ export default function EventCard(props) {
   const [isClicked, toggleIsClicked] = useState(false);
 
   function toggle() {
-    toggleIsClicked((prevValue) => !prevValue);
+    if (props.opensModal !== false) {
+         toggleIsClicked((prevValue) => !prevValue);
+    }
+    else {
+        toggleIsClicked(false);
+    }
   }
 
     return (

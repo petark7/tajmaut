@@ -1,44 +1,44 @@
-.dayslider-container {
+.cardslider-container {
   background-color: #F3F3F3;
   border-radius: 10px;
   margin: 50px 0;
-  width: 60%;
-  height: 380px;
+  width: 1200px;
+  height: 330px;
 }
-.dayslider--cards .slick-slide {
+.cardslider--cards .slick-slide {
   /* CHANGING THIS MESSES UP CAROUSEL */
   margin-left: 0px; /* adjust the value to increase or decrease the gap between cards */
 }
-.dayslider--cards .slick-list {
+.cardslider--cards .slick-list {
   margin: 0 -30px;
 }
 
-.dayslider--cardsContainer {
+.cardslider--cardsContainer {
   height: 75%;
   position: relative;
-  top: 10%;
+  top: 4%;
 }
 
-.dayslider--dayCard {
+.cardslider--dayCard {
   height: 200px;
 }
-.dayslider--cards{
+.cardslider--cards{
   display: flex;
   justify-content: center;
 }
 
-.dayslider--cards .slick-prev::before {
+.cardslider--cards .slick-prev::before {
   margin-left: -15px;
   font-size: 35px !important;
   color: rgb(37, 37, 37) !important;
 }
 
-.dayslider--cards .slick-next::before {
+.cardslider--cards .slick-next::before {
   margin-left: 30px;
   font-size: 35px !important;
   color: rgb(37, 37, 37) !important;
 }
-.dayslider--day {
+.cardslider--day {
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -52,7 +52,7 @@
   border-radius: 10px 10px 0 0;
 }
 
-.dayslider-content {
+.cardslider-content {
   margin-top: 10px;
   padding-top: 100px;
   height: 350px;
