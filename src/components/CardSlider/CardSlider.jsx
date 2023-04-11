@@ -4,6 +4,7 @@ import axios from "axios"
 import {useEffect, useState, Suspense} from "react";
 import EventCard from "../EventCard/EventCard";
 import EventDetails from "../EventDetails/EventDetails";
+import {getDateTimeDay} from "../../utils/utils.js"
 
 export default function CardSlider ({day}) {
   
@@ -22,6 +23,13 @@ export default function CardSlider ({day}) {
   const [currentEvent, setCurrentEvent] = useState({
 
   })
+
+  const dateToday = new Date();
+  const dateTomorrow = new Date (dateToday);
+  dateTomorrow.setDate(dateToday.getDate() + 1);
+  const dateInTwoDays = new Date (dateToday);
+  dateInTwoDays.setDate(dateToday.getDate() + 2)
+
   //fetch events and set to state
   useEffect(()=> {
       axios.get('https://tajmautmk.azurewebsites.net/api/Events/GetAllEvents')

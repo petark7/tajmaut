@@ -1,6 +1,7 @@
 import "./ReservationCard.css"
 import {useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
+import {getDateTimeDay} from "../../utils/utils.js"
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
@@ -30,38 +31,6 @@ export default function ReservationCard () {
     })
 
     let timeOfHappening = new Date (Date.parse(eventData.dateTime));
-    let time =  `${timeOfHappening.getHours()}:${(timeOfHappening.getMinutes() < 10) ? `0${timeOfHappening.getMinutes()}` : timeOfHappening.getMinutes()}` ;
-    let day = timeOfHappening.getDay();
-    switch (day)
-    {
-        case 0:
-        day = "Недела";
-        break;
-
-        case 1:
-        day = "Понеделник";
-        break;
-
-        case 2:
-        day = "Вторник";
-        break;
-
-        case 3:
-        day = "Среда";
-        break;
-
-        case 4:
-        day = "Четврток";
-        break;
-
-        case 5:
-        day = "Петок";
-        break;
-
-        case 6:
-        day = "Сабота";
-        break;
-    }
 
     return (
             <div className="container--selectedEvent">
@@ -74,7 +43,7 @@ export default function ReservationCard () {
                     />
                     <div className="cardContent--makeReservation">
                         <h3 className="cardContent--title">{eventData.name}</h3>
-                        <h4 className="cardContent--dateHappening">{`${day} ${time}`}</h4>
+                        <h4 className="cardContent--dateHappening">{`${getDateTimeDay(timeOfHappening).day} ${getDateTimeDay(timeOfHappening).time}`}</h4>
                     </div>
                 </div>
                 }  
