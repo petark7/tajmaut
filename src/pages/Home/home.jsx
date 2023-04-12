@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="home--backgroundImage">
-        <HomeSlider numEvents="3"/>
+        <HomeSlider numEvents="5"/>
       </div>
       <div className="home--daySlider-container">
          <CardSlider day="nextDay"/>

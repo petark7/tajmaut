@@ -1,4 +1,4 @@
-export const getDateTimeDay = (dateTime) => {
+export const getDateTimeDay = (dateTime = new Date()) => {
     const UTCDate = new Date (Date.parse(dateTime));
     const CESTDate = new Date(UTCDate.getTime() + (2 * 60 * 60 * 1000));
     const formattedDate = `${CESTDate.getDate().toString().padStart(2, '0')}/${(CESTDate.getMonth() + 1).toString().padStart(2, '0')}/${CESTDate.getFullYear()}`;
@@ -6,6 +6,12 @@ export const getDateTimeDay = (dateTime) => {
     const hours =  CESTDate.getHours() < 10 ? `0${CESTDate.getHours()}` : CESTDate.getHours()
     const minutes = CESTDate.getMinutes() < 10 ? `0${CESTDate.getMinutes()}` : CESTDate.getMinutes();
     const time = `${hours}:${minutes}`
+
+    const dateTomorrow = new Date (CESTDate);
+    dateTomorrow.setDate(CESTDate.getDate() + 1);
+    const dateInTwoDays = new Date (CESTDate);
+    dateInTwoDays.setDate(CESTDate.getDate() + 2)
+
     let day = CESTDate.getDay();
     switch (day)
     {
@@ -39,8 +45,13 @@ export const getDateTimeDay = (dateTime) => {
     }
 
     return {
+      dateTodayISO: CESTDate.toISOString(),
+      dateTomorrowISO: dateTomorrow.toISOString(),
+      dateInTwoDays: dateInTwoDays.toISOString(),
       date: formattedDate,
-      "time": time,
-      day: day,
+      time,
+      day,
+      dateTomorrow,
+      dateInTwoDays,
     }
   }
