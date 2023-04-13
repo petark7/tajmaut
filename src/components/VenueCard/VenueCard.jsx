@@ -5,7 +5,7 @@ import "./VenueCard.css"
 const VenueCard = ({data}) => {
     return (
         <div className = "venue_card" onClick={()=>{}}>
-            <img src={""}/>
+            <img src={data.venueImage}/>
                 <div className="content">
                     <h4 className="venue_type">{data.venueType}</h4>
                     <h1 className="venue_name">{data.venueName}</h1>

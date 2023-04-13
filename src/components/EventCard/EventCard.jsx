@@ -7,7 +7,8 @@ export default function EventCard(props) {
 
   function toggle() {
     // if you want to control the modal show from another component
-    props.handleOutsideState({
+   if (props.handleOutsideState != undefined) {
+    props?.handleOutsideState({
         id: props.id,
         name: props.name,
         image: props.image,
@@ -16,6 +17,7 @@ export default function EventCard(props) {
         date: props.date,
         reservationPhone: props.reservationPhone,
     });
+   }
     if (props.opensModal !== false) {
          toggleIsClicked((prevValue) => !prevValue);
     }

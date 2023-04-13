@@ -73,10 +73,10 @@ export default function Home() {
   }, [])
 
   const venueCards =  venueListState.map((venue) => {
-    console.log(`${JSON.stringify(venue)}`)
+    console.log(venue.venueImage)
     return (
         <VenueCard
-      data={{ venueId: venue.venueId, venueType: "Ноќен клуб", venueCity: venue.city, venueName: venue.name, venueAddress: venue.address }}
+      data={{ venueId: venue.venueId, venueImage: venue.venueImage, venueType: venue.venueType.name, venueCity: venue.venueCity.cityName, venueName: venue.name, venueAddress: venue.address }}
     />
       )
   })
@@ -119,15 +119,15 @@ return (
       <HomeSlider numEvents="5" />
     </div>
     <div className="home--daySlider-container">
-      <CardSlider data={eventsTomorrow} title={getDateTimeDay().dayTomorrow} />
+      <CardSlider 
+      data={eventsTomorrow} 
+      title={getDateTimeDay().dayTomorrow} />
+
       <CardSlider
         data={eventsInTwoDays}
         title={getDateTimeDay().dayInTwoDays}
       />
-      {/* <VenueCard
-        data={{ venueId: 3, venueType: 2, venueCity: 5, venueName: 2, venueAddress: 7 }}
-      /> */}
-
+      
         <CardSlider
         data={venueCards}
         title={"Локали"}

@@ -2,6 +2,7 @@ import "./EventDetails.css"
 import { useNavigate } from "react-router"
 
 export default function EventDetails (props) {
+    document.body.style.overflow = 'hidden';
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/make-reservation/${props.eventId}`);
