@@ -5,3 +5,18 @@
 .notAuthenticatedH3 {
     color: red
 }
+
+.container--dashboard {
+    margin-top: 30px;
+    background-color: purpl;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.dashboard-page_content {
+    display: flex;
+    gap: 30px;
+}

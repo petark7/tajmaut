@@ -10,7 +10,6 @@ export default function Dashboard () {
     function handleAuthResults (results) {
         try {
             setAuthCode(results);
-            alert("Logged in!");
         }
         catch (ex)
         {
@@ -21,9 +20,18 @@ export default function Dashboard () {
 
     return (
         <>
+<<<<<<< Updated upstream
             {authCode !== '' ? <h3 className="authenticatedH3">Authenticated Successfully!</h3> : <h3 className="notAuthenticatedH3">Not Authenticated</h3>}
             <AuthenticateForm handleResults={handleAuthResults}/>
             <CreateEventForm/>
+=======
+            <div className="container--dashboard">
+              <div className="dashboard-page_content">
+              <AuthenticateForm authCode ={authCode} handleResults={handleAuthResults}/>
+              <CreateEventForm authCode={authCode}/>
+              </div>
+        </div>
+>>>>>>> Stashed changes
         </>
     )
 }

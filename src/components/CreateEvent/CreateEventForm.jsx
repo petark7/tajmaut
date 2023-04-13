@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import "./CreateEventForm.css";
 import { TextField, Grid, MenuItem } from "@mui/material/";
 import { useContext, useEffect, useState } from "react";
@@ -27,6 +28,33 @@ const textFieldStyles = {
 export default function CreateEventForm() {
 
   const {authState} = useContext(AuthContext);
+=======
+import "./CreateEventForm.css"
+import { TextField, Grid } from '@mui/material/';
+import { useState } from "react"
+const textFieldStyles = {
+    "& .MuiInputBase-root": {
+        backgroundColor: "white",
+    },
+    "& .MuiFormLabel-root": {
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+        color: 'var(--primaryPurple)'
+    },
+    "& .MuiFilledInput-root.Mui-focused": {
+        color: "#8465ff",
+        backgroundColor: "#F6F3FF"
+    },
+    '& .MuiFilledInput-underline:after': {
+        borderBottomColor: 'var(--primaryPurple)',
+    },
+}
+
+export default function CreateEventForm(props) {
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+>>>>>>> Stashed changes
 
     const [formData, setFormData] = useState({
         venueId: 0,
@@ -56,6 +84,7 @@ export default function CreateEventForm() {
   const [venuesArray, setVenuesArray] = useState([]);
   let venueItems = [];
 
+<<<<<<< Updated upstream
   // custom function that takes parameters and fetches needed data to populate textfield
   async function populateTextField(endpoint, valueKey, idKey) {
     return axios
@@ -73,6 +102,10 @@ export default function CreateEventForm() {
         throw error;
       });
   }
+=======
+    function handleSubmit(event) {
+        event.preventDefault()
+>>>>>>> Stashed changes
 
   // populate the fields for Venues and Event Category
   useEffect(() => {
@@ -81,6 +114,7 @@ export default function CreateEventForm() {
       setVenuesArray(temporaryArray);
     });
 
+<<<<<<< Updated upstream
     populateTextField('https://tajmautmk.azurewebsites.net/api/Categories/GetAllCategories', 'name', 'categoryEventId')
     .then((temporaryArray) => {
       setEventCategories(temporaryArray);
@@ -231,3 +265,111 @@ export default function CreateEventForm() {
     </div>
   );
 }
+=======
+    const [formData, setFormData] = useState(
+        {
+            restaurantId: 0,
+            categoryEventId: 0,
+            name: "",
+            description: "",
+            eventImage: "",
+            dateTime: "",
+        }
+    )
+
+    return (
+        <div className="createEventForm">
+            <Grid container spacing={2} sx={{ width: '75%' }}>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="restaurantId"
+                        value={formData.restaurantId}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="restaurantId"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="categoryEventId"
+                        value={formData.categoryEventId}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="categoryEventId"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="Име"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="Опис"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="eventImage"
+                        value={formData.eventImage}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="Слика (URL)"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        required
+                        name="dateTime"
+                        value={formData.dateTime}
+                        onChange={handleChange}
+                        sx={textFieldStyles}
+                        label="Време"
+                        variant="filled"
+                        fullWidth
+                    />
+                </Grid>
+
+                <div className="reservation--buttonDiv">
+                    <button
+                        type="submit"
+                        className="btnReservationSubmit"
+                        onClick={handleSubmit}
+                    >
+                        Испрати
+                    </button>
+                </div>
+            </Grid>
+        </div>
+    )
+}
+>>>>>>> Stashed changes

@@ -73,6 +73,7 @@ export default function AuthenticateForm (props) {
 
     return (
         <div className="authForm">
+            {props.authCode !== '' ? <h3 className="authenticatedH3">Authenticated Successfully!</h3> : <h3 className="notAuthenticatedH3">Not Authenticated</h3>}
         <Grid container spacing={2} sx={{ width: '95%' }}>
             <Grid item xs={12}>
                 <TextField 

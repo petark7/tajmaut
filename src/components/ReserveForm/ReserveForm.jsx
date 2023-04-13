@@ -25,6 +25,11 @@ export default function ReverseForm () {
     const ValidPhoneNumberRegex = /[0][7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
     let formIsValid = true;
 
+    const [responseMessage, setResponseMessage] = useState({
+        visible: false,
+        status: "",
+    });
+
     const [errorMessages, setErrorMessages] = useState({
         firstName: false,
         lastName: false,
@@ -83,6 +88,18 @@ export default function ReverseForm () {
         })
     }
 
+    //TODO - add more status codes + remove the form 
+    function parseResponseCode(code) {
+        switch (code) {
+            case 200:
+                return <h1 className='formStatus'>{responseMessage.status}</h1>
+            case 401:
+                return <h1 className='red'>Проблем со верификација</h1>
+            case 400:
+                return ("Има проблем со полињата. Провери ги податоците?")
+        }
+    }
+
     // NEED TO FINISH WORKING ON THE sendDataToAPI() FUNCTION ===> WORKS WITH THE DATA, CHANGE AUTH
     function sendDataToAPI(){
         fetch('https://tajmautmk.azurewebsites.net/api/Reservations/CreateReservation', {
@@ -99,15 +116,24 @@ export default function ReverseForm () {
             }),
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
-              'Authorization': 'bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEwNjIiLCJGaXJzdCBOYW1lIjoiVHJhamNlIiwiTGFzdCBOYW1lIjoiU21pbGV2c2tpIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidHJhamNlXzIwMDBAaG90bWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY3OTMyMTUzNn0.7TcxXS_ItEoEN8FvEBUy53HaWofaCQ_L3ULPi4zkFnhQ1_011LNqr93XZJKxwOnfcnhjHXN0yS1i3cU5lJyCjw',
+              'Authorization': 'bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEwNjIiLCJGaXJzdCBOYW1lIjoiVHJhamNlIiwiTGFzdCBOYW1lIjoiU21pbGV2c2tpIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidHJhamNlXzIwMDBAaG90bWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY3OTQ5OTg4MX0.DrbV53KlTro2rpGcnTJ-A-yPpjmZcDzZ9_ipQWr2Fv0h02rdd0UesfqyIzptcJgNqg4yZg8oeCi4PGBe0XYFfA',
             },
           })
-             .then((response) => response.json())
+             .then((response) => {
+                 setResponseMessage((prevData) => {
+                     return ({
+                         visible: true,
+                         status: response.status
+                     })
+                 })
+
+                 return response.json()
+             })
              .then((data) => {
                 console.log(JSON.stringify(data));
              })
              .catch((err) => {
-                console.log(err.message);
+                console.log(err);
              });
           
     }
@@ -138,6 +164,7 @@ export default function ReverseForm () {
 
     return (
         <div className="reserveForm">
+        {responseMessage.visible === true ? parseResponseCode(responseMessage.status) : <></>}
         <Grid container spacing={2} sx={{ width: '75%' }}>
             <Grid item xs={12} md={6}>
                 <TextField 
