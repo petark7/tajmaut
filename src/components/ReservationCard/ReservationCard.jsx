@@ -43,7 +43,7 @@ export default function ReservationCard () {
                     />
                     <div className="cardContent--makeReservation">
                         <h3 className="cardContent--title">{eventData.name}</h3>
-                        <h4 className="cardContent--dateHappening">{`${getDateTimeDay(timeOfHappening).day} ${getDateTimeDay(timeOfHappening).time}`}</h4>
+                        <h4 className="cardContent--dateHappening">{`${getDateTimeDay(timeOfHappening).dayToday} ${getDateTimeDay(timeOfHappening).time}`}</h4>
                     </div>
                 </div>
                 }  

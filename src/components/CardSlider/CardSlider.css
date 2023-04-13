@@ -1,43 +1,35 @@
 .cardslider-container {
   background-color: #F3F3F3;
   border-radius: 10px;
-  margin: 50px 0;
-  width: 1200px;
+  margin-bottom: 30px;
+  width: 1300px;
   height: 330px;
-}
-.cardslider--cards .slick-slide {
-  /* CHANGING THIS MESSES UP CAROUSEL */
-  margin-left: 0px; /* adjust the value to increase or decrease the gap between cards */
-}
-.cardslider--cards .slick-list {
-  margin: 0 -30px;
 }
 
 .cardslider--cardsContainer {
-  height: 75%;
-  position: relative;
-  top: 4%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+  
 }
+.cardslider-container .slick-prev::before {
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+
+.cardslider-container .slick-next::before {
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+
 
 .cardslider--dayCard {
   height: 200px;
-}
-.cardslider--cards{
-  display: flex;
-  justify-content: center;
+  width: 100px;
 }
 
-.cardslider--cards .slick-prev::before {
-  margin-left: -15px;
-  font-size: 35px !important;
-  color: rgb(37, 37, 37) !important;
-}
 
-.cardslider--cards .slick-next::before {
-  margin-left: 30px;
-  font-size: 35px !important;
-  color: rgb(37, 37, 37) !important;
-}
 .cardslider--day {
   display: flex;
   align-items: center;
@@ -52,41 +44,11 @@
   border-radius: 10px 10px 0 0;
 }
 
-.cardslider-content {
-  margin-top: 10px;
-  padding-top: 100px;
-  height: 350px;
+.cardslider--cardsContainer .slick-slide {
+  margin-left: 1px !important;
 }
 
-.day-btn {
-  color: #2e2e2e;
-  background-color: #ffb978;
-  border-radius: 6px;
-  width: 200px;
-  height: 49px;
-  border: none;
-  font-family: Ubuntu;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 40px 0 0 1000px;
-  cursor: pointer;
-}
-
-.days-slider {
-  margin-left: 30px;
-}
-
-.days-slider h3 {
-  width: 210px;
-  height: 150px;
-  background-color: #2e2e2e;
-  margin-left: 40px;
-  margin-top: -30px;
-  padding: 60px;
-  text-align: center;
-  color: #f3f3f3;
-}
-.day-btn:hover {
-  box-shadow: 5px 5px 4px gray;
-  transition: 0.3s;
+.cardslider--cardsContainer .slick-track {
+  overflow: hidden !important;
+  height: 220px;
 }

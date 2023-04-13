@@ -26,7 +26,6 @@ export default function EventDetails (props) {
                             </div>
 
                             <div className="detailsContainer">
-                                {console.log(props.city)}
                                 {/* ADD TIME, NOT JUST DATE */}
                                 <UnderlinedLabel label="Кога?" value={props.date}/>
                                 <UnderlinedLabel label="Резервации?" value={props.reservationPhone}/>
