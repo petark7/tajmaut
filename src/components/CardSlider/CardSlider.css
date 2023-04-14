@@ -1,0 +1,54 @@
+.cardslider-container {
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  width: 1300px;
+  height: 330px;
+}
+
+.cardslider--cardsContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+  
+}
+.cardslider-container .slick-prev::before {
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+
+.cardslider-container .slick-next::before {
+  font-size: 35px !important;
+  color: rgb(37, 37, 37) !important;
+}
+
+
+.cardslider--dayCard {
+  height: 200px;
+  width: 100px;
+}
+
+
+.cardslider--day {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: Ubuntu;
+  height: 75px;
+  background-color: #9582e3;
+  color: #ffffff;
+  border-bottom: 7px solid #ffb978;
+  border-radius: 10px 10px 0 0;
+}
+
+.cardslider--cardsContainer .slick-slide {
+  margin-left: 1px !important;
+}
+
+.cardslider--cardsContainer .slick-track {
+  overflow: hidden !important;
+  height: 220px;
+}

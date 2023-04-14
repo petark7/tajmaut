@@ -6,7 +6,25 @@ export default function EventCard(props) {
   const [isClicked, toggleIsClicked] = useState(false);
 
   function toggle() {
-    toggleIsClicked((prevValue) => !prevValue);
+    {document.body.style.overflow = 'hidden'}
+    // if you want to control the modal show from another component
+   if (props.handleOutsideState != undefined) {
+    props?.handleOutsideState({
+        id: props.id,
+        name: props.name,
+        image: props.image,
+        city: props.city,
+        venue: props.venue,
+        date: props.date,
+        reservationPhone: props.reservationPhone,
+    });
+   }
+    if (props.opensModal !== false) {
+         toggleIsClicked((prevValue) => !prevValue);
+    }
+    else {
+        toggleIsClicked(false);
+    }
   }
 
     return (

@@ -50,6 +50,7 @@ export default function AppRoutes() {
 
   const handleLoginClick = () => {
     if (!modal) {
+      document.body.style.overflow = 'hidden';
       setModal("Login");
     } else {
       setModal(undefined);
@@ -79,19 +80,25 @@ export default function AppRoutes() {
             notify={notify}
             onSignUpClick={() => setModal("Register")}
             onPassClick={() => setModal("Password")}
-            onCloseClick={() => setModal(false)}
+            onCloseClick={() => {setModal(false)
+              document.body.style.overflow = 'unset';
+            }}
           />
         )}
         {modal === "Register" && (
           <RegisterForm
             onLoginClick={() => setModal("Login")}
-            onCloseClick={() => setModal(false)}
+            onCloseClick={() => {setModal(false)
+              document.body.style.overflow = 'unset';
+            }}
           />
         )}
         {modal === "Password" && (
           <PasswordForm
             onLoginClick={() => setModal("Login")}
-            onCloseClick={() => setModal(false)}
+            onCloseClick={() => {setModal(false)
+              document.body.style.overflow = 'unset';
+            }}
           />
         )}
       </Router>
