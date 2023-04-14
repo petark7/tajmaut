@@ -21,6 +21,12 @@ export default function Home() {
   const [currentEvent, setCurrentEvent] = useState({
   })
 
+  if (openReserveModal === false) {
+    document.body.style.overflow = 'unset'
+  }
+  else {
+    document.body.style.overflow = 'hidden'
+  }
 
   const createCardList = (dataArray) => {
     let cardList = dataArray.map((event) => {
@@ -42,6 +48,7 @@ export default function Home() {
   return cardList
   }
 
+  // fetch data:
   useEffect(() => {
     // check if event is ongoing. if ongoing -> map it out
     axios.get(`https://tajmautmk.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${dateTomorrow}&endDate=
@@ -73,7 +80,6 @@ export default function Home() {
   }, [])
 
   const venueCards =  venueListState.map((venue) => {
-    console.log(venue.venueImage)
     return (
         <VenueCard
       data={{ venueId: venue.venueId, venueImage: venue.venueImage, venueType: venue.venueType.name, venueCity: venue.venueCity.cityName, venueName: venue.name, venueAddress: venue.address }}
@@ -83,6 +89,15 @@ export default function Home() {
   const handleReserveClick = (event) => {
             // open the modal outside of the slick slider,
             // then set the props to be used in the EventDetails
+            // the contents of the props depend on what event has been clicked (for tomorrow or in 2 days)
+            let date = tomorrowEventState.find(object => object.eventId === event.id)?.dateTime;
+            if (!date)
+            {
+              date = inTwoDaysEventState.find(object => object.eventId === event.id)?.dateTime;
+            }
+            const formattedDate = getDateTimeDay(date).date;
+            const time = getDateTimeDay(date).time
+            
             setOpenReserveModal(true)
             setCurrentEvent(
               {
@@ -90,14 +105,14 @@ export default function Home() {
                 name: event.name,
                 city: event.city,
                 venue: event.venue,
-                date: event.date,
+                date: `${formattedDate} ${time}`,
                 image: event.image,
                 reservationPhone: event.reservationPhone,
               })
   }
-
-  let eventsTomorrow =  createCardList(tomorrowEventState);
   let eventsInTwoDays =  createCardList(inTwoDaysEventState)
+  let eventsTomorrow =  createCardList(tomorrowEventState);
+
 
 return (
   <>
