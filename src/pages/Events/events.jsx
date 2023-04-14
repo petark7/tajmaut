@@ -10,6 +10,7 @@ export default function Events() {
 
     const [eventState, setEventState] = useState(null);
 
+    //fetch events and set to state
     useEffect(()=> {
         axios.get('https://tajmautmk.azurewebsites.net/api/Events/GetAllEvents')
         .then(response => {
@@ -20,9 +21,7 @@ export default function Events() {
             console.log (error);
         }) 
     }, [])
-    const getEventData = () => {
-      
-    }
+
     let events = null;
     if (eventState != null) {
         events = eventState.map(event => 
@@ -36,7 +35,7 @@ export default function Events() {
                     key = {event.eventId}
                     id = {event.eventId}
                     name = {event.name}
-                    city = "Grad"
+                    city = {event.venueCity}
                     venue = {event.venueName}
                     image = {event.eventImage}
                     date = {date}

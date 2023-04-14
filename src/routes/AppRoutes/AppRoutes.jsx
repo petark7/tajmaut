@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import Home from "../../pages/Home/home.jsx";
 import Events from "../../pages/Events/events.jsx";
+import ResetPassword from "../../pages/ResetPassword/ResetPassword.jsx";
 import NotFound from "../../pages/error-page.jsx";
 import Venues from "../../pages/Venues/venues.jsx";
 import MakeReservation from "../../pages/MakeReservation";
@@ -12,6 +13,7 @@ import RegisterForm from "../../components/Register/Register.jsx";
 import PasswordForm from "../../components/ForgotPass/Password.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../../context/AuthProvider.jsx";
+import ValidationProvider from "../../context/ValidationProvider.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -56,8 +58,9 @@ export default function AppRoutes() {
   };
 
   return (
+  <ValidationProvider>
     <AuthProvider>
-      <ToastContainer/>
+      <ToastContainer />
       <Router>
         <Navbar onLoginClick={handleLoginClick} />
         <Routes>
@@ -68,6 +71,7 @@ export default function AppRoutes() {
             path="/make-reservation/:eventID"
             element={<MakeReservation />}
           />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
@@ -99,5 +103,6 @@ export default function AppRoutes() {
         )}
       </Router>
     </AuthProvider>
+    </ValidationProvider>
   );
 }

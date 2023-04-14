@@ -1,5 +1,5 @@
 import "./Login.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
@@ -16,8 +16,29 @@ export default function LoginForm({
   const [emailField, setEmailField] = useState("");
   const [passwordField, setPasswordField] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
-  const {authState, login} = useContext(AuthContext);
+  const {authState, login, setId} = useContext(AuthContext);
+  
+  //CHECK IF CODE OKAY (receive token directly, instead of using the token (state) that should be set after login)
+  // function sets user ID to context after login
+  const setUserID = (token) => {
+    console.log(`${token} this is the token that's sent`)
+    axios.get('https://tajmautmk.azurewebsites.net/api/Users/GetCurrentUserID', 
+    {
+      headers: {
+        'Authorization' : `bearer ${token}`,
+      }
+    })
+    .then(function (response) {
+      // handle success
+      setId(response.data)
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+  }
 
+  
   function handleSubmit (event) {
     setShowSpinner(true);
     event.preventDefault();
@@ -32,6 +53,7 @@ export default function LoginForm({
       setShowSpinner(false);
       console.log(response.data);
       login(response.data);
+      setUserID(response.data.accessToken)
       notify("success", "Добредојде! Каде вечер? 😁");
       onCloseClick();
     })
@@ -42,6 +64,7 @@ export default function LoginForm({
     });
   }
 
+ 
   return (
     <>
     <ToastContainer
@@ -70,32 +93,34 @@ export default function LoginForm({
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div className="user">
-            <input 
-              type="text"
-              id="email"
-              value={emailField}
-              onChange= {((event) => {
-                setEmailField(event.target.value)
-              })}
-              required 
-            />
-            <span></span>
-            <label>Корисничко име/E-пошта</label>
-          </div>
+          <div className="loginFormInputs">
+            <div className="user login">
+              <input 
+                type="text"
+                id="email"
+                value={emailField}
+                onChange= {((event) => {
+                  setEmailField(event.target.value)
+                })}
+                required 
+              />
+              <span></span>
+              <label>Корисничко име/E-пошта</label>
+            </div>
 
-          <div className="user">
-            <input 
-              type="password" 
-              required 
-              id="password"
-              value={passwordField}
-              onChange= {((event) => {
-                setPasswordField(event.target.value)
-              })}
-            />
-            <span></span>
-            <label>Лозинка</label>
+            <div className="user login">
+              <input 
+                type="password" 
+                required 
+                id="password"
+                value={passwordField}
+                onChange= {((event) => {
+                  setPasswordField(event.target.value)
+                })}
+              />
+              <span></span>
+              <label>Лозинка</label>
+            </div>
           </div>
 
           <div className="loginContainer">
@@ -111,7 +136,7 @@ export default function LoginForm({
           </div>
 
           <button 
-            className="loginButton" 
+            className="formButton" 
             type="submit"
             >
              {showSpinner ? <LoadingSpinner style="button"/> : "Најави се" }

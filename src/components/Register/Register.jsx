@@ -1,13 +1,115 @@
 import "./Register.css";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext } from "react";
+import {toast} from "react-toastify";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
+import { ValidationContext } from "../../context/ValidationProvider";
 
-export default function RegisterForm({ onLoginClick, onCloseClick }) {
+export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
+  const validationContext = useContext(ValidationContext)
   const [isShown, setIsSHown] = useState(false);
   const togglePassword = () => {
     setIsSHown((isShown) => !isShown);
   };
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+  });
+
+  const onInputChange = (event) => {
+    // console.log(`${event.target.name}, value = ${event.target.value}, ${JSON.stringify(formData)}`)
+    setFormData({
+      ...formData,
+      [event.target.name] : event.target.value,
+    })
+  }
+
+  const validateData = () => {
+      if (formData.email.match(validationContext.emailRegex))
+      {
+        // valid email, check passwords
+        // passwords should be at least 6 chars long and should match 
+        if (formData.password.length >= 6)
+        {
+          if (formData.password === formData.confirmPassword) {
+            // executes if everything is OK
+            return true;
+          }
+          else {
+            toast.error("Лозинките не ти се совпаѓаат.", {
+              position: "top-center",
+              autoClose: 5000
+            })
+          }
+        }
+        else {
+          toast.error("Лозинката мора да долга барем 6 карактери!", {
+            position: "top-center",
+            autoClose: 5000
+          })
+        }
+      }
+      else {
+        toast.error("Упс. Внесе невалидна е-пошта 🙁", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
+  }
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    // show spinner on button click
+
+    let dataToSend = {
+      email: formData.email,
+      password: formData.password,
+      confirmPassword: formData.confirmPassword,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+    }
+    // send formData to API
+    if (validateData() === true) {
+      setShowSpinner(true);
+      axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
+    .then(response => {
+      // on success
+      setShowSpinner(false);
+      toast.success("Профилот беше успешно креиран! Добредојде 👋❤️", {
+        position: "bottom-center",
+        autoClose: 5000
+      })
+      // open login form after registration
+      onLoginClick();
+    })
+    .catch(error => {
+      // on failure
+      setShowSpinner(false);
+      console.log(error.response.status)
+      if (error.response.status === 409) {
+        toast.error("Корисник со таа е-пошта веќе постои.", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
+      else {
+        toast.error("Настана некоја грешка. Пробај повторно?", {
+          position: "top-center",
+          autoClose: 5000
+        })
+      }
+    })
+    }
+  }
 
   return (
+
+
    <>
     <div className="overlay" onClick={onCloseClick}/>
       <div className="register-in custom-modal">
@@ -20,16 +122,28 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
           </p>
         </h1>
 
-        <form>
+        <form onSubmit={onFormSubmit}>
           <section className="registerForm--names">
             <div className="user">
-              <input type="text" required />
+              <input 
+              type="text" 
+              name="firstName"
+              onChange={onInputChange}
+              value={formData.firstName}
+              required 
+              />
               <span></span>
               <label>Име</label>
             </div>
 
-            <div class="user">
-              <input type="text" required />
+            <div className="user">
+              <input 
+              type="text" 
+              name="lastName"
+              value={formData.lastName}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>Презиме</label>
             </div>
@@ -37,7 +151,13 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
           <section>
             <div className="user">
-              <input type="text" required />
+              <input 
+              type="text" 
+              name="email"
+              value={formData.email}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>E-пошта</label>
             </div>
@@ -45,13 +165,24 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
 
           <section className="registerForm-passwords">
             <div className="user">
-              <input type={isShown ? "text" : "password"} required />
+              <input 
+              type={isShown ? "text" : "password"} 
+              name="password"
+              value={formData.password}
+              onChange={onInputChange}
+              required 
+              />
               <span></span>
               <label>Лозинка</label>
             </div>
 
-            <div class="user">
-              <input type={isShown ? "text" : "password"} required />
+            <div className="user">
+              <input 
+              type={isShown ? "text" : "password"} 
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={onInputChange}
+              required />
               <span></span>
               <label>Потврди</label>
             </div>
@@ -65,10 +196,17 @@ export default function RegisterForm({ onLoginClick, onCloseClick }) {
             checked={isShown}
             onChange={togglePassword}
           />
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
 
-          <input className="button" type="submit" value="Регистрирај се" />
+          <button 
+            className="formButton" 
+            type="submit"
+            >
+             {showSpinner ? <LoadingSpinner style="button"/> : "Регистрирај се" }
+          </button>
+
+          
           <div className="register">
             Веќе си зачленет?
             <a href="#" onClick={onLoginClick}>
