@@ -2,7 +2,7 @@ import "./LoadingSpinner.css"
 
 export default function LoadingSpinner(props) {
     let spinnerStyle = {};
-    if (props.style2 === "button")
+    if (props.style === "button")
     {
         spinnerStyle = {
             width: "30px",

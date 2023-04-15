@@ -6,9 +6,10 @@ export default function EventCard(props) {
   const [isClicked, toggleIsClicked] = useState(false);
 
   function toggle() {
-    {document.body.style.overflow = 'hidden'}
+    
     // if you want to control the modal show from another component
    if (props.handleOutsideState != undefined) {
+    document.body.style.overflow = 'hidden'
     props?.handleOutsideState({
         id: props.id,
         name: props.name,
@@ -27,6 +28,12 @@ export default function EventCard(props) {
     }
   }
 
+  if (isClicked) {
+    document.body.style.overflow = 'hidden'
+  }
+  else if(isClicked === false && props.handleOutsideState === undefined) {
+    document.body.style.overflow = 'unset'
+  }
     return (
         <div className = "event_card" onClick={toggle}>
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
