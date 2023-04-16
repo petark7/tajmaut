@@ -7,7 +7,7 @@
 }
 
 .event-list {
-    max-width: 830px;
+   width: 830px;
     /* height: 620px; */
     display: flex;
     flex-wrap: wrap;

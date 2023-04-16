@@ -37,7 +37,7 @@ export default function Events() {
     document.body.style.overflow = 'hidden'
   }
   
-  console.log(settings)
+
   //fetch events (on load) and set to state
   useEffect(() => {
     setIsLoading(true);
@@ -74,7 +74,7 @@ export default function Events() {
       });
   };
 
-  console.log(eventState);
+ 
   let events = null;
   if (eventState != null) {
     events = eventState.map((event) => {
@@ -104,11 +104,11 @@ export default function Events() {
     );
   }
 
-  console.log(eventState)
+
   return (
     <div className="container--events">
       <div className="event-page_content">
-        <FilterEvents setEvents={setEvents} />
+        <FilterEvents setEvents={setEvents} eventState = {eventState} />
         <div className="event-list layout-border">
           {isLoading ? <div className="events--loadingSpinner">
           <LoadingSpinner />
