@@ -2,24 +2,18 @@ import { useEffect, useState, Suspense } from "react";
 import EventCard from "../../components/EventCard/EventCard.jsx";
 import FilterEvents from "../../components/FilterEvents/FilterEvents.jsx";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
-
+import { getDateTimeDay } from "../../utils/utils.js";
 import axios from "axios";
 import "./events.css";
 import { Pagination } from "@mui/material";
 
 export default function Events() {
-//     const settings = {
-//       startDate: null,
-//       endDate: null,
-//       cityId: null,
-//       pageNumber: 1,
-//       itemsPerPage: 9,
-//     };
-  const [eventState, setEventState] = useState(null);
+
+  const [eventState, setEventState] = useState([]);
   const [openReserveModal, setOpenReserveModal] = useState(false);
   const [settings, setSettings] = useState(
     {
-      startDate: null,
+      startDate: getDateTimeDay().dateTodayISO,
       endDate: null,
       cityId: null,
       pageNumber: 1,
@@ -41,16 +35,6 @@ export default function Events() {
   //fetch events (on load) and set to state
   useEffect(() => {
     setIsLoading(true);
-    // axios
-    //   .get("https://tajmautmk.azurewebsites.net/api/Events/GetAllEvents")
-    //   .then((response) => {
-    //     setEventState(response.data);
-    //     setIsLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setEventState(null);
-    //   });
     setEvents(settings)
   }, [settings.pageNumber]);
 
@@ -64,7 +48,7 @@ export default function Events() {
       )
       .then((response) => {
         setIsLoading(false);
-        setEventState(response.data.events);
+        setEventState(response.data.items);
         setTotalItems(response.data.totalItems)
       })
       .catch((error) => {
@@ -97,6 +81,7 @@ export default function Events() {
       );
     });
   } else if (eventState == null && isLoading == false) {
+    console.log(`${eventState}, loading: ${isLoading}`)
     events = (
       <h1 className="events--noDataText">
         Нема настани со селектираните филтри
@@ -108,31 +93,36 @@ export default function Events() {
   return (
     <div className="container--events">
       <div className="event-page_content">
-        <FilterEvents setEvents={setEvents} eventState = {eventState} />
+        <FilterEvents setEvents={setEvents} eventState={eventState} />
         <div className="event-list layout-border">
-          {isLoading ? <div className="events--loadingSpinner">
-          <LoadingSpinner />
-          </div> : events}
-          {Array.isArray(events) ? 
-              <div className="pagination-container">
-                <Pagination 
-                count={Math.ceil(totalItems / settings.itemsPerPage)} 
+          {isLoading ? (
+            <div className="events--loadingSpinner">
+              <LoadingSpinner />
+            </div>
+          ) : (
+            events
+          )}
+          {Array.isArray(events) ? (
+            <div className="pagination-container">
+              <Pagination
+                count={Math.ceil(totalItems / settings.itemsPerPage)}
                 page={settings.pageNumber}
                 onChange={(event, value) => {
-                    setSettings((prevData) => ({
-                        ...prevData,
-                        ["pageNumber"] : value
-                    }))
+                  setSettings((prevData) => ({
+                    ...prevData,
+                    ["pageNumber"]: value,
+                  }));
                 }}
                 color="secondary"
                 sx={{
-                    "& .Mui-selected": {
-                        backgroundColor: "#9B85F7 !important", // set the background color for the selected button
-                      color: "#fff" // set the text color for the selected button
-                    }
-                  }} />
-              </div>
-           : null}
+                  "& .Mui-selected": {
+                    backgroundColor: "#9B85F7 !important", // set the background color for the selected button
+                    color: "#fff", // set the text color for the selected button
+                  },
+                }}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

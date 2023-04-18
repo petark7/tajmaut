@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import DatePickerElements from "../DatePicker/DatePicker";
 import Heading from "../Heading/";
 import CityDropdown from "../CityDropdown/CityDropdown.jsx";
-
+import {getDateTimeDay} from "../../utils/utils.js"
 import "./FilterEvents.css";
 import axios from "axios";
 import Dropdown from "../UI/DropDown/Dropdown";
-
 // API DATA:
 // {
 //     "pageNumber": 0,
@@ -30,12 +29,12 @@ export default function FilterEvents({ setEvents, eventState }) {
     categoryId: null,
   });
 
-  // fetch cities to send to CityDropdown component
   useEffect(() => {
     fetchCities();
     fetchCategories();
   }, []);
 
+  // fetch cities to send to CityDropdown component
   const fetchCities = () => {
     axios
       .get("https://tajmautmk.azurewebsites.net/api/Venues/GetAllVenueCities")

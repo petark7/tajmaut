@@ -6,6 +6,7 @@ import "./MakeReservation.css"
 
 export default function MakeReservation () 
 {
+    document.body.style.overflow = 'unset'
 
     return (
             <div className="background--makeReservation">
