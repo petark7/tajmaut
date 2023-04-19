@@ -2,7 +2,6 @@ import React from 'react';
 import "./Dropdown.css"
 function Dropdown(props) {
 
-    console.log(props.data[0]);
         const dropdownItems = props.data.map((item) => { 
             return (
                   <option value={item.value} key={item.value}>{item.label}</option>

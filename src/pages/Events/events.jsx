@@ -10,7 +10,6 @@ import { Pagination } from "@mui/material";
 export default function Events() {
 
   const [eventState, setEventState] = useState([]);
-  const [openReserveModal, setOpenReserveModal] = useState(false);
   const [settings, setSettings] = useState(
     {
       startDate: getDateTimeDay().dateTodayISO,
@@ -24,13 +23,6 @@ export default function Events() {
   const [totalItems, setTotalItems] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  if (openReserveModal === false) {
-    document.body.style.overflow = 'unset'
-  }
-  else {
-    document.body.style.overflow = 'hidden'
-  }
-  
 
   //fetch events (on load) and set to state
   useEffect(() => {
@@ -47,6 +39,7 @@ export default function Events() {
         eventData
       )
       .then((response) => {
+        console.log(`eventdata: ${JSON.stringify(eventData)}, response: ${JSON.stringify(response.data)}`)
         setIsLoading(false);
         setEventState(response.data.items);
         setTotalItems(response.data.totalItems)
@@ -93,7 +86,7 @@ export default function Events() {
   return (
     <div className="container--events">
       <div className="event-page_content">
-        <FilterEvents setEvents={setEvents} eventState={eventState} />
+        <FilterEvents setEvents={setEvents} settings={settings} setSettings={setSettings} eventState={eventState} />
         <div className="event-list layout-border">
           {isLoading ? (
             <div className="events--loadingSpinner">

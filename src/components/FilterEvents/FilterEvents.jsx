@@ -16,18 +16,18 @@ import Dropdown from "../UI/DropDown/Dropdown";
 //     "endDate": "2023-04-14T20:56:19.759Z"
 //   }
 
-export default function FilterEvents({ setEvents, eventState }) {
+export default function FilterEvents({ setEvents, eventState, setSettings, settings }) {
 
   const [cities, setCities] = useState([]);
   const [eventCategories, setEventCategories] = useState([]);
-  const [formData, setFormData] = useState({
-    startDate: null,
-    endDate: null,
-    cityId: null,
-    pageNumber: 1,
-    itemsPerPage: 9,
-    categoryId: null,
-  });
+  // const [formData, setFormData] = useState({
+  //   startDate: null,
+  //   endDate: null,
+  //   cityId: null,
+  //   pageNumber: 1,
+  //   itemsPerPage: 9,
+  //   categoryId: null,
+  // });
 
   useEffect(() => {
     fetchCities();
@@ -66,11 +66,12 @@ export default function FilterEvents({ setEvents, eventState }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setEvents(formData);
+    setEvents(settings);
   }
   function handleChange(event) {
+    console.log(`${event.name}, value ${event.value}`)
     const { name, value } = event.target;
-    setFormData((prevFormData) => {
+    setSettings((prevFormData) => {
       if (value == "0") {
         return {
           ...prevFormData,
@@ -84,17 +85,17 @@ export default function FilterEvents({ setEvents, eventState }) {
       }
     });
   }
-console.log(formData);
+
+  // console.log(settings)
   return (
     <div className="filterEvents-container layout-border">
       <form onSubmit={handleSubmit}>
         <Heading label="Период на прикажување" />
-        <DatePickerElements formData={formData} setFormData={setFormData} />
+        <DatePickerElements formData={settings} setFormData={setSettings} />
         <Heading label="Локација" />
         <CityDropdown
           data={cities}
           handleChange={handleChange}
-          formData={formData}
         />
         <div className="filterEvents--eventCategory">
             <Heading label="Тип настан" />
