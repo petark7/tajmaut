@@ -3,20 +3,25 @@ import React, { useContext, useState } from "react";
 import { ValidationContext } from "../../context/ValidationProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx"
 export default function PasswordForm({ onLoginClick, onCloseClick }) {
 
   const {emailRegex} = useContext(ValidationContext);
   const [emailInput, setEmailInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();  
     if (emailInput.match(emailRegex))
       {
+        setIsLoading(true)
         axios.post(`https://tajmautmk.azurewebsites.net/api/Users/ForgotPassword?email=${emailInput}`)
         .then((response) => {
+          setIsLoading(false);
           toast.success("Ти испративме линк на email за ресетирање на лозинката!");
           onCloseClick();
         })
         .catch(error => {
+          setIsLoading(false)
           toast.error(error.response.data)
         })
       }
@@ -62,7 +67,8 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
             </div>
           </section>
 
-          <input className="formButton" type="submit" value="Испрати" />
+          {/* <input className="formButton" type="submit" value={isLoading ? <LoadingSpinner/> : "Испрати"} disabled={isLoading}/> */}
+          <button className="formButton" type="submit" disabled={isLoading}>{isLoading ? <LoadingSpinner style="button"/> : "Испрати"}</button>
           <div className="register">
             <a href="#" onClick={onLoginClick}>
               Назад до најава
