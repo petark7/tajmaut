@@ -19,14 +19,14 @@ export default function MakeReservation ()
                     <div className="content--makeReservation">
                    {showModal ?  <div id="myModal" className="modal" onClick={() => {setShowModal(false);
                     }}>
-                        <NotLoggedModal setShowModal = {setShowModal} onClick={(e) => e.stopPropagation()}/>
+                        <NotLoggedModal showModal = {showModal} setShowModal = {setShowModal} onClick={(e) => e.stopPropagation()}/>
                     </div>
                    : 
                    null}
                         <ReservationHeading />
                         <ReservationCard/>
                     </div>
-                    <ReserveForm />
+                    <ReserveForm showModal={showModal} setShowModal={setShowModal}/>
                 </div>
             </div>
     )

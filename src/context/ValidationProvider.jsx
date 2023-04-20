@@ -4,9 +4,11 @@ export const ValidationContext = createContext({});
 export default function ValidationProvider({ children }) {
 
     const emailRegex = /^[a-zA-Z0-9._]{1,100}@[a-zA-Z0-9.-]{2,10}\.[a-zA-Z]{2,6}$/;
+    const phoneNumberRegex = /[0][7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
 
     const validationContext = {
         emailRegex,
+        phoneNumberRegex,
     }
 
     return (

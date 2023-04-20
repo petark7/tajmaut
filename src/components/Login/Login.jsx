@@ -57,11 +57,12 @@ export default function LoginForm({
       setUserID(response.data.accessToken)
       notify("success", "Добредојде! Каде вечер? 😁");
       onCloseClick();
-      onSuccess();
+      {typeof onSuccess === 'function' ? onSuccess() : console.log("not funct")}
     })
     .catch(error => {
       // handle login error
       setShowSpinner(false);
+      console.log(error)
       notify("error", "Имаш грешка со податоците. Провери ги?");
     });
   }
