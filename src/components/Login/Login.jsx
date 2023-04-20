@@ -11,6 +11,7 @@ export default function LoginForm({
   onSignUpClick,
   onPassClick,
   onCloseClick,
+  onSuccess,
 }) {
 
   const [emailField, setEmailField] = useState("");
@@ -56,6 +57,7 @@ export default function LoginForm({
       setUserID(response.data.accessToken)
       notify("success", "Добредојде! Каде вечер? 😁");
       onCloseClick();
+      onSuccess();
     })
     .catch(error => {
       // handle login error
@@ -72,7 +74,7 @@ export default function LoginForm({
     />
       <div className="overlay" onClick={onCloseClick} />
 
-      <div className="log-in custom-modal">
+      <div className="log-in custom-modal" onClick={(e) => e.stopPropagation()}>
         <h1>
           Најава
           <p className="closeButton" onClick={onCloseClick}>

@@ -28,7 +28,7 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
   return (
    <>
      <div className="overlay" onClick={onCloseClick}/>
-      <div className="forgot custom-modal">
+      <div className="forgot custom-modal" onClick={(e) => e.stopPropagation()}>
         
         <h1>Промена на лозинка  <p className="X" onClick={onCloseClick}>
             <svg
