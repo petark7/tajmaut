@@ -7,6 +7,7 @@ import ResetPassword from "../../pages/ResetPassword/ResetPassword.jsx";
 import NotFound from "../../pages/error-page.jsx";
 import Venues from "../../pages/Venues/venues.jsx";
 import MakeReservation from "../../pages/MakeReservation";
+import VenueDetails from "../../pages/VenueDetails/VenueDetails.jsx";
 
 import LoginForm from "../../components/Login/Login.jsx";
 import RegisterForm from "../../components/Register/Register.jsx";
@@ -70,6 +71,10 @@ export default function AppRoutes() {
           <Route
             path="/make-reservation/:eventID"
             element={<MakeReservation />}
+          />
+          <Route
+            path="/venue-details/:venueID"
+            element={<VenueDetails />}
           />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />

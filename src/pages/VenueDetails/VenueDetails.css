@@ -1,0 +1,81 @@
+.venueDetails--pageContainer {
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.venueDetails--nameHeader {
+    margin-right: 25px;
+    color: white;
+    font-size: 60px;
+}
+.venueDetails--pageContent {
+    width: 70%;
+}
+
+.venueDetails--headerContent {
+    margin: 0 15%;
+    height: 100%;
+    align-items: center;
+    justify-content:space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.venueDetails--headerBackground {
+    position: relative; /* Make the parent element a positioning context for the pseudo-element */
+    width: 100%;
+    height: 300px;
+    overflow: hidden; /* Hide any overflow from the pseudo-element */
+  }
+  
+.venueDetails--headerBackground::before {
+    content: ""; /* Generate a pseudo-element */
+    display: block;
+    position: absolute; /* Position the pseudo-element absolutely within the parent element */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('http://www.rascekor.com/images/slider1.jpg'); /* Specify the URL of your background image */
+    background-size: cover; /* Adjust the background image size to cover the entire pseudo-element */
+    background-position: center; /* Center the background image within the pseudo-element */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    filter: brightness(0.5); /* Apply the brightness filter to darken the image (0.5 represents 50% brightness) */
+    opacity: 0.8; /* Set the opacity of the pseudo-element to make it semi-transparent */
+    z-index: -1; /* Position the pseudo-element behind the content of the parent element */
+  }
+
+.venueDetails--reserveBtn {
+    padding: 10px 20px;
+    height: 50px;
+}
+
+.venueDetails--header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.venueDetails--information {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.venueDetails--additionalDetails {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.venueDetails-additionalinfo {
+    width: 50%;
+}
+
+.venueDetails--info {
+    width: 33%;
+    
+}

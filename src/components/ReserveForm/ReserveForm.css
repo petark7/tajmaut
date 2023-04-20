@@ -6,6 +6,7 @@
 }
 
 .btnReservationSubmit {
+    width: 170px;
     margin-top: 20px;
     background-color: var(--secondaryOrange);
     color: var(--textGray);

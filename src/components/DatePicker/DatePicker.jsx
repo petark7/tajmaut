@@ -3,9 +3,9 @@ import DatePicker from "react-multi-date-picker"
 import {useState} from "react"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 import "./colors/purple.css"
-
+import { getDateTimeDay } from "../../utils/utils"
 export default function DatePickerElements (props) {
-    let [startTime, setStartTime] = useState(); 
+    let [startTime, setStartTime] = useState(getDateTimeDay().dateTodayISO); 
     let [endTime, setEndTime] = useState(); 
 
     const inputStyling = {
@@ -33,12 +33,12 @@ export default function DatePickerElements (props) {
         <div className="selectdates-element1">
             <div className="selectdates-label">Од</div>
             <DatePicker 
-            name="dateFrom"
+            name="startDate"
             className="purple"
             style={inputStyling}    
-            format={"DD/MM/YYYY"}
+            format={"YYYY-MM-DD"}
             value={startTime}
-            onChange={date => setDate(date, 'dateFrom')}
+            onChange={date => setDate(date, 'startDate')}
             render={<InputIcon style={inputStyling} />}
         />
         </div>
@@ -48,9 +48,9 @@ export default function DatePickerElements (props) {
             <DatePicker 
             className="purple"
             style={inputStyling}     
-            format={"DD/MM/YYYY"}
+            format={"YYYY-MM-DD"}
             value={endTime}
-            onChange={date => setDate(date, 'dateTo')}
+            onChange={date => setDate(date, 'endDate')}
             render={<InputIcon style={inputStyling} />}
             />
         </div>

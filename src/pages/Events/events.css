@@ -1,4 +1,5 @@
 .container--events {
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,20 +7,44 @@
 }
 
 .event-list {
-    max-width: 830px;
-    height: fit-content;
+   width: 830px;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     gap: 20px;
 }
 
 .event-page_content {
+    border: 1px solid #e4e5e7;
+    padding: 20px;
+    margin-top: 100px;
     display: flex;
     gap: 30px;
 }
 
 .layout-border {
     border-radius: 4px;
-    background-color: #ededed;
+    background-color: #f3f2fc;
     padding: 20px;
 }
+
+.events--noDataText {
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+.pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+  }
+
+  .events--loadingSpinner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }

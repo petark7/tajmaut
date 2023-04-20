@@ -112,7 +112,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
 
    <>
     <div className="overlay" onClick={onCloseClick}/>
-      <div className="register-in custom-modal">
+      <div className="register-in custom-modal" onClick={(e) => e.stopPropagation()}>
         <h1>
           Регистрација{" "}
           <p className="X" onClick={onCloseClick}>

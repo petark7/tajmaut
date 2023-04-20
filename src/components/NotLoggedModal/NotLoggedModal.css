@@ -1,0 +1,60 @@
+.notLoggedModal-mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.notLoggedModal-elements {
+    text-align: center;
+}
+
+.notLoggedModal-header {
+    color: rgb(48, 48, 48);
+    margin-bottom: 40px;
+}
+.notLoggedModal-createAccountbtn {
+    color: white;
+    /* Најави се */
+    font-family: 'Ubuntu';
+    font-weight: 700;
+    font-size: 20px;
+
+    color: #FFFFFF;
+
+    border: none;
+    margin-right: 10px;
+    width: 220px;
+    height: 50px;
+    /* Rectangle 1 */
+    background: #9B85F7;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+}
+
+.notLoggedModal-loginbtn {
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  background: none;
+  color: rgb(111, 77, 158);
+}
+
+.notLoggedModal-loginbtn:hover {
+    cursor: pointer;
+}
+
+.notLoggedModal-createAccountbtn:hover {
+    cursor: pointer;
+    background-color: rgb(129, 102, 240);
+    transition: 0.1s;
+  }
+
+  .notLoggedModal-createAccountbtn:active {
+    transform: scale(.98);
+  }

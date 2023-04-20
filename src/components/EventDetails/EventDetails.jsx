@@ -55,9 +55,9 @@ export default function EventDetails (props) {
 function UnderlinedLabel (props) {
     return (
         <div className="underlinedLabel">
-            <h3 className="underlinedLabel--title">{props.label}</h3>
-            <div className="underlinedLabel--line"/>
-            <h4 className="underlinedLabel--value">{props.value}</h4>
+            <h3 className="eventDetails-underlinedLabel--title">{props.label}</h3>
+            <div className="eventDetails-underlinedLabel--line"/>
+            <h4 className="eventDetails-underlinedLabel--value">{props.value}</h4>
         </div>
     )
 }

@@ -11,10 +11,11 @@ export const AuthContext = createContext(initialAuthState);
 
 export default function AuthProvider({ children }) {
   const [authState, setAuthState] = useState(initialAuthState);
-  const [userId, setUserId] = useState(null)
+  const [userId, setUserId] = useState(cookies.get('userID') || null)
 
   const setId = (id) => {
     setUserId(id);
+    cookies.set('userID', id, { path: '/' });
   }
 
   const login = (authData) => {
@@ -29,6 +30,7 @@ export default function AuthProvider({ children }) {
 
   const logout = async () => {
     cookies.remove('accessToken', { path: '/' });
+    cookies.remove('userID', { path: '/' });
     setAuthState({
       authToken: null,
       isAuthenticated: false,

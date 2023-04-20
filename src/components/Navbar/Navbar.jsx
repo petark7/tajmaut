@@ -49,7 +49,7 @@ export default function Navbar({ onLoginClick }) {
             to="/events"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
           >
-            Распоред
+            Настани
           </NavLink>
         </li>
 
