@@ -2,7 +2,7 @@
 export default function ErrorPage() {
     return (
         <div className="container--errorpage">
-              <h1>Error Page</h1> 
+              <h1>Oops. The page you were looking for was not found.</h1> 
         </div>
     );
   };

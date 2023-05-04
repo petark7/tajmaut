@@ -60,3 +60,20 @@ export const getDateTimeDay = (dateTime = new Date()) => {
       dateInTwoDays,
     }
   }
+
+  export const textFieldStyles = {
+    "& .MuiInputBase-root": {
+      backgroundColor: "white",
+    },
+    "& .MuiFormLabel-root": {},
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "var(--primaryPurple)",
+    },
+    "& .MuiFilledInput-root.Mui-focused": {
+      color: "#8465ff",
+      backgroundColor: "#F6F3FF",
+    },
+    "& .MuiFilledInput-underline:after": {
+      borderBottomColor: "var(--primaryPurple)",
+    },
+  };

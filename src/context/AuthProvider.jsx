@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const initialAuthState = {
   authToken: cookies.get('accessToken') || null,
-  isAuthenticated: cookies.get('accessToken') || false,
+  isAuthenticated: cookies.get('accessToken') !== undefined || false,
 };
 
 export const AuthContext = createContext(initialAuthState);
@@ -19,11 +19,13 @@ export default function AuthProvider({ children }) {
   }
 
   const login = (authData) => {
-    cookies.set('accessToken', authData.accessToken, { path: '/' });
+    const tokenExpirationDate = new Date (authData.expires);
+    cookies.set('accessToken', authData.accessToken, { path: '/', expires: tokenExpirationDate });
     setAuthState({
       authToken: authData.accessToken,
       tokenType: authData.tokenType,
       createdAt: authData.createdAt,
+      expires: authData.expires,
       isAuthenticated: true,
     });
   };

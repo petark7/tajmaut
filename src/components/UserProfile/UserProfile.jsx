@@ -17,6 +17,8 @@ function UserProfile(props)
 
         if (id === "profile") {
           // add profile settings modal here
+          navigate('/profileDetails');
+          setshowProfileOptions(false)
         }
         if (id === "logout") {
             logout();
