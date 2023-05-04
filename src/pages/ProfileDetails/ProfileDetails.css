@@ -1,0 +1,59 @@
+.profileDetails--mainContainer {
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileDetails--contentContainer {
+    display: flex;
+    min-width: 600px;
+    min-height: 300px;
+    background-color: white;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.decorativeLine-thin, .profileDetails {
+   width: 70%;
+   margin: 40px 0;
+}
+
+.profileDetails-contentDescription {
+    font-size: 20px;
+    color: rgb(66, 66, 66);
+}
+
+.btnSaveChanges {
+    width: 180px;
+    margin-top: 20px;
+    background-color: var(--secondaryOrange);
+    color: var(--textGray);
+    background: #FFB978;
+    border-radius: 9px;
+    padding: 15px;
+    font-family: 'Ubuntu';
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+}
+
+.btnSaveChanges:hover {
+    cursor: pointer;
+    background-color: var(--secondaryOrangeHovered);
+}
+
+.btnSaveChanges:active {
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
+  }
+
+  .btnSaveChanges {
+    margin-top: 20px !important;
+    width: 200px;
+  }
+
+  .profileDetails--pageTitle {
+    color: rgb(58, 58, 58);
+    margin-bottom: 70px;
+}

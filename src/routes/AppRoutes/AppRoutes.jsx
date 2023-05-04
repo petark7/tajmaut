@@ -17,6 +17,7 @@ import AuthProvider from "../../context/AuthProvider.jsx";
 import ValidationProvider from "../../context/ValidationProvider.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProfileDetails from "../../pages/ProfileDetails/ProfileDetails.jsx";
 
 export default function AppRoutes() {
 
@@ -68,6 +69,7 @@ export default function AppRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/venues" element={<Venues />} />
+          <Route path="/profileDetails" element={<ProfileDetails />} />
           <Route
             path="/make-reservation/:eventID"
             element={<MakeReservation />}
