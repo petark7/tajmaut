@@ -60,6 +60,7 @@
 }
 
 .venueDetails--information {
+    margin-top: 70px;
     display: flex;
     flex-direction: row;
     gap: 60px;
@@ -78,4 +79,9 @@
 .venueDetails--info {
     width: 33%;
     
+}
+
+.venueDetails-locationMap {
+    background-color: red;
+    height: 550px;
 }
