@@ -1,7 +1,7 @@
 import "./VenueDetails.css";
 import UnderlinedLabel from "../../components/UnderlinedLabel/UnderlinedLabel"
 import { useMemo } from "react";
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
 const VenueDetails = () => {
 
   const containerStyle = {
@@ -48,15 +48,18 @@ const VenueDetails = () => {
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={center}
-                  zoom={18}
-                >
-                  <Marker position={{lat: 41.02355896867285, lng: 21.33990962449036}}/>
+                  zoom={17}
+                >, 
+                  <MarkerF position={{lat: 41.02341113959708, lng: 21.33991440364335}}/>
                 </GoogleMap>
               </LoadScript>
             </div>
           </div>
           <div className="venueDetails-additionalinfo">
             <UnderlinedLabel label="Оценки" value="" />
+            <div className="venueDetails-reviews">
+              
+            </div>
           </div>
         </div>
       </div>
