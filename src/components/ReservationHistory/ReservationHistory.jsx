@@ -18,13 +18,23 @@ const ReservationHistory = ({reservationData}) =>
       </div>)},
   ]
 
-  const rows = reservationData?.map(reservation => ({
-    id: reservation.onlineReservationId,
-    eventName: reservation.eventName,
-    dateReservation: getDateTimeDay(reservation.createdAt).date,
-    reservedFor: `${reservation.firstName} ${reservation.lastName}`,
-    reservationStatus: (reservation.isActive === true ? "Одобрена" : "Во исчекување")
-  }))
+  let rows = {};
+  
+  if (reservationData !== undefined && reservationData.length > 0 && reservationData !== null) {
+    rows = reservationData.map(reservation => ({
+      id: reservation.onlineReservationId,
+      eventName: reservation.eventName,
+      dateReservation: getDateTimeDay(reservation.createdAt).date,
+      reservedFor: `${reservation.firstName} ${reservation.lastName}`,
+      reservationStatus: (reservation.isActive === true ? "Одобрена" : "Во исчекување")
+    }));
+  }
+  const NoRowsFound = () => (
+    <div className="noReservationsDiv">
+      <h1 className="noReservationsText">Немаш направено резервации</h1>
+    </div>
+  );
+  
     return (
       <div style={{ height: "100%", width: '100%' }}>
         <h1 className='profileDetails-contentDescription'>Преглед на резервации</h1>
@@ -35,6 +45,9 @@ const ReservationHistory = ({reservationData}) =>
           pagination: {
             paginationModel: { pageSize: 5, page: 0 },
           },
+        }}
+        slots={{
+          noRowsOverlay: NoRowsFound
         }}
         />
       </div>

@@ -28,6 +28,7 @@ function ProfileDetails(props) {
       setReservationData (response.data)
     })
     .catch (error => {
+      setReservationData (0)
       console.log(error);
     })
   }
