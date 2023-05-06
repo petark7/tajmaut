@@ -5,6 +5,7 @@ import RegisterForm from '../Register/Register';
 import PasswordForm from '../ForgotPass/Password';
 import { toast } from 'react-toastify';
 import CloseIcon from '@mui/icons-material/Close';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function NotLoggedModal(props) {
 
     const notify = (type, message) => {
@@ -96,13 +97,18 @@ function NotLoggedModal(props) {
               sx={{
                 fontSize: 35,
                 position: "relative",
-                top: -30,
-                right: -190,
+                top: 7,
+                right: -200,
                 color: "#515151",
                 cursor: "pointer",
               }}
             />
             <div className="notLoggedModal-elements">
+              <AccountCircleIcon
+               sx={{
+                fontSize: 100,
+                color: "#515151",
+              }}/>
               <h1 className="notLoggedModal-header">
                 {props.customHeader != undefined
                   ? props.customHeader

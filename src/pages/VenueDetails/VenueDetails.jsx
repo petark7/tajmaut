@@ -40,10 +40,28 @@ const VenueDetails = () => {
   if (!venueDetails) {
     return <ErrorPage/>;
   }
+console.log(venueDetails)
+  const beforeStyle = {
+    content: '""',
+    display: 'block',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url(${venueDetails.venueImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    filter: 'brightness(0.5)',
+    opacity: 0.8,
+    zIndex: -1,
+  };
 
   return (
     <div className="venueDetails--pageContainer">
       <div className="venueDetails--headerBackground">
+      <div style={beforeStyle}></div>
         <div className="venueDetails--headerContent">
           <h1 className="venueDetails--nameHeader">{venueDetails?.name}</h1>
           {/* <button className="eventDetails-reserveBtn venueDetails--reserveBtn">
