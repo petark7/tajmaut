@@ -33,6 +33,7 @@ export default function Venues() {
       const cards = response.data.items.map(venues => {
         return (
           {
+            venueId: venues.venueId,
             venueImage: venues.venueImage,
             venueType: venues.venueType.name,
             venueName: venues.name,

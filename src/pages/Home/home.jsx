@@ -81,10 +81,17 @@ export default function Home() {
 
   const venueCards =  venueListState.map((venue) => {
     return (
-        <VenueCard
-      data={{ venueId: venue.venueId, venueImage: venue.venueImage, venueType: venue.venueType.name, venueCity: venue.venueCity.cityName, venueName: venue.name, venueAddress: venue.address }}
-    />
-      )
+      <VenueCard
+        data={{
+          venueId: venue.venueId,
+          venueImage: venue.venueImage,
+          venueType: venue.venueType.name,
+          venueCity: venue.venueCity.cityName,
+          venueName: venue.name,
+          venueAddress: venue.address,
+        }}
+      />
+    );
   })
   const handleReserveClick = (event) => {
             // open the modal outside of the slick slider,

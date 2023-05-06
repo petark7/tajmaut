@@ -1,19 +1,21 @@
 .venueReviews--leaveReviewLabel {
     font-weight: 600;
     color: gray;
+    margin-bottom: 5px;
 }
 
 .bn1 {
     display: inline-block;
     padding: 0.6em 1.7em;
-    border: 0.1em solid #000000;
+    border: 1px solid rgb(204, 204, 204);
+    background-color: #9b85f7;
     margin-top: 10px;
-    border-radius: 0.22em;
+    border-radius: 5px;
     box-sizing: border-box;
     text-decoration: none;
     font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    color: #000000;
+    font-weight: 500;
+    color: white;
     text-align: center;
     transition: all 0.2s;
   }
@@ -21,7 +23,7 @@
   .bn1:hover {
     cursor: pointer;
     color: #ffffff;
-    background-color: #9b85f7;
+    background-color: #7654fe;
   }
 
   .venueReviews--reviewList {

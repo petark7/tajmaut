@@ -1,8 +1,6 @@
 import React from "react";
 import "./ImageCarousel.css";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
-
 
 function Item(props)
 {
@@ -12,8 +10,8 @@ function Item(props)
        </>
     )
 }
-
 const ImageCarousel = (props) => {
+
   var items = [
     {
       url: "https://i0.wp.com/bitolanews.mk/wp-content/uploads/2021/11/rasscekor-8.jpg?resize=800%2C534&ssl=1",

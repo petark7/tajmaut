@@ -26,7 +26,7 @@ const labels = {
 const VenueReviews = () => {
   const authContext = useContext(AuthContext);
   const {venueID} = useParams();
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState(5);
   const [hover, setHover] = useState(-1);
   const [reviewList, setReviewList] = useState([]);
   const [formData, setFormData] = useState({
@@ -55,7 +55,6 @@ const VenueReviews = () => {
         toast.error(JSON.stringify(error.response.data.title))
       })
   }
-  console.log(reviewList);
   useEffect(() => {
     fetchReviews();
   }, [])
@@ -88,7 +87,7 @@ const VenueReviews = () => {
       }))
     })
     .catch (error => {
-      console.log(error)
+      console.log(error.response)
     })
   }
 
@@ -130,10 +129,13 @@ const VenueReviews = () => {
         style={{
           maxWidth: "100%",
           width: "100%",
-          height: "70px",
+          height: "100px",
           marginTop: "10px",
           fontSize: "17px",
           fontFamily: "Ubuntu",
+          borderRadius: "7px",
+          border: "1px solid rgb(204, 204, 204)",
+          padding: "10px"
         }}
       />
       <a class="bn1" onClick={handleSubmit}>

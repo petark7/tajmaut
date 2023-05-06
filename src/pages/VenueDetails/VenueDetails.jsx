@@ -14,6 +14,8 @@ const VenueDetails = () => {
   const containerStyle = {
     width: "100%",
     height: "100%",
+    borderRadius: "7px",
+    border: "1px #d3d3d3 solid"
   };
 
   const center = {
