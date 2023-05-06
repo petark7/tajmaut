@@ -10,6 +10,8 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-toastify";
 import {getDateTimeDay} from "../../utils/utils"
+import NotLoggedModal from "../NotLoggedModal/NotLoggedModal";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const labels = {
   1: "Катастрофа",
@@ -25,10 +27,12 @@ const labels = {
 
 const VenueReviews = () => {
   const authContext = useContext(AuthContext);
+  const [showSpinner, setShowSpinner] = useState(false)
   const {venueID} = useParams();
   const [value, setValue] = useState(5);
   const [hover, setHover] = useState(-1);
   const [reviewList, setReviewList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     venueId: venueID,
     body: "",
@@ -67,32 +71,68 @@ const VenueReviews = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData)
-    axios.post(`https://tajmautmk.azurewebsites.net/api/Comments/CreateComment`,
     {
-      venueId: formData.venueId,
-      body: formData.body,
-      review: formData.rating,
-    },
-    {headers: {
-      "Authorization" : `bearer ${authContext.authState.authToken}`
-    }})
-    .then (response => {
-      fetchReviews();
-      toast.success("Оцената беше успешно испратена!")
-      formData(setFormData ({
-        venueId: formData.venueId,
-        body: "",
-        review: formData.rating,
-      }))
-    })
-    .catch (error => {
-      console.log(error.response)
-    })
-  }
+      if (authContext.authState.isAuthenticated) {
+        setShowSpinner(true);
+        axios
+          .post(
+            `https://tajmautmk.azurewebsites.net/api/Comments/CreateComment`,
+            {
+              venueId: formData.venueId,
+              body: formData.body,
+              review: formData.rating,
+            },
+            {
+              headers: {
+                Authorization: `bearer ${authContext.authState.authToken}`,
+              },
+            }
+          )
+          .then((response) => {
+            setShowSpinner(false);
+            fetchReviews();
+            toast.success("Оцената беше успешно испратена!");
+            formData(
+              setFormData((prevData) => ({
+                ...prevData,
+                body: "",
+              }))
+            );
+          })
+          .catch((error) => {
+            if (error.response.data.status === 400) {
+              toast.error("Потребно е да внесиш коментар!")
+            }
+            else {
+              toast.error("Настана неочекувана грешка...")
+            }
+            setShowSpinner(false);
+            console.log(error.response.data.status);
+          });
+      } else {
+        setShowModal(true);
+      }
+    }
+  };
 
   return (
     <>
+     {showModal ? (
+            <div
+              id="myModal"
+              className="modal"
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              <NotLoggedModal
+                showModal={showModal}
+                setShowModal={setShowModal}
+                onClick={(e) => e.stopPropagation()}
+                customHeader="Мора да си најавен/а за да оставиш коментар!"
+              />
+            </div>
+          ) : null}
       <div className="venueReviews--leaveReviewLabel">Оцени го локалот</div>
       <form onSubmit={handleSubmit}>
       <Box
@@ -139,7 +179,7 @@ const VenueReviews = () => {
         }}
       />
       <a class="bn1" onClick={handleSubmit}>
-        Испрати оцена
+        {showSpinner === true ? <LoadingSpinner style="button"/> : "Испрати оцена"}
       </a>
       </form>
       <div className="decorativeLine-thin" />
