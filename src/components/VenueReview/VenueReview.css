@@ -1,0 +1,27 @@
+
+.venueReview--mainContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 13px;
+    background-color: #eceaf9;
+    padding: 15px;
+}
+
+.venueReview-upperHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.venueReview--user {
+    display: flex;
+    gap: 10px;
+}
+
+.venueReview--userName {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
