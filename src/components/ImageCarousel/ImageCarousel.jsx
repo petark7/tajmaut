@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ImageCarousel.css";
 import Carousel from "react-material-ui-carousel";
 
@@ -10,22 +10,27 @@ function Item(props)
        </>
     )
 }
-const ImageCarousel = (props) => {
+const ImageCarousel = ({galleryImages}) => {
+const [images, setImages] = useState([
+  {
+    url: galleryImages.galleryImage1
+  },
 
-  var items = [
-    {
-      url: "https://i0.wp.com/bitolanews.mk/wp-content/uploads/2021/11/rasscekor-8.jpg?resize=800%2C534&ssl=1",
-    },
-    {
-      url: "https://nezavisen.mk/wp-content/uploads/2021/11/image10.jpeg",
-    },
-    {
-      url: "https://i0.wp.com/bitolanews.mk/wp-content/uploads/2021/11/sopen-13.jpg?resize=800%2C477&ssl=1",
-    },
-    {
-      url: "https://www.popularno.mk/wp-content/uploads/2021/11/261183716_434608928110906_8187942504195908575_n.jpg",
-    },
-  ];
+])
+
+// map over received data and insert every url that is not null
+useEffect(() => {
+  {
+    const newImages = Object.entries(galleryImages)
+    .filter(([key, value]) => value !== "null")
+    .map(([key, value]) => (
+      {
+        url: value
+      }
+    ))
+    setImages(newImages);
+  }
+}, [])
 
   return (
     <>
@@ -36,7 +41,7 @@ const ImageCarousel = (props) => {
             style: { borderRadius: "50%", width: "50px", height: "50px" },
           }}
         >   
-          {items.map((item, i) => (
+          {images.map((item, i) => (
             <Item key={i} item={item} />
           ))}
         </Carousel>

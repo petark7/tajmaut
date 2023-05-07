@@ -10,7 +10,10 @@ import ErrorPage from "../../pages/error-page"
 const VenueDetails = () => {
   const { venueID } = useParams();
   const [venueDetails, setVenueDetails] = useState(null);
-
+  const [mapLocation, setMapLocation] = useState({
+    "lat": 41.02401325016641,
+    "lng": 21.336643837311875
+  })
   const containerStyle = {
     width: "100%",
     height: "100%",
@@ -18,20 +21,19 @@ const VenueDetails = () => {
     border: "1px #d3d3d3 solid"
   };
 
-  const center = {
-    lat: 41.02355896867285,
-    lng: 21.33990962449036,
-  };
-
+  
   useEffect(() => {
+    
     // Make an API call to check if the venue ID exists
     axios.get(`https://tajmautmk.azurewebsites.net/api/Venues/GetVenueByID?VenueId=${venueID}`)
       .then(response => {
         setVenueDetails(response.data);
+        setMapLocation(response.data.location)
       })
       .catch(error => {
         setVenueDetails(false);
       });
+
   }, [venueID]);
 
   if (venueDetails === null) {
@@ -74,7 +76,7 @@ console.log(venueDetails)
           <div className="venueDetails--info">
             <UnderlinedLabel
               label="Работно Време"
-              value="Пет-Саб 00:00 - 04:00"
+              value={venueDetails.workingHours}
             />
           </div>
           <div className="venueDetails--info">
@@ -85,7 +87,7 @@ console.log(venueDetails)
           </div>
         </div>
         <div className="venueDetails--imageSlider">
-          <ImageCarousel />
+          <ImageCarousel galleryImages={venueDetails.galleryImages}/>
         </div>
         <div className="venueDetails--additionalDetails">
           <div className="venueDetails-additionalinfo">
@@ -94,15 +96,12 @@ console.log(venueDetails)
               <LoadScript googleMapsApiKey="AIzaSyDda3FCTD3PD3gMvrL12fYCMdbxp3UcxeM">
                 <GoogleMap
                   mapContainerStyle={containerStyle}
-                  center={center}
+                  center={mapLocation}
                   zoom={17}
                 >
                   ,
                   <MarkerF
-                    position={{
-                      lat: 41.02341113959708,
-                      lng: 21.33991440364335,
-                    }}
+                    position={mapLocation}
                   />
                 </GoogleMap>
               </LoadScript>
