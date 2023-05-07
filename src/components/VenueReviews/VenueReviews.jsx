@@ -46,7 +46,7 @@ const VenueReviews = () => {
         const reviews = response.data.map((review) => {
           return (
             <VenueReview
-              author="Petar"
+              author={review.userFirstName}
               rating={review.review}
               datePosted={getDateTimeDay(review.dateTime).date}
               comment={review.body}
@@ -72,9 +72,11 @@ const VenueReviews = () => {
 
   const handleSubmit = () => {
     {
+      console.log(formData.body)
       if (authContext.authState.isAuthenticated) {
-        setShowSpinner(true);
-        axios
+        if(formData.body !== "") {
+          setShowSpinner(true);
+          axios
           .post(
             `https://tajmautmk.azurewebsites.net/api/Comments/CreateComment`,
             {
@@ -109,6 +111,10 @@ const VenueReviews = () => {
             setShowSpinner(false);
             console.log(error.response.data.status);
           });
+        }
+        else {
+          toast.error("Потребно е да внесиш коментар!")
+        }
       } else {
         setShowModal(true);
       }
