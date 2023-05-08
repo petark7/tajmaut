@@ -10,7 +10,7 @@ const VenueCard = ({data}) => {
 
     const navigate = useNavigate();
     return (
-        <div className = "venue_card" onClick={()=>{redirect(`/venue-details/${data.venueId}`)}}>
+        <div className = "venue_card" onClick={()=>{navigate(`/venue-details/${data.venueId}`)}}>
             <img src={data.venueImage}/>
                 <div className="content">
                     <h4 className="venue_type">{data.venueType}</h4>

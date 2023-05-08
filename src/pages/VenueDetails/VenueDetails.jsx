@@ -1,6 +1,6 @@
 import "./VenueDetails.css";
 import UnderlinedLabel from "../../components/UnderlinedLabel/UnderlinedLabel";
-import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, useLoadScript , MarkerF } from "@react-google-maps/api";
 import VenueReviews from "../../components/VenueReviews/VenueReviews";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 import { useParams } from 'react-router-dom';
@@ -8,12 +8,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorPage from "../../pages/error-page"
 const VenueDetails = () => {
+  
   const { venueID } = useParams();
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey:"AIzaSyDda3FCTD3PD3gMvrL12fYCMdbxp3UcxeM",
+  });
+
   const [venueDetails, setVenueDetails] = useState(null);
   const [mapLocation, setMapLocation] = useState({
     "lat": 41.02401325016641,
     "lng": 21.336643837311875
   })
+
   const containerStyle = {
     width: "100%",
     height: "100%",
@@ -42,7 +48,7 @@ const VenueDetails = () => {
   if (!venueDetails) {
     return <ErrorPage/>;
   }
-console.log(venueDetails)
+
   const beforeStyle = {
     content: '""',
     display: 'block',
@@ -60,6 +66,9 @@ console.log(venueDetails)
     zIndex: -1,
   };
 
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading maps";
+  
   return (
     <div className="venueDetails--pageContainer">
       <div className="venueDetails--headerBackground">
@@ -93,18 +102,17 @@ console.log(venueDetails)
           <div className="venueDetails-additionalinfo">
             <UnderlinedLabel label="Најди на карта" value="" />
             <div className="venueDetails-locationMap">
-              <LoadScript googleMapsApiKey="AIzaSyDda3FCTD3PD3gMvrL12fYCMdbxp3UcxeM">
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={mapLocation}
                   zoom={17}
+                  onError={(error)=> {console.log(error)}}
                 >
                   ,
                   <MarkerF
                     position={mapLocation}
                   />
                 </GoogleMap>
-              </LoadScript>
             </div>
           </div>
           <div className="venueDetails-additionalinfo">
