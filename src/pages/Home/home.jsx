@@ -6,7 +6,6 @@ import axios from "axios";
 import { getDateTimeDay, getNextDay} from "../../utils/utils.js";
 import "./home.css";
 import EventDetails from "../../components/EventDetails/EventDetails.jsx";
-import utils from "../../utils/utils.js"
 import VenueCard from "../../components/VenueCard/VenueCard.jsx";
 
 export default function Home() {
@@ -39,7 +38,7 @@ export default function Home() {
        city={event.venueCity}
        venue={event.venueName}
        image={event.eventImage}
-       date={getDateTimeDay(event.dateTime).date}
+       date={`${getDateTimeDay(event.dateTime).date} ${getDateTimeDay(event.dateTime).time}`}
        reservationPhone={event.venuePhone}
        handleOutsideState={handleReserveClick}
        />
@@ -51,8 +50,9 @@ export default function Home() {
   // fetch data:
   useEffect(() => {
     // check if event is ongoing. if ongoing -> map it out
+    console.log(getDateTimeDay().dateTodayISO)
     axios.get(`https://tajmautmk.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${dateTomorrow}&endDate=
-    ${getNextDay(getDateTimeDay().dateTomorrow)}`)
+    ${getNextDay(getDateTimeDay().dateToday)}`)
       .then(response => {
         setTomorrowEventState(response.data);
       })

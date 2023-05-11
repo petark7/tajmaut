@@ -43,6 +43,7 @@ export const getDateTimeDay = (dateTime = new Date()) => {
     const dateInTwoDays = new Date (CESTDate);
     dateInTwoDays.setDate(CESTDate.getDate() + 2)
 
+    const dateToday = new Date (CESTDate);
     const dayToday = getDayMKD(CESTDate.getDay());
     const dayTomorrow = getDayMKD(dateTomorrow.getDay())
     const dayInTwoDays = getDayMKD (dateInTwoDays.getDay())
@@ -56,6 +57,7 @@ export const getDateTimeDay = (dateTime = new Date()) => {
       dayToday,
       dayTomorrow,
       dayInTwoDays,
+      dateToday,
       dateTomorrow,
       dateInTwoDays,
     }

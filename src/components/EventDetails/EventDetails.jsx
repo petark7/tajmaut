@@ -33,9 +33,9 @@ export default function EventDetails (props) {
                             <div className="detailsContainer">
                                 {/* ADD TIME, NOT JUST DATE */}
                                 <UnderlinedLabel label="Кога?" value={props.date}/>
-                                <UnderlinedLabel label="Резервации?" value={props.reservationPhone}/>
+                                <UnderlinedLabel label="Контакт телефон" value={props.reservationPhone}/>
                                 <UnderlinedLabel label="Каде?" value={props.venue}/>
-                                <UnderlinedLabel label="Град?" value={props.city}/>
+                                <UnderlinedLabel label="Град" value={props.city}/>
                                 
                                 <div className="eventDetails--buttonContainer">
                                     <button onClick={handleClick} className="eventDetails-reserveBtn button">Резервирај</button>

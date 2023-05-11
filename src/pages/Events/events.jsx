@@ -2,7 +2,7 @@ import { useEffect, useState, Suspense } from "react";
 import EventCard from "../../components/EventCard/EventCard.jsx";
 import FilterEvents from "../../components/FilterEvents/FilterEvents.jsx";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
-import { getDateTimeDay } from "../../utils/utils.js";
+import { getDateTimeDay, getNextDay} from "../../utils/utils.js";
 import axios from "axios";
 import "./events.css";
 import { Pagination } from "@mui/material";
@@ -68,7 +68,7 @@ export default function Events() {
           city={event.venueCity}
           venue={event.venueName}
           image={event.eventImage}
-          date={date}
+          date={`${getDateTimeDay(event.dateTime).date} ${getDateTimeDay(event.dateTime).time}`}
           reservationPhone={event.venuePhone}
         />
       );

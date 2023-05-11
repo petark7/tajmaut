@@ -20,6 +20,7 @@ export default function EventCard(props) {
         reservationPhone: props.reservationPhone,
     });
    }
+
     if (props.opensModal !== false) {
          toggleIsClicked((prevValue) => !prevValue);
     }
@@ -34,6 +35,7 @@ export default function EventCard(props) {
   else if(isClicked === false && props.handleOutsideState === undefined) {
     document.body.style.overflow = 'unset'
   }
+
     return (
         <div className = "event_card" onClick={toggle}>
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
