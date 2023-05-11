@@ -1,10 +1,16 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import "./VenueCard.css"
 
 const VenueCard = ({data}) => {
+    function redirect(url) {
+        window.location.href = (window.location.origin + url);
+      }
+
+    const navigate = useNavigate();
     return (
-        <div className = "venue_card" onClick={()=>{}}>
+        <div className = "venue_card" onClick={()=>{navigate(`/venue-details/${data.venueId}`)}}>
             <img src={data.venueImage}/>
                 <div className="content">
                     <h4 className="venue_type">{data.venueType}</h4>

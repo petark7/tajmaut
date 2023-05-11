@@ -4,6 +4,8 @@ import LoginForm from "../../components/Login/Login"
 import RegisterForm from '../Register/Register';
 import PasswordForm from '../ForgotPass/Password';
 import { toast } from 'react-toastify';
+import CloseIcon from '@mui/icons-material/Close';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function NotLoggedModal(props) {
 
     const notify = (type, message) => {
@@ -74,33 +76,55 @@ function NotLoggedModal(props) {
         )}
 
         {modal === "forgot-password" && (
-           <PasswordForm
-           onLoginClick={() => setModal("login")}
-           onCloseClick={() => {setModal("")
-             document.body.style.overflow = 'unset';
-           }}
-         />
+          <PasswordForm
+            onLoginClick={() => setModal("login")}
+            onCloseClick={() => {
+              setModal("");
+              document.body.style.overflow = "unset";
+            }}
+          />
         )}
         {modal == "" ? (
           <div
             className="notLoggedModal-mainContainer"
             onClick={(e) => e.stopPropagation()}
           >
+            <CloseIcon
+              onClick={() => {
+                props.setShowModal(false);
+                document.body.style.overflow = "unset";
+              }}
+              sx={{
+                fontSize: 35,
+                position: "relative",
+                top: 7,
+                right: -200,
+                color: "#515151",
+                cursor: "pointer",
+              }}
+            />
             <div className="notLoggedModal-elements">
+              <AccountCircleIcon
+               sx={{
+                fontSize: 100,
+                color: "#515151",
+              }}/>
               <h1 className="notLoggedModal-header">
-                Мора да си најавен/а за направиш резервација!
+                {props.customHeader != undefined
+                  ? props.customHeader
+                  : "Мора да си најавен/а за да ја извршиш таа акција!"}
               </h1>
               <button
                 className="notLoggedModal-createAccountbtn"
-                onClick={openRegisterModal}
-              >
-                Отвори акаунт
-              </button>
-              <button
-                className="notLoggedModal-loginbtn"
                 onClick={openLoginModal}
               >
                 Најави се
+              </button>
+              <button
+                className="notLoggedModal-loginbtn"
+                onClick={openRegisterModal}
+              >
+                Креирај акаунт
               </button>
             </div>
           </div>

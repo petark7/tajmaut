@@ -10,7 +10,8 @@ export default function LoadingSpinner(props) {
             border: "5px solid #f3f3f3",
             borderTop: "5px solid #777777",
             borderRadius: "50%",
-            animation: "spinner 1.5s linear infinite"
+            animation: "spinner 1.5s linear infinite",
+            textAlign:"center"
           };
     }
 

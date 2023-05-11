@@ -42,6 +42,9 @@ export default function ReserveForm(props) {
     numberGuests: false,
   });
 
+  const [errorCauseEmail, setErrorCauseEmail] = useState("");
+  const [errorCausePhone, setErrorCausePhone] = useState("");
+  const [errorCauseNumGuests, setErrorCausNumGuests] = useState("");
   const [eventData, setEventData] = useState({
     eventId: 0,
     venueId: 0,
@@ -70,7 +73,7 @@ export default function ReserveForm(props) {
     lastName: "",
     email: "",
     phone: "",
-    numberGuests: 0,
+    numberGuests: 1,
   });
 
   function validateData() {
@@ -90,6 +93,13 @@ export default function ReserveForm(props) {
     if (email === "" || !formData.email.match(validationData.emailRegex)) {
       flipErrorMessage("email", true);
       formIsValid = false;
+      if (email === "") {
+        setErrorCauseEmail("Полето е задолжително")
+      }
+      else if (!formData.email.match(validationData.emailRegex))
+      {
+        setErrorCauseEmail("Имаш внесено невалиден емаил")
+      }
     } else {
       flipErrorMessage("email", false);
     }
@@ -100,6 +110,13 @@ export default function ReserveForm(props) {
     ) {
       flipErrorMessage("phone", true);
       formIsValid = false;
+      if (phone === "") {
+        setErrorCausePhone("Полето е задолжително")
+      }
+      else if (!formData.phone.match(validationData.phoneNumberRegex))
+      {
+        setErrorCausePhone("Имаш внесено невалиден број")
+      }
     } else {
       flipErrorMessage("phone", false);
     }
@@ -107,6 +124,13 @@ export default function ReserveForm(props) {
     if (numberGuests === "" || formData.numberGuests <= 0) {
       formIsValid = false;
       flipErrorMessage("numberGuests", true);
+      if (numberGuests === "") {
+        setErrorCausNumGuests("Полето е задолжително")
+      }
+      else if (formData.numberGuests === 0)
+      {
+        setErrorCausNumGuests("Бројот на гости не може да биде 0")
+      }
     } else {
       flipErrorMessage("numberGuests", false);
     }
@@ -175,15 +199,40 @@ export default function ReserveForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    validateData();
-    if (formIsValid) {
-      sendDataToAPI();
+
+    if (context.authState.isAuthenticated === true) {
+      validateData();
+      if (formIsValid) {
+        sendDataToAPI();
+      }
     }
+    else {
+      props.setShowModal(true);
+    }
+   
   }
 
   function handleChange(event) {
     const { name, value } = event.target;
-
+    if (name === "phone") {
+      const inputPhoneNumber = value.replace(/\D/g,'')
+      setFormData((prevFormData) => {
+        return {
+          ...prevFormData,
+          [name]: inputPhoneNumber,
+        };
+      });
+    }
+    else if (event.target.name === "numberGuests") {
+      const inputNumber = Math.floor(Number(event.target.value));
+      setFormData((prevFormData) => {
+        return {
+          ...prevFormData,
+          [name]: inputNumber,
+        };
+      });
+    }
+    else
     {
       setFormData((prevFormData) => {
         return {
@@ -207,6 +256,7 @@ export default function ReserveForm(props) {
             label="Име"
             variant="filled"
             fullWidth
+            helperText={errorMessages.firstName ? "Полето е задолжително" : ''}
             error={errorMessages.firstName}
           />
         </Grid>
@@ -219,6 +269,7 @@ export default function ReserveForm(props) {
             onChange={handleChange}
             sx={textFieldStyles}
             label="Презиме"
+            helperText={errorMessages.lastName ? "Полето е задолжително" : ''}
             variant="filled"
             fullWidth
             error={errorMessages.lastName}
@@ -235,6 +286,7 @@ export default function ReserveForm(props) {
             label="Email"
             variant="filled"
             fullWidth
+            helperText={errorMessages.email ? errorCauseEmail : ''}
             error={errorMessages.email}
           />
         </Grid>
@@ -246,11 +298,12 @@ export default function ReserveForm(props) {
             value={formData.phone}
             onChange={handleChange}
             sx={textFieldStyles}
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
             label="Телефон"
-            type="number"
+            inputMode="numeric"
+            type="tel"
             variant="filled"
             fullWidth
+            helperText={errorMessages.phone ? errorCausePhone : ''}
             error={errorMessages.phone}
           />
         </Grid>
@@ -262,11 +315,16 @@ export default function ReserveForm(props) {
             value={formData.numberGuests}
             onChange={handleChange}
             sx={textFieldStyles}
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+
             label="Број на гости"
             variant="filled"
             fullWidth
             type="number"
+            inputProps={{
+              step: 1,
+              min: 1
+            }}
+            helperText={errorMessages.numberGuests ? errorCauseNumGuests : ''}
             error={errorMessages.numberGuests}
           />
         </Grid>

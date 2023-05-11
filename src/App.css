@@ -45,3 +45,14 @@ input.rmdp-input + svg {
   margin-right: 5px;
 }
 
+@font-face {
+  font-family: "NeueMachina"; 
+  src: local("NeueMachina-Regular"),
+    url("./fonts/NeueMachina-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMachinaLight"; 
+  src: local("NeueMachina-Light"),
+    url("./fonts/NeueMachina-Light.otf") format("opentype");
+}
