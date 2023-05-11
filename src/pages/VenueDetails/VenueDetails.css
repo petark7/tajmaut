@@ -78,3 +78,10 @@
 .venueDetails--additionalDetails {
     margin-bottom: 50px;
 }
+
+.center {
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

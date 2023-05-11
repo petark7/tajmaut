@@ -40,7 +40,7 @@ export default function Navbar({ onLoginClick }) {
             to="/"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
           >
-            Home
+            Почетна
           </NavLink>
         </li>
 

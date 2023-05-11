@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorPage from "../../pages/error-page"
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const VenueDetails = () => {
   
   const { venueID } = useParams();
@@ -43,10 +44,18 @@ const VenueDetails = () => {
   }, [venueID]);
 
   if (venueDetails === null) {
-    return <h1>Се вчитува...</h1>
+    return <>
+    <div className="center">
+      <LoadingSpinner/>
+    </div>
+    </>
   }
   if (!venueDetails) {
-    return <ErrorPage/>;
+    return <>
+    <div className="center">
+      <ErrorPage/>
+    </div>
+    </>
   }
 
   const beforeStyle = {
