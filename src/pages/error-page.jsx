@@ -13,7 +13,7 @@ export default function ErrorPage() {
        <div className="errorPage-mainContainer">
          <div className="container--errorpage">
                 <div className="errorPage-containerLeft">
-                <h2 className="errorPage-errorCode">400</h2>
+                <h2 className="errorPage-errorCode">404</h2>
                 <h1 className="errorPage-bigHeader">хмм, страната не беше најдена</h1>
                 <h2 className="errorPage-smallerHeader">изгледа заминала на некој настан</h2> 
                 <button className="bn1 errorPage-homeButton" onClick={redirectHome}>Врати се на почетна</button>
