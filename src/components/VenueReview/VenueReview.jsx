@@ -24,13 +24,16 @@ const VenueReview = ({ author, rating, datePosted, comment}) => {
                         </div>
                     </div>
                     
+                    
+                </div>
+
+                <div className='venueReview--bottomHalf'>
+                    <div className='venueReview--comment'>
+                        {comment}
+                    </div>
                     <div className='venueReviews--postDate'>
                         {datePosted}
                     </div>
-                </div>
-
-                <div className='venueReview--comment'>
-                    {comment}
                 </div>
          </div>   
         </>

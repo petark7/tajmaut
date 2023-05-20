@@ -56,3 +56,160 @@ input.rmdp-input + svg {
   src: local("NeueMachina-Light"),
     url("./fonts/NeueMachina-Light.otf") format("opentype");
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .slider--img {
+    display: none !important;
+  }
+  .slider--content{ 
+    justify-content: center !important;
+  }
+  .home--backgroundImage {
+      padding: 30px 15% !important;
+  }
+
+
+/* NAVBAR */
+.navbar_links {
+  right: 0;
+  position: absolute;
+  top: 54px;
+  width: 0;
+  height: 100vh;
+  transition: all 0.3s ease-in;
+  background-color: #DEDAF4;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  visibility: hidden;
+}
+
+.navbar_links {
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column !important;
+  padding: 30px 0 0 7%;
+  gap: 20px;
+}
+
+body {
+  overflow-x: hidden !important;
+  overflow: hidden;
+}
+.navbar_links.active {
+  width: 200px !important;
+  visibility: visible;
+  right: 0;
+}
+.hamburgerMenu {
+  display: block !important;
+}
+
+
+/* EVENTS & VENUES PAGE */
+.event-list {
+  justify-content: center;
+}
+.event-page_content {
+  flex-wrap: wrap;
+}
+
+.venues--contentContainer {
+  flex-wrap: wrap;
+}
+
+.cards {
+  justify-content: center;
+}
+
+/* MAKE RESERVATIONS PAGE */
+.content--makeReservation
+{
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.content--text {
+  text-align: center;
+}
+
+.css-14wlvim-MuiSvgIcon-root{
+  right: -155px !important;
+}
+
+.notLoggedModal-mainContainer {
+  width: 361px !important;
+}
+
+/* EVENT DETAILS MODAL */
+.eventDetails--container {
+  flex-direction: column !important;
+  gap: 30px;
+
+  margin: 0;
+}
+
+.modal-content {
+  width: 100% !important;
+  height: 90vh !important;
+}
+.eventDetailsImg {
+  width: 200px !important;
+  height: 100px !important;
+}
+
+.detailsContainer {
+  margin: 0 !important;
+  width: 300px;
+  justify-content: center;
+}
+
+.eventDetails--container {
+  margin: 0px !important;
+  height: 100% !important;
+  padding: 10px;
+}
+
+.close-container {
+  padding-right: 10px !important;
+}
+
+/* RESET PASSWORD PAGE */
+  .resetForm--heading {
+    font-size: 30px !important;
+  }
+
+  .resetPage--helperText {
+    font-size: 20px !important;
+  }
+
+  .btnResetPassword {
+    font-size: 20px !important;
+  }
+
+  /* VENUE PAGE DETAILS */
+  .venueDetails--information {
+    flex-wrap: wrap;
+    gap: 0 !important;
+  }
+
+  .venueCarousel--venueImages {
+    height: 200px !important;
+  }
+
+  .venueDetails--additionalDetails {
+    flex-wrap: wrap;
+  }
+
+  .venueDetails-additionalinfo {
+    width: 100% !important;
+  }
+
+  .venueDetails-locationMap {
+    height: 300px !important;
+}
+}
+
+
+

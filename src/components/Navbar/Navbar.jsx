@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserProfile from "../UserProfile/UserProfile";
 
 const activeStyle = {
@@ -22,20 +22,24 @@ const inactiveStyle = {
 export default function Navbar({ onLoginClick }) {
   const authContext = useContext(AuthContext);
 
+  const [showNavbar, setShowNavbar] = useState(false)
+
+const handleShowNavbar = () => {
+  setShowNavbar(!showNavbar)
+}
+
   return (
     <div className="navbar-container">
-      <NavLink
-        to="/"
-      >
+      <NavLink to="/">
         <img
-        className="navbar-logo"
-        href="/"
-        src={process.env.PUBLIC_URL + "/img/logo.png"}
-      />
+          className="navbar-logo"
+          href="/"
+          src={process.env.PUBLIC_URL + "/img/logo.png"}
+        />
       </NavLink>
-      
-      <ul className="navbar_links">
-        <li>
+
+      <ul className={`navbar_links ${showNavbar && 'active'}`}>
+        <li className="home">
           <NavLink
             to="/"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
@@ -44,7 +48,7 @@ export default function Navbar({ onLoginClick }) {
           </NavLink>
         </li>
 
-        <li>
+        <li className="events">
           <NavLink
             to="/events"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
@@ -53,7 +57,7 @@ export default function Navbar({ onLoginClick }) {
           </NavLink>
         </li>
 
-        <li>
+        <li className="venues">
           <NavLink
             to="/venues"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
@@ -62,17 +66,23 @@ export default function Navbar({ onLoginClick }) {
           </NavLink>
         </li>
       </ul>
+      <div className="loginArea">
+      <div className="hamburgerMenu">
+            <i className="fas fa-bars" onClick={handleShowNavbar}></i>
+          </div>
       {authContext.authState.authToken === null ? (
-        <div className="loginArea">
+        <>
+          
           <button className="button navbar-button_login" onClick={onLoginClick}>
             Најава
           </button>
-        </div>
+        </>
       ) : (
-        <div className="loginArea">
+        <>
           <UserProfile />
-        </div>
+        </>
       )}
+      </div>
     </div>
   );
 }

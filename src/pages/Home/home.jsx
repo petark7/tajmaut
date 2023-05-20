@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import HomeSlider from "../../components/HomeSlider/HomeSlider.jsx";
 import CardSlider from "../../components/CardSlider/CardSlider.jsx";
 import EventCard from "../../components/EventCard/EventCard.jsx";
+
 import axios from "axios";
 import { getDateTimeDay, getNextDay} from "../../utils/utils.js";
 import "./home.css";
 import EventDetails from "../../components/EventDetails/EventDetails.jsx";
 import VenueCard from "../../components/VenueCard/VenueCard.jsx";
+import SwipeSlider from "../../components/SwipeSlider/SwipeSlider.jsx";
 
 export default function Home() {
   const [tomorrowEventState, setTomorrowEventState] = useState([]);
@@ -30,20 +32,26 @@ export default function Home() {
   const createCardList = (dataArray) => {
     let cardList = dataArray.map((event) => {
       return (
-        <EventCard
-       opensModal={false}
-       key={event.eventId}
-       id={event.eventId}
-       name={event.name}
-       city={event.venueCity}
-       venue={event.venueName}
-       image={event.eventImage}
-       date={`${getDateTimeDay(event.dateTime).date} ${getDateTimeDay(event.dateTime).time}`}
-       reservationPhone={event.venuePhone}
-       handleOutsideState={handleReserveClick}
-       />
-     )
-  })
+        <div>
+          <div className="CardSlider-slides">
+            <EventCard
+              opensModal={false}
+              key={event.eventId}
+              id={event.eventId}
+              name={event.name}
+              city={event.venueCity}
+              venue={event.venueName}
+              image={event.eventImage}
+              date={`${getDateTimeDay(event.dateTime).date} ${
+                getDateTimeDay(event.dateTime).time
+              }`}
+              reservationPhone={event.venuePhone}
+              handleOutsideState={handleReserveClick}
+            />
+          </div>
+        </div>
+      );
+    });
   return cardList
   }
 
@@ -81,6 +89,8 @@ export default function Home() {
 
   const venueCards =  venueListState.map((venue) => {
     return (
+      <div>
+      <div className="CardSlider-slides">
       <VenueCard
         data={{
           venueId: venue.venueId,
@@ -91,6 +101,8 @@ export default function Home() {
           venueAddress: venue.address,
         }}
       />
+      </div>
+      </div>
     );
   })
   const handleReserveClick = (event) => {
@@ -141,19 +153,20 @@ return (
       <HomeSlider numEvents="5" />
     </div>
     <div className="home--daySlider-container">
-      <CardSlider 
-      data={eventsTomorrow} 
-      title={getDateTimeDay().dayTomorrow} />
+      <SwipeSlider
+       data={eventsTomorrow}
+       title={getDateTimeDay().dayTomorrow}
+       />
 
-      <CardSlider
-        data={eventsInTwoDays}
-        title={getDateTimeDay().dayInTwoDays}
-      />
-      
-        <CardSlider
+      <SwipeSlider
+       data={eventsInTwoDays}
+       title={getDateTimeDay().dayInTwoDays}
+       />
+
+      <SwipeSlider
         data={venueCards}
         title={"Локали"}
-      />
+       />
     </div>
   </>
 );
