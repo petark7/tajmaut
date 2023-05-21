@@ -92,10 +92,6 @@ input.rmdp-input + svg {
   gap: 20px;
 }
 
-body {
-  overflow-x: hidden !important;
-  overflow: hidden;
-}
 .navbar_links.active {
   width: 200px !important;
   visibility: visible;
