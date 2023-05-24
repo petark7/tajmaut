@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -59,7 +59,6 @@
 .title {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   padding-left: 50px;
   align-items: center;
   padding-right: 40px;
@@ -70,11 +69,10 @@
 .modal-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #fefefe;
   border: 1px solid #888;
   width: 900px;
+  z-index: 100;
 }
 
  .eventDetails-reserveBtn {

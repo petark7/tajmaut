@@ -1,70 +1,74 @@
 .event_card {
-   display: flex;
-   flex-direction: column;
-   width: 250px;
-    background: #FFFFFF;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.event_card:hover {
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
-}
-
-.content {
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-.event_card > img {
-    width: 100%;
-    height: 120px;
-    object-fit:cover;
-    object-position: 50% 10%;
-    border-radius: 10px 10px 0px 0px;
-}
-
-.event_card > .content > .location {
     display: flex;
-    align-items: center;
-}
-
-.event_card > .content > .location > svg {
-    margin-left: 7px;
-    margin-right: -3px;
-    fill: #757575;
-}
-
-.event_card > .content > .event_date {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 300;
-    color: #757575;
-}
-
-.event_card > .content > .event_name {
-    margin: 0;
-    font-size: 17px;
-    font-weight: 600;
-    color: #303030;
-}
-
-.event_card > .content > .location > .event_city {
-    margin: 0;
-    color: #8161ff;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.event_venue {
-    margin: 0;
-    color: #757575;
-    font-weight: 300;
-    font-size: 13px;
-}
-
-
-.event_card:hover {
-    cursor: pointer;
-}
+    flex-direction: column;
+    min-width: 250px;
+     background: #FFFFFF;
+     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+     border-radius: 10px;
+ }
+ 
+ .event_card:hover {
+     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+ }
+ 
+ .content {
+     margin-top: 10px;
+     margin-left: 20px;
+     margin-bottom: 10px;
+ }
+ 
+ .event_card > img {
+     width: 100%;
+     object-fit: cover;
+     height: auto;
+     max-height: 130px;
+     object-position: 50% 10%;
+     border-radius: 10px 10px 0px 0px;
+ }
+ 
+ .event_card > .content > .location {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+ 
+ .event_card > .content > .location > svg {
+     margin-left: 7px;
+     margin-right: -3px;
+     fill: #757575;
+ }
+ 
+ .event_card > .content > .event_date {
+     margin: 0;
+     text-align: left;
+     font-size: 12px;
+     font-weight: 300;
+     color: #757575;
+ }
+ 
+ .event_card > .content > .event_name {
+     margin: 0;
+     text-align: left;
+     font-size: 17px;
+     font-weight: 600;
+     color: #303030;
+ }
+ 
+ .event_card > .content > .location > .event_city {
+     margin: 0;
+     color: #8161ff;
+     font-weight: 500;
+     font-size: 16px;
+ }
+ 
+ .event_venue {
+     margin: 0;
+     color: #757575;
+     font-weight: 300;
+     font-size: 13px;
+ }
+ 
+ 
+ .event_card:hover {
+     cursor: pointer;
+ }

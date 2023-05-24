@@ -25,3 +25,12 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+.venueReview--bottomHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.venueReview--topLeft .decorativeLine-thin {
+    margin: 5px 0 0 0;
+}

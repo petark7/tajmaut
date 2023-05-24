@@ -1,5 +1,5 @@
 .card-list {
-    width: 100%;
+    max-width: 830px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

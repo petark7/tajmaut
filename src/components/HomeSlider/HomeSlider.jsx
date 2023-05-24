@@ -28,10 +28,12 @@ export default function HomeSlider ({numEvents}) {
       return (
         <div className="slider" key={event.eventId}>
           <div className="slider--content">
-            <img
-              className="slider--img"
-              src={event.eventImage}
-            ></img>
+
+              <img
+                className="slider--img"
+                src={event.eventImage}
+              ></img>
+
   
             <div className="slider-content">
               <h1 className="slider--eventTitle">{event.name}</h1>
