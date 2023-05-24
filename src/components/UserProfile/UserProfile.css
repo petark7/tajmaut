@@ -1,4 +1,5 @@
 .userProfile {
+    z-index: 1000;
     justify-self: flex-end;
     align-self: flex-end;
     margin-right: 15px;

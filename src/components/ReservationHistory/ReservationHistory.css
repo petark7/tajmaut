@@ -1,0 +1,15 @@
+.noReservationsText {
+    text-align: center;
+    font-size: 20px;
+}
+
+.noReservationsDiv {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MuiDataGrid-virtualScroller {
+    height: 200px !important;
+}

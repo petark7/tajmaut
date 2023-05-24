@@ -1,5 +1,6 @@
 .register-in {
   position: absolute;
+  padding-bottom: 5px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -8,24 +9,27 @@
   border-radius: 10px;
 }
 
+/* REGISTER MODAL TITLE */
 .register-in h1 {
   margin-top: 0;
+  margin-bottom: 10px;
   font-size: 40px;
   text-align: center;
   padding: 20px 0 20px 0;
-  border-bottom: 1px solid silver;
   background-color: #9582e3;
   border-radius: 10px 10px 0 0;
   color: white;
   font-weight: bold;
 }
 
+/* "ALREADY SIGNED UP?" */
 .register a {
   text-decoration: none;
   color: rgb(133, 92, 206);
   margin-left: 5px;
 }
 
+/* CLOSE BUTTON */
 .register-in .X {
   cursor: pointer;
   float: right;
@@ -33,6 +37,7 @@
   margin-top: 1px;
   color: white;
 }
+
 .register-in form {
   padding: 0 40px;
   box-sizing: border-box;
@@ -116,3 +121,4 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+

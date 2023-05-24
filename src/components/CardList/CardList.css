@@ -1,0 +1,28 @@
+.card-list {
+    max-width: 830px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cardList-pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.cards {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cardList-noDataText {
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}

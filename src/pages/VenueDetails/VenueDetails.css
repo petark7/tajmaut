@@ -1,0 +1,87 @@
+.venueDetails--pageContainer {
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.venueDetails--nameHeader {
+    margin-right: 25px;
+    color: white;
+    font-size: 60px;
+}
+.venueDetails--pageContent {
+    width: 70%;
+}
+
+.venueDetails--headerContent {
+    margin: 0 15%;
+    height: 100%;
+    align-items: center;
+    justify-content:space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.6);
+}
+.venueDetails--headerBackground {
+    position: relative; /* Make the parent element a positioning context for the pseudo-element */
+    width: 100%;
+}
+  
+
+
+.venueDetails--reserveBtn {
+    padding: 10px 20px;
+    height: 50px;
+}
+
+.venueDetails--header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.venueDetails--information {
+    width: 100%;
+    /* background-color: red; */
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.venueDetails--additionalDetails {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.venueDetails-additionalinfo {
+    width: 50%;
+}
+
+.venueDetails--info {
+    width: 100%;
+    
+}
+
+.venueDetails-locationMap {
+    height: 560px;
+}
+
+.venueDetails-reviews {
+    height: 550px;
+}
+
+.venueDetails--additionalDetails {
+    margin-bottom: 50px;
+}
+
+.center {
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,3 +4,30 @@
     font-size: 20px;
     margin: 0 0 20px;
 }
+
+.btnReservationSubmit {
+    width: 170px;
+    margin-top: 20px;
+    background-color: var(--secondaryOrange);
+    color: var(--textGray);
+    font-weight: 600;
+    background: #FFB978;
+    border-radius: 9px;
+    padding: 15px 45px ;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    color: #393939;
+}
+
+.btnReservationSubmit:hover {
+    cursor: pointer;
+    background-color: var(--secondaryOrangeHovered);
+}
+
+.btnReservationSubmit:active {
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
+  }

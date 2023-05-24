@@ -1,0 +1,17 @@
+.home--backgroundImage {
+  /* justify-content: center; */
+  background-image: url('../../img/party.jpg');
+  height: 480px;
+  width: 100%;
+  background-repeat: repeat;
+  /* display: flex; */
+  padding: 30px 20%;
+}
+
+.home--daySlider-container {
+  display: flex;
+  margin: 50px 0;
+  padding: 0 10%;
+  flex-direction: column;
+  justify-content: center;
+}

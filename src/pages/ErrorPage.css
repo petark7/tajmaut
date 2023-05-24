@@ -1,0 +1,46 @@
+.container--errorpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 60px;
+    color: #424242;
+    font-family: NeueMachina;
+    flex-wrap: wrap;
+}
+.errorPage-mainContainer {
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.errorPage-bigHeader {
+    width: 600px;
+    font-size: 4em;
+    margin-top: 0;
+}
+
+.errorPage-homeButton {
+    width: 200px !important;
+    height: 50px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .errorPage-bigHeader {
+      font-size: 2.125rem; /* equivalent to 50px if root font size is 14px */
+      width: 300px;
+    }
+  }
+
+.errorPage-containerLeft {
+    width: 700px;
+}
+
+.errorPage-smallerHeader {
+    font-family: NeueMachinaLight;
+    font-weight: 200;
+    color: rgb(101, 0, 164);
+    margin-bottom: 30px;
+}

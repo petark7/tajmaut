@@ -1,29 +1,57 @@
-import { useState } from "react"
-import "./EventCard.css"
-import EventDetails from "../EventDetails/EventDetails.jsx"
+import { useState } from "react";
+import "./EventCard.css";
+import EventDetails from "../EventDetails/EventDetails.jsx";
 
 export default function EventCard(props) {
+  const [isClicked, toggleIsClicked] = useState(false);
 
-    const [isClicked, toggleIsClicked] = useState(false);
+  function toggle() {
+    
+    // if you want to control the modal show from another component
+   if (props.handleOutsideState != undefined) {
+    document.body.style.overflow = 'hidden'
+    props?.handleOutsideState({
+        id: props.id,
+        name: props.name,
+        image: props.image,
+        city: props.city,
+        venue: props.venue,
+        date: props.date,
+        reservationPhone: props.reservationPhone,
+    });
+   }
 
-    function toggle () {
-        toggleIsClicked((prevValue) => !prevValue)
+    if (props.opensModal !== false) {
+         toggleIsClicked((prevValue) => !prevValue);
     }
+    else {
+        toggleIsClicked(false);
+    }
+  }
+
+  if (isClicked) {
+    document.body.style.overflow = 'hidden'
+  }
+  else if(isClicked === false && props.handleOutsideState === undefined) {
+    document.body.style.overflow = 'unset'
+  }
 
     return (
         <div className = "event_card" onClick={toggle}>
             <div className="eventDetailsModal" onClick={(e) => e.stopPropagation()}>
                 {isClicked ? 
                 <EventDetails 
+                eventId = {props.id}
                 name={props.name} 
                 image={props.image} 
                 city = {props.city}
                 venue = {props.venue}
                 date = {props.date}
+                reservationPhone = {props.reservationPhone}
                 closeModal={toggle}/> 
                 : null}
             </div>
-                <img src={require(`../../img/${props.image}`)}/>
+                <img src={props.image}/>
                     <div className="content">
                         <h4 className="event_date">{props.date}</h4>
                         <h1 className="event_name">{props.name}</h1>

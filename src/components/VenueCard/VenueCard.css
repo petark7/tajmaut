@@ -1,0 +1,64 @@
+.venue_card {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+     background: #FFFFFF;
+     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+     border-radius: 10px;
+ }
+
+ .venue_card:hover {
+     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+     cursor: pointer;
+ }
+
+ 
+.venue_card > img {
+    width: 100%;
+    height: 120px;
+    object-fit:cover;
+    object-position: 50% 20%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.venue_card > .content > .location {
+    display: flex;
+    align-items: center;
+}
+
+.venue_card > .content > .location > svg {
+    margin-left: 7px;
+    margin-right: -3px;
+    fill: #757575;
+}
+
+.venue_card > .content > .venue_type {
+    background-color: rgb(229, 222, 248);
+    width: fit-content;
+    margin: 0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 00;
+    color: #686868;
+}
+
+.venue_card > .content > .venue_name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #303030;
+}
+
+.venue_card > .content > .location > .venue_city {
+    margin: 0;
+    color: #8161ff;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.venue_address {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 300;
+}
