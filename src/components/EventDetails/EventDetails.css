@@ -72,6 +72,7 @@
   background-color: #fefefe;
   border: 1px solid #888;
   width: 900px;
+  z-index: 100;
 }
 
  .eventDetails-reserveBtn {

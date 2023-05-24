@@ -74,9 +74,11 @@ input.rmdp-input + svg {
 .navbar_links {
   right: 0;
   position: absolute;
-  top: 54px;
+  top: 70px;
   width: 0;
-  height: 100vh;
+  border-radius: 10px;
+  height: wrap-content;
+  padding-bottom: 30px !important;
   transition: all 0.3s ease-in;
   background-color: #DEDAF4;
   overflow: hidden !important;
@@ -88,7 +90,7 @@ input.rmdp-input + svg {
   display: flex;
   padding-top: 30px;
   flex-direction: column !important;
-  padding: 30px 0 0 7%;
+  align-items: center;
   gap: 20px;
 }
 
@@ -135,7 +137,16 @@ input.rmdp-input + svg {
 }
 
 .notLoggedModal-mainContainer {
-  width: 361px !important;
+  width: 365px !important;
+  height: 345px !important;
+}
+
+.notLoggedModal-elements {
+  margin-top: -10px !important;
+}
+
+.notLoggedModal-createAccountbtn {
+  margin-bottom: 10px;
 }
 
 /* EVENT DETAILS MODAL */
@@ -147,7 +158,7 @@ input.rmdp-input + svg {
 }
 
 .modal-content {
-  width: 100% !important;
+  width: 80% !important;
   height: 90vh !important;
 }
 .eventDetailsImg {
@@ -205,7 +216,22 @@ input.rmdp-input + svg {
   .venueDetails-locationMap {
     height: 300px !important;
 }
+
+.venueDetails--nameHeader {
+  font-size: 40px !important;
+}
 }
 
+@media only screen and (max-width: 1380px) {
+ .venueDetails--additionalDetails {
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+
+ .venueDetails-additionalinfo {
+  width: 100% !important;
+ }
+
+}
 
 

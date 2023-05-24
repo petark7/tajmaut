@@ -38,34 +38,37 @@ const handleShowNavbar = () => {
         />
       </NavLink>
 
-      <ul className={`navbar_links ${showNavbar && 'active'}`}>
-        <li className="home">
+      <div className={`navbar_links ${showNavbar && 'active'}`}>
+        <a className="home">
           <NavLink
             to="/"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+            onClick={handleShowNavbar}
           >
             Почетна
           </NavLink>
-        </li>
+        </a>
 
-        <li className="events">
+        <a className="events">
           <NavLink
             to="/events"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+            onClick={handleShowNavbar}
           >
             Настани
           </NavLink>
-        </li>
+        </a>
 
-        <li className="venues">
+        <a className="venues">
           <NavLink
             to="/venues"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+            onClick={handleShowNavbar}
           >
             Локали
           </NavLink>
-        </li>
-      </ul>
+        </a>
+      </div>
       <div className="loginArea">
       <div className="hamburgerMenu">
             <i className="fas fa-bars" onClick={handleShowNavbar}></i>
