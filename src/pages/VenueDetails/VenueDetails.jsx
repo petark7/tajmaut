@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorPage from "../../pages/error-page"
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+
 const VenueDetails = () => {
   
   const { venueID } = useParams();
@@ -28,9 +29,11 @@ const VenueDetails = () => {
     border: "1px #d3d3d3 solid"
   };
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
   
   useEffect(() => {
-    
     // Make an API call to check if the venue ID exists
     axios.get(`https://tajmautmk.azurewebsites.net/api/Venues/GetVenueByID?VenueId=${venueID}`)
       .then(response => {

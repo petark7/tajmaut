@@ -6,6 +6,7 @@ import "./venues.css"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import { ScrollRestoration } from 'react-router-dom';
 
 export default function Venues() {
   const [venueData, setVenueData] = useState([]);
@@ -55,6 +56,7 @@ export default function Venues() {
   console.log(isLoading)
   return (
     <div className="venues--mainContainer">
+      <ScrollRestoration/>
         <div className="venues--contentContainer">
           <div className="venues--filterEvents layout-border--venues">
             <FilterVenues setSettings={setSettings}/>
