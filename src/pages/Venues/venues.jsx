@@ -26,7 +26,7 @@ export default function Venues() {
 
   const getVenueData = () => {
     setIsLoading(true);
-    axios.post('https://tajmautmk.azurewebsites.net/api/Venues/FilterVenues', settings)
+    axios.post('https://tajmaut.azurewebsites.net/api/Venues/FilterVenues', settings)
     .then(response => {
       setIsLoading(false)
       setVenueData(response.data)

@@ -23,7 +23,7 @@ export default function LoginForm({
   // function sets user ID to context after login
   const setUserID = (token) => {
     console.log(`${token} this is the token that's sent`)
-    axios.get('https://tajmautmk.azurewebsites.net/api/Users/GetCurrentUserID', 
+    axios.get('https://tajmaut.azurewebsites.net/api/Users/GetCurrentUserID', 
     {
       headers: {
         'Authorization' : `bearer ${token}`,
@@ -48,7 +48,7 @@ export default function LoginForm({
       password: passwordField,
     }
 
-    axios.post('https://tajmautmk.azurewebsites.net/api/Auth/login', userData)
+    axios.post('https://tajmaut.azurewebsites.net/api/Auth/login', userData)
     .then(response => {
       // handle successful login response
       setShowSpinner(false);

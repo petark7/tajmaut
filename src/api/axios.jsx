@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://tajmautmk.azurewebsites.net'
+    baseURL: 'https://tajmaut.azurewebsites.net'
 });

@@ -19,7 +19,7 @@ function ProfileDetails(props) {
 
 
   const fetchReservationData = () => {
-    axios.get(`https://tajmautmk.azurewebsites.net/api/Reservations/GetReservationsByUser?userId=${authContext.userId}`,
+    axios.get(`https://tajmaut.azurewebsites.net/api/Reservations/GetReservationsByUser?userId=${authContext.userId}`,
     {headers : {
       'Authorization': `bearer ${authContext.authState.authToken}`
     }})

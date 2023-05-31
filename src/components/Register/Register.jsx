@@ -76,7 +76,7 @@ export default function RegisterForm({ onLoginClick, onCloseClick, notify }) {
     // send formData to API
     if (validateData() === true) {
       setShowSpinner(true);
-      axios.post('https://tajmautmk.azurewebsites.net/api/Users', dataToSend)
+      axios.post('https://tajmaut.azurewebsites.net/api/Users', dataToSend)
     .then(response => {
       // on success
       setShowSpinner(false);

@@ -37,7 +37,7 @@ export default function FilterEvents({ setEvents, eventState, setSettings, setti
   // fetch cities to send to CityDropdown component
   const fetchCities = () => {
     axios
-      .get("https://tajmautmk.azurewebsites.net/api/Venues/GetAllVenueCities")
+      .get("https://tajmaut.azurewebsites.net/api/Venues/GetAllVenueCities")
       .then((response) => {
         setCities(response.data);
       })
@@ -49,7 +49,7 @@ export default function FilterEvents({ setEvents, eventState, setSettings, setti
     // fetch categories to send to Dropdown component
   const fetchCategories = () => {
     axios
-      .get("https://tajmautmk.azurewebsites.net/api/Categories/GetAllCategories")
+      .get("https://tajmaut.azurewebsites.net/api/Categories/GetAllCategories")
       .then((response) => {
         const categories = response.data.map((category) => {
             return {

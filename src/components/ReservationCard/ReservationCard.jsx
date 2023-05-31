@@ -11,7 +11,7 @@ export default function ReservationCard () {
 
     const params = useParams();
     useEffect(() => {
-        fetch(`https://tajmautmk.azurewebsites.net/api/Events/GetEventByID?eventId=${params.eventID}`)
+        fetch(`https://tajmaut.azurewebsites.net/api/Events/GetEventByID?eventId=${params.eventID}`)
         .then (res => {
             return res.json();
         })

@@ -22,7 +22,7 @@ const FilterVenues = ({ setSettings }) => {
 
   const fetchCities = () => {
     axios
-      .get(`https://tajmautmk.azurewebsites.net/api/Venues/GetAllVenueCities`)
+      .get(`https://tajmaut.azurewebsites.net/api/Venues/GetAllVenueCities`)
       .then((response) => {
         const formattedCities = response.data.map((city) => {
           return {
@@ -39,7 +39,7 @@ const FilterVenues = ({ setSettings }) => {
 
   const fetchCategories = () => {
     axios
-      .get(`https://tajmautmk.azurewebsites.net/api/Venues/GetAllVenueTypes`)
+      .get(`https://tajmaut.azurewebsites.net/api/Venues/GetAllVenueTypes`)
       .then((response) => {
         const formattedCategories = response.data.map((category) => {
           return {

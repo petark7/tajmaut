@@ -30,7 +30,7 @@ const BasicSettings = () => {
       }
 
       const fetchUserData = () => {
-        axios.get (`https://tajmautmk.azurewebsites.net/api/Users/${authData.userId}`
+        axios.get (`https://tajmaut.azurewebsites.net/api/Users/${authData.userId}`
         ,{
             headers: {
                 'Authorization': `Bearer ${authData.authState.authToken}`,
@@ -61,7 +61,7 @@ const BasicSettings = () => {
         {
             // email is valid
             axios.put(
-                `https://tajmautmk.azurewebsites.net/api/Users/${authData?.userId}`,
+                `https://tajmaut.azurewebsites.net/api/Users/${authData?.userId}`,
                 {
                   "email": formData.email,
                   "firstName": formData.firstName,

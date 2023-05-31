@@ -35,7 +35,7 @@ const VenueDetails = () => {
   
   useEffect(() => {
     // Make an API call to check if the venue ID exists
-    axios.get(`https://tajmautmk.azurewebsites.net/api/Venues/GetVenueByID?VenueId=${venueID}`)
+    axios.get(`https://tajmaut.azurewebsites.net/api/Venues/GetVenueByID?VenueId=${venueID}`)
       .then(response => {
         setVenueDetails(response.data);
         setMapLocation(response.data.location)

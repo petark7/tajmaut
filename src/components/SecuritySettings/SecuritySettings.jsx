@@ -38,7 +38,7 @@ const SecuritySettings = () => {
         {
             // email is valid
             axios.put(
-                `https://tajmautmk.azurewebsites.net/api/Users/UpdateUserPassword?id=${authData?.userId}`,
+                `https://tajmaut.azurewebsites.net/api/Users/UpdateUserPassword?id=${authData?.userId}`,
                 {
                   oldPassword: oldPassword,
                   newPassword: newPassword,
