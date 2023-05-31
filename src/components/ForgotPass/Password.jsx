@@ -11,7 +11,7 @@ export default function PasswordForm({ onLoginClick, onCloseClick }) {
     e.preventDefault();  
     if (emailInput.match(emailRegex))
       {
-        axios.post(`https://tajmautmk.azurewebsites.net/api/Users/ForgotPassword?email=${emailInput}`)
+        axios.post(`https://tajmaut.azurewebsites.net/api/Users/ForgotPassword?email=${emailInput}`)
         .then((response) => {
           toast.success("Ти испративме линк на email за ресетирање на лозинката!");
           onCloseClick();

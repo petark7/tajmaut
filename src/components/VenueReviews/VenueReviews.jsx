@@ -40,7 +40,7 @@ const VenueReviews = () => {
   });
 
   const fetchReviews = () => {
-      axios.get(`https://tajmautmk.azurewebsites.net/api/Comments/GetCommentsByVenueID?venueId=${venueID}`)
+      axios.get(`https://tajmaut.azurewebsites.net/api/Comments/GetCommentsByVenueID?venueId=${venueID}`)
       .then (response => {
         console.log(response.data)
         const reviews = response.data.map((review) => {
@@ -78,7 +78,7 @@ const VenueReviews = () => {
           setShowSpinner(true);
           axios
           .post(
-            `https://tajmautmk.azurewebsites.net/api/Comments/CreateComment`,
+            `https://tajmaut.azurewebsites.net/api/Comments/CreateComment`,
             {
               venueId: formData.venueId,
               body: formData.body,
