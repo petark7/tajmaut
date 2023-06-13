@@ -86,8 +86,6 @@ const SwipeSlider = (props) => {
         ]
       };
 
-      console.log(props.data)
-
     return (
       <div>
         <div className="cardSlider-container">
