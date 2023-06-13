@@ -59,8 +59,7 @@ export default function Home() {
   useEffect(() => {
     // check if event is ongoing. if ongoing -> map it out
     console.log(getDateTimeDay().dateTodayISO)
-    axios.get(`https://tajmaut.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${dateTomorrow}&endDate=
-    ${getNextDay(getDateTimeDay().dateToday)}`)
+    axios.get(`https://tajmaut.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${getDateTimeDay().dateTomorrowISO}&endDate=${getDateTimeDay().dateTomorrowISO}`)
       .then(response => {
         setTomorrowEventState(response.data);
       })
@@ -68,10 +67,10 @@ export default function Home() {
         console.log(error);
       })
 
-      axios.get(`https://tajmaut.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${dateInTwoDays}
-      &endDate=${getNextDay(getDateTimeDay().dateInTwoDays)}`)
+      axios.get(`https://tajmaut.azurewebsites.net/api/Events/FilterEventsByDate?startDate=${getDateTimeDay().dateInTwoDaysISO}&endDate=${getDateTimeDay().dateInTwoDaysISO}`)
       .then(response => {
         setInTwoDaysEventState(response.data);
+        console.log(response.data)
       })
       .catch((error) => {
         console.log(error);
