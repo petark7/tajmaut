@@ -1,6 +1,6 @@
 
 ## About
-⭐ Checkout the live demo of the app [here](google.com).
+⭐ Checkout the live demo of the app [here](https://tajmaut.z1.web.core.windows.net/).
 
 Tajmaut is an event organizing web app allowing venues to create events and customers to make reservations. It also includes tracking of reservation status.
 
