@@ -3,7 +3,9 @@
 Tajmaut is an event organizing web app allowing venues to create events and customers to make reservations. It also includes tracking of reservation status.
 
 ## Screenshots
-![1](https://github.com/petark7/tajmaut/assets/73505122/4c0dda7c-435b-4f96-b925-c9456bcd4a7e)
+![1](https://i.imgur.com/MXFQXK7.png)
+![1](https://i.imgur.com/U7oLPQ5.png)
+![1](https://i.imgur.com/TJK5S0q.png)
 
 
 ## Features
@@ -51,3 +53,5 @@ Install the project dependencies using npm:
 	npm run dev
 
 Open  [http://localhost:5173](http://localhost:5173/)  in your browser to view the project.
+
+Note: You will need to run the backend as well to have this work.
