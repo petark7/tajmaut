@@ -2,12 +2,6 @@
 ## About
 Tajmaut is an event organizing web app allowing venues to create events and customers to make reservations. It also includes tracking of reservation status.
 
-## Screenshots
-![1](https://i.imgur.com/MXFQXK7.png)
-![1](https://i.imgur.com/U7oLPQ5.png)
-![1](https://i.imgur.com/TJK5S0q.png)
-
-
 ## Features
 ➡️ login
 
@@ -25,6 +19,10 @@ Tajmaut is an event organizing web app allowing venues to create events and cust
 - React (with vanila CSS)
 - .NET for backend
 
+## Screenshots
+![1](https://i.imgur.com/MXFQXK7.png)
+![1](https://i.imgur.com/U7oLPQ5.png)
+![1](https://i.imgur.com/TJK5S0q.png)
 
 ## Quick Start
 Follow these steps to set up the project locally on your machine.
