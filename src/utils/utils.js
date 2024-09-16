@@ -51,7 +51,9 @@ export const getDateTimeDay = (dateTime = new Date()) => {
     return {
       dateTodayISO: CESTDate.toISOString(),
       dateTomorrowISO: dateTomorrow.toISOString(),
+      dateTomorrowISO_noTime: (dateTomorrow.toISOString()).split('T')[0],
       dateInTwoDaysISO: dateInTwoDays.toISOString(),
+      dateInTwoDaysISO_noTime: (dateInTwoDays.toISOString()).split('T')[0],
       date: formattedDate,
       time,
       dayToday,

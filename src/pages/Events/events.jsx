@@ -35,7 +35,7 @@ export default function Events() {
     setIsLoading(true);
     axios
       .post(
-        "https://tajmautmk.azurewebsites.net/api/Events/FilterEvents",
+        "https://tajmaut.azurewebsites.net/api/Events/FilterEvents",
         eventData
       )
       .then((response) => {

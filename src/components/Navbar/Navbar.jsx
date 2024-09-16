@@ -43,7 +43,6 @@ const handleShowNavbar = () => {
           <NavLink
             to="/"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-            onClick={handleShowNavbar}
           >
             Почетна
           </NavLink>
@@ -53,7 +52,6 @@ const handleShowNavbar = () => {
           <NavLink
             to="/events"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-            onClick={handleShowNavbar}
           >
             Настани
           </NavLink>
@@ -63,7 +61,6 @@ const handleShowNavbar = () => {
           <NavLink
             to="/venues"
             style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-            onClick={handleShowNavbar}
           >
             Локали
           </NavLink>

@@ -56,7 +56,7 @@ export default function HomeSlider ({numEvents}) {
 
   // Fetch Events
   useEffect(() => {
-    axios.get(`https://tajmautmk.azurewebsites.net/api/Events/GetNumberOfEvents?numEvents=${numEvents}`)
+    axios.get(`https://tajmaut.azurewebsites.net/api/Events/GetNumberOfEvents?numEvents=${numEvents}`)
     .then((response) => {
       setEventData(response.data);
       setIsLoading(false);

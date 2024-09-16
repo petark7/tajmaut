@@ -54,7 +54,7 @@ export default function ReserveForm(props) {
   const getEventData = () => {
     axios
       .get(
-        `https://tajmautmk.azurewebsites.net/api/Events/GetEventByID?eventId=${params.eventID}`
+        `https://tajmaut.azurewebsites.net/api/Events/GetEventByID?eventId=${params.eventID}`
       )
       .then((response) => {
         setEventData({
@@ -150,7 +150,7 @@ export default function ReserveForm(props) {
     setIsLoading(true);
     axios
       .post(
-        "https://tajmautmk.azurewebsites.net/api/Reservations/CreateReservation",
+        "https://tajmaut.azurewebsites.net/api/Reservations/CreateReservation",
         {
           venueId: eventData.venueId,
           userId: context.userId,

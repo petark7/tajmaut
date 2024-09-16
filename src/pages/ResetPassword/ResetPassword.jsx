@@ -65,7 +65,7 @@ const ResetPassword = () => {
     // unneccessary repeating of validateData?
     if (validateData() === true) {
       setShowSpinner(true);
-      axios.post('https://tajmautmk.azurewebsites.net/api/Users/UpdateForgotPassword', dataToSend)
+      axios.post('https://tajmaut.azurewebsites.net/api/Users/UpdateForgotPassword', dataToSend)
       .then((response) => {
         setShowSpinner(false);
         navigate("/")

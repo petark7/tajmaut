@@ -10,7 +10,7 @@ const SwipeSlider = (props) => {
   // const [eventList, setEventList] = useState(null);
 
   // const fetchData = (numEvents) => {
-  //   axios.get(`https://tajmautmk.azurewebsites.net/api/Events/FilterEventsByDate?startDate=2023-05-17&endDate=2023-05-18`)
+  //   axios.get(`https://tajmaut.azurewebsites.net/api/Events/FilterEventsByDate?startDate=2023-05-17&endDate=2023-05-18`)
   //   .then (response => {
   //     setEventList(response.data);
   //   })
@@ -85,8 +85,6 @@ const SwipeSlider = (props) => {
           }
         ]
       };
-
-      console.log(props.data)
 
     return (
       <div>
